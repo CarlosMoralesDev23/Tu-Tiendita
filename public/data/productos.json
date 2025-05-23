@@ -96,7 +96,7 @@
             "description": "Camiseta oficial local del Real Madrid, diseño clásico.",
             "price": 95.0,
             "stock": 20,
-            "image": "https://example.com/images/jersey_realmadrid_home.jpg",
+            "image": "../../src/assets/Remeras/RealMadridHomeJersey2425.webp",
             "type": "remera"
         },
         {
@@ -105,7 +105,7 @@
             "description": "Icónica camiseta local del AC Milan, rayas rojas y negras.",
             "price": 90.0,
             "stock": 15,
-            "image": "https://example.com/images/jersey_acmilan_home.jpg",
+            "image": "../../src/assets/Remeras/ACMilanHomeJersey2425.jpeg",
             "type": "remera"
         },
         {
@@ -114,7 +114,7 @@
             "description": "Camiseta oficial local del Manchester United, color rojo clásico.",
             "price": 92.0,
             "stock": 25,
-            "image": "https://example.com/images/jersey_manutd_home.jpg",
+            "image": "../../src/assets/Remeras/ManchesterUnitedHomeJersey2425.webp",
             "type": "remera"
         },
         {
@@ -123,7 +123,7 @@
             "description": "Camiseta azul local del Chelsea FC, diseño moderno.",
             "price": 88.0,
             "stock": 18,
-            "image": "https://example.com/images/jersey_chelsea_home.jpg",
+            "image": "../../src/assets/Remeras/ChelseaHomeJersey2425.webp",
             "type": "remera"
         },
         {
@@ -132,7 +132,7 @@
             "description": "Camiseta de visitante del Real Madrid, elegante y moderna.",
             "price": 98.0,
             "stock": 10,
-            "image": "https://example.com/images/jersey_realmadrid_away.jpg",
+            "image": "../../src/assets/Remeras/RealMadridAwayJersey2425.webp",
             "type": "remera"
         },
         {
@@ -141,7 +141,7 @@
             "description": "Camiseta de visitante del AC Milan, con detalles dorados.",
             "price": 95.0,
             "stock": 12,
-            "image": "https://example.com/images/jersey_acmilan_away.jpg",
+            "image": "../../src/assets/Remeras/ACMilanAwayJersey2425.webp",
             "type": "remera"
         },
         {
@@ -150,7 +150,7 @@
             "description": "Diseño audaz para la camiseta de visitante del Man Utd.",
             "price": 93.0,
             "stock": 22,
-            "image": "https://example.com/images/jersey_manutd_away.jpg",
+            "image": "../../src/assets/Remeras/ManchesterUnitedAwayJersey2425.webp",
             "type": "remera"
         },
         {
@@ -159,7 +159,7 @@
             "description": "Tercera equipación del Chelsea con un diseño único.",
             "price": 105.0,
             "stock": 14,
-            "image": "https://example.com/images/jersey_chelsea_third.jpg",
+            "image": "../../src/assets/Remeras/ChelseaThirdKit2425.webp",
             "type": "remera"
         },
         {
@@ -168,7 +168,7 @@
             "description": "Camiseta local de Argentina de la Copa del Mundo 2022, con 3 estrellas.",
             "price": 140.0,
             "stock": 16,
-            "image": "https://example.com/images/jersey_argentina_2022.jpg",
+            "image": "../../src/assets/Remeras/ArgentinaHomeJersey2022WorldCup.webp",
             "type": "remera"
         },
         {
@@ -177,52 +177,7 @@
             "description": "Camiseta local de Alemania, diseño elegante y moderno.",
             "price": 85.0,
             "stock": 9,
-            "image": "https://example.com/images/jersey_germany_home.jpg",
-            "type": "remera"
-        },
-        {
-            "id": "jersey-011",
-            "name": "Italy Home Jersey (Latest Edition)",
-            "description": "Camiseta local de Italia, con el icónico color azul.",
-            "price": 82.0,
-            "stock": 24,
-            "image": "https://example.com/images/jersey_italy_home.jpg",
-            "type": "remera"
-        },
-        {
-            "id": "jersey-012",
-            "name": "Real Madrid Training Top",
-            "description": "Top de entrenamiento del Real Madrid, ligero y transpirable.",
-            "price": 75.0,
-            "stock": 17,
-            "image": "https://example.com/images/jersey_realmadrid_training.jpg",
-            "type": "remera"
-        },
-        {
-            "id": "jersey-013",
-            "name": "AC Milan Training Top",
-            "description": "Sudadera de entrenamiento del AC Milan, cómoda y funcional.",
-            "price": 70.0,
-            "stock": 7,
-            "image": "https://example.com/images/jersey_acmilan_training.jpg",
-            "type": "remera"
-        },
-        {
-            "id": "jersey-014",
-            "name": "Manchester United Training Top",
-            "description": "Top de entrenamiento del Manchester United, para todas las sesiones.",
-            "price": 68.0,
-            "stock": 13,
-            "image": "https://example.com/images/jersey_manutd_training.jpg",
-            "type": "remera"
-        },
-        {
-            "id": "jersey-015",
-            "name": "Chelsea Training Jersey",
-            "description": "Camiseta de entrenamiento del Chelsea FC, ideal para la práctica.",
-            "price": 65.0,
-            "stock": 11,
-            "image": "https://example.com/images/jersey_chelsea_training.jpg",
+            "image": "../../src/assets/Remeras/GermanyHomeJerseyLatestEdition.webp",
             "type": "remera"
         },
         {
