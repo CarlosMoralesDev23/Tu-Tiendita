@@ -186,7 +186,7 @@
             "description": "Botines de velocidad para terreno firme, con cuello Dynamic Fit.",
             "price": 270.0,
             "stock": 15,
-            "image": "https://example.com/images/shoe_nike_mercurial_fg.jpg",
+            "image": "../../src/assets/Zapatos/NikeMercurialSuperfly9FG.jpeg",
             "type": "zapato"
         },
         {
@@ -195,7 +195,7 @@
             "description": "Botines de precisión con elementos de goma High-Definition Grip.",
             "price": 220.0,
             "stock": 18,
-            "image": "https://example.com/images/shoe_adidas_predator_fg.jpg",
+            "image": "../../src/assets/Zapatos/AdidasPredatorAccuracy1FG.webp",
             "type": "zapato"
         },
         {
@@ -204,7 +204,7 @@
             "description": "Botines adaptables para terreno firme y artificial, con tecnología FUZIONFIT360.",
             "price": 190.0,
             "stock": 20,
-            "image": "https://example.com/images/shoe_puma_future_fgag.jpg",
+            "image": "../../src/assets/Zapatos/PumaFutureUltimateFGAG.jpeg",
             "type": "zapato"
         },
         {
@@ -213,7 +213,7 @@
             "description": "Botines para control del balón y agilidad, con tecnología Gripknit.",
             "price": 230.0,
             "stock": 22,
-            "image": "https://example.com/images/shoe_nike_phantom_fg.jpg",
+            "image": "../../src/assets/Zapatos/NikePhantomGXEliteFG.webp",
             "type": "zapato"
         },
         {
@@ -222,7 +222,7 @@
             "description": "Botines de cuero premium para un toque clásico y confort.",
             "price": 180.0,
             "stock": 10,
-            "image": "https://example.com/images/shoe_adidas_copa_fg.jpg",
+            "image": "../../src/assets/Zapatos/AdidasCopaPure1FG.webp",
             "type": "zapato"
         },
         {
@@ -231,7 +231,7 @@
             "description": "Botines ultraligeros para velocidad explosiva.",
             "price": 170.0,
             "stock": 25,
-            "image": "https://example.com/images/shoe_puma_ultra_fgag.jpg",
+            "image": "../../src/assets/Zapatos/PumaUltraUltimateFGAG.jpeg",
             "type": "zapato"
         },
         {
@@ -240,7 +240,7 @@
             "description": "Botines clásicos con cuero para un toque superior.",
             "price": 160.0,
             "stock": 8,
-            "image": "https://example.com/images/shoe_nike_tiempo_fg.jpg",
+            "image": "../../src/assets/Zapatos/NikeTiempoLegend9EliteFG.webp",
             "type": "zapato"
         },
         {
@@ -249,7 +249,7 @@
             "description": "Botines diseñados para la aceleración y cambios de dirección rápidos.",
             "price": 200.0,
             "stock": 19,
-            "image": "https://example.com/images/shoe_adidas_x_fg.jpg",
+            "image": "../../src/assets/Zapatos/AdidasXSpeedportal1FG.jpeg",
             "type": "zapato"
         },
         {
@@ -258,7 +258,7 @@
             "description": "Renovación del clásico Puma King, con materiales modernos.",
             "price": 150.0,
             "stock": 12,
-            "image": "https://example.com/images/shoe_puma_king_fgag.jpg",
+            "image": "../../src/assets/Zapatos/PumaKingUltimateFGAG.webp",
             "type": "zapato"
         },
         {
@@ -267,52 +267,7 @@
             "description": "Innovación en velocidad con unidad Zoom Air para propulsión.",
             "price": 260.0,
             "stock": 14,
-            "image": "https://example.com/images/shoe_nike_vapor_fg.jpg",
-            "type": "zapato"
-        },
-        {
-            "id": "shoe-011",
-            "name": "Adidas Mundial Goal (Indoor)",
-            "description": "Calzado de futsal clásico, de cuero y suela non-marking.",
-            "price": 95.0,
-            "stock": 21,
-            "image": "https://example.com/images/shoe_adidas_mundial_goal.jpg",
-            "type": "zapato"
-        },
-        {
-            "id": "shoe-012",
-            "name": "Nike Streetgato (Futsal/Street)",
-            "description": "Zapatillas versátiles para futsal y uso urbano.",
-            "price": 85.0,
-            "stock": 24,
-            "image": "https://example.com/images/shoe_nike_streetgato.jpg",
-            "type": "zapato"
-        },
-        {
-            "id": "shoe-013",
-            "name": "Puma Future Play TT",
-            "description": "Calzado para césped artificial (turf), cómodo y duradero.",
-            "price": 75.0,
-            "stock": 9,
-            "image": "https://example.com/images/shoe_puma_future_tt.jpg",
-            "type": "zapato"
-        },
-        {
-            "id": "shoe-014",
-            "name": "Adidas Gamemode Firm Ground",
-            "description": "Botines divertidos y funcionales para juego recreativo en césped natural.",
-            "price": 68.0,
-            "stock": 16,
-            "image": "https://example.com/images/shoe_adidas_gamemode.jpg",
-            "type": "zapato"
-        },
-        {
-            "id": "shoe-015",
-            "name": "Nike Phantom GT2 Academy MG",
-            "description": "Botines multi-terreno para mayor toque y precisión.",
-            "price": 72.0,
-            "stock": 13,
-            "image": "https://example.com/images/shoe_nike_phantom_mg.jpg",
+            "image": "../../src/assets/Zapatos/NikeZoomMercurialVapor15EliteFG.webp",
             "type": "zapato"
         }
     ]
