@@ -1,0 +1,81 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.Header {
+    background-color: #0D1B2A;
+    color: #FFFFFF;
+    padding: 25px 40px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-bottom: 5px solid #00BFFF;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .Header-title {
+        margin: 0;
+        font-size: 3.2em;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        background: linear-gradient(90deg, #00BFFF 0%, #FFFFFF 50%, #00BFFF 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@media (max-width: 992px) {
+    .Header {
+        padding: 20px 30px;
+        min-height: 80px;
+    }
+    .Header-title {
+        font-size: 2.8em;
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Header {
+        padding: 18px 25px;
+        min-height: 70px;
+    }
+    .Header-title {
+        font-size: 2.4em;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 576px) {
+    .Header {
+        padding: 15px 20px;
+        min-height: 60px;
+    }
+    .Header-title {
+        font-size: 1.8em;
+        letter-spacing: 0.8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .Header {
+        padding: 12px 15px;
+        min-height: 50px;
+    }
+    .Header-title {
+        font-size: 1.4em;
+        letter-spacing: 0.5px;
+    }
+}

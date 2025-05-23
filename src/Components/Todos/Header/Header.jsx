@@ -1,10 +1,11 @@
 import React from "react";
+import "../../../Styles/Todos/Header.css";
 
 const Header = () => {
     return (
-        <div>
-            <h2>Header</h2>
-        </div>
+        <header className="Header">
+            <h1 className="Header-title">Tu Tiendita Sport</h1>
+        </header>
     );
 };
 
