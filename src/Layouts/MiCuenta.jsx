@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Components/Todos/Header/Header";
-import Nav from "../Components/Todos/Nav/Nav";
-import Footer from "../Components/Todos/Footer/Footer";
+import Header from "../Components/Fijos/Header/Header";
+import Nav from "../Components/Fijos/Nav/Nav";
+import Footer from "../Components/Fijos/Footer/Footer";
 
 const MiCuenta = () => {
     return (
