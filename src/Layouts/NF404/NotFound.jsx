@@ -1,11 +1,11 @@
 import React from "react";
 
-const NF404 = () => {
+const NotFound = () => {
     return (
         <div>
-            <h2>NF404</h2>
+            <h2>NotFound</h2>
         </div>
     );
 };
 
-export default NF404;
+export default NotFound;
