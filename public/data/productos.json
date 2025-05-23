@@ -2,11 +2,11 @@
     "products": [
         {
             "id": "ball-001",
-            "name": "Adidas Finale Pro Ball (Champions League)",
+            "name": "Adidas Finale Pro Ball",
             "description": "Balón oficial de partidos UEFA Champions League.",
             "price": 135.0,
             "stock": 18,
-            "image": "https://example.com/images/ball_adidas_finale.jpg",
+            "image": "../../src/assets/Balones/AdidasFinaleProBall.jpg",
             "type": "balon"
         },
         {
@@ -15,7 +15,7 @@
             "description": "Balón de fútbol con tecnología Nike Flight para vuelo consistente.",
             "price": 125.0,
             "stock": 22,
-            "image": "https://example.com/images/ball_nike_flight.jpg",
+            "image": "../../src/assets/Balones/NikeFlightPremierLeague.jpeg",
             "type": "balon"
         },
         {
@@ -24,7 +24,7 @@
             "description": "Balón oficial de LaLiga, alta visibilidad y durabilidad.",
             "price": 98.0,
             "stock": 25,
-            "image": "https://example.com/images/ball_puma_laliga.jpg",
+            "image": "../../src/assets/Balones/PumaOrbitaLaLiga1.webp",
             "type": "balon"
         },
         {
@@ -33,7 +33,7 @@
             "description": "Réplica del icónico balón del Mundial 2014.",
             "price": 75.0,
             "stock": 15,
-            "image": "https://example.com/images/ball_adidas_brazuca.jpg",
+            "image": "../../src/assets/Balones/AdidasBrazucaWorldCupReplica.jpg",
             "type": "balon"
         },
         {
@@ -42,7 +42,7 @@
             "description": "Balón de partido Nike con cubierta texturizada para mejor control.",
             "price": 105.0,
             "stock": 20,
-            "image": "https://example.com/images/ball_nike_merlin.jpg",
+            "image": "../../src/assets/Balones/NikeMerlinMatchBall.webp",
             "type": "balon"
         },
         {
@@ -51,7 +51,7 @@
             "description": "Balón premium, costura a mano, para alto rendimiento.",
             "price": 115.0,
             "stock": 10,
-            "image": "https://example.com/images/ball_select_brillant.jpg",
+            "image": "../../src/assets/Balones/SelectBrillantSuper.jpg",
             "type": "balon"
         },
         {
@@ -60,7 +60,7 @@
             "description": "Balón de entrenamiento, inspirado en el diseño del Mundial 2022.",
             "price": 68.0,
             "stock": 12,
-            "image": "https://example.com/images/ball_adidas_alrihla.jpg",
+            "image": "../../src/assets/Balones/AdidasAlRihlaWorldCupTraining.webp",
             "type": "balon"
         },
         {
@@ -69,7 +69,7 @@
             "description": "Balón de futsal con rebote controlado para juego en cancha cubierta.",
             "price": 70.0,
             "stock": 23,
-            "image": "https://example.com/images/ball_puma_futsal.jpg",
+            "image": "../../src/assets/Balones/PumaTeamfinal21Futsal.webp",
             "type": "balon"
         },
         {
@@ -78,7 +78,7 @@
             "description": "Balón de entrenamiento duradero y resistente.",
             "price": 55.0,
             "stock": 8,
-            "image": "https://example.com/images/ball_nike_academy.jpg",
+            "image": "../../src/assets/Balones/NikeAcademyTeamFootball.jpeg",
             "type": "balon"
         },
         {
@@ -87,52 +87,7 @@
             "description": "Ideal para sesiones de entrenamiento y juego recreativo.",
             "price": 50.0,
             "stock": 17,
-            "image": "https://example.com/images/ball_adidas_capitano.jpg",
-            "type": "balon"
-        },
-        {
-            "id": "ball-011",
-            "name": "Mitre Impel Football",
-            "description": "Balón versátil para todas las superficies, de entrenamiento.",
-            "price": 59.0,
-            "stock": 21,
-            "image": "https://example.com/images/ball_mitre_impel.jpg",
-            "type": "balon"
-        },
-        {
-            "id": "ball-012",
-            "name": "Umbro Neo Swerve",
-            "description": "Balón de fútbol para control y potencia en el golpeo.",
-            "price": 78.0,
-            "stock": 14,
-            "image": "https://example.com/images/ball_umbro_swerve.jpg",
-            "type": "balon"
-        },
-        {
-            "id": "ball-013",
-            "name": "Adidas Teamgeist 2006 Replica",
-            "description": "Icónico balón del Mundial 2006, diseño retro.",
-            "price": 90.0,
-            "stock": 5,
-            "image": "https://example.com/images/ball_adidas_teamgeist.jpg",
-            "type": "balon"
-        },
-        {
-            "id": "ball-014",
-            "name": "Nike Strike Pro Football",
-            "description": "Balón de práctica de alta calidad con gráficos distintivos.",
-            "price": 62.0,
-            "stock": 19,
-            "image": "https://example.com/images/ball_nike_strike_pro.jpg",
-            "type": "balon"
-        },
-        {
-            "id": "ball-015",
-            "name": "Puma Accelerate Match Ball",
-            "description": "Balón de alta velocidad para juegos intensos.",
-            "price": 102.0,
-            "stock": 11,
-            "image": "https://example.com/images/ball_puma_accelerate.jpg",
+            "image": "../../src/assets/Balones/AdidasCapitanoFootball.jpg",
             "type": "balon"
         },
         {
