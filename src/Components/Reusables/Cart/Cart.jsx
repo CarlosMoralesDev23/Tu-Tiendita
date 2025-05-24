@@ -1,5 +1,6 @@
 import React from "react";
-import ImageTrash from "../../../assets/ImgCart/Trash.png"
+import ImageTrash from "../../../assets/ImgCart/Trash.png";
+import "../../../Styles/Reusables/Cart.css"
 
 const Cart = ({ isCartOpen, handleCloseCart }) => {
     let drawerClassName = "cart-drawer";
@@ -11,10 +12,7 @@ const Cart = ({ isCartOpen, handleCloseCart }) => {
         <div className={drawerClassName}>
             <div className="cart-header">
                 <h2>Carrito de compras</h2>
-                <button
-                    className="close-button"
-                    onClick={() => handleCloseCart()}
-                >
+                <button className="close-button" onClick={handleCloseCart}>
                     X
                 </button>
             </div>
@@ -36,9 +34,11 @@ const Cart = ({ isCartOpen, handleCloseCart }) => {
                         <span>Subtotal: $0.00</span>
                     </div>
 
-                    <div className="delet-item">
+                    <div className="delete-item">
+                        {" "}
+                        {/* Typo corregido */}
                         <button>
-                            <img src={ImageTrash} alt="" />
+                            <img src={ImageTrash} alt="Eliminar item" />
                         </button>
                     </div>
                 </div>

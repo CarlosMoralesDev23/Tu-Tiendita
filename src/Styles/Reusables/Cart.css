@@ -44,6 +44,9 @@
 }
 
 .cart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     border-bottom: 1px solid #eee;
     padding-bottom: 15px;
     margin-bottom: 15px;
@@ -69,7 +72,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 8px;
 }
 
 .item-quantity-controls button {
@@ -86,7 +88,32 @@
 }
 
 .item-subtotal {
-    margin-top: 8px;
     font-weight: bold;
     text-align: right;
+}
+
+.delete-item {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.delete-item button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 0;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.delete-item button:hover {
+    background-color: #ffebee;
+    border-color: #ef9a9a;
+}
+
+.delete-item button img {
+    height: 16px;
+    width: auto;
+    display: block;
 }
