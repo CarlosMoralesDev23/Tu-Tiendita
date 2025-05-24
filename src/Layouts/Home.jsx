@@ -37,17 +37,14 @@ const Home = ({ products, loader, handleOpenCart }) => {
                 ) : (
                     <>
                         <div>
-                            <button>Ver todo</button>
                             <Balls products={products} />
                         </div>
 
                         <div>
-                            <button>Ver todo</button>
                             <TShirts products={products} />
                         </div>
 
                         <div>
-                            <button>Ver todo</button>
                             <Shoes products={products} />
                         </div>
                     </>
