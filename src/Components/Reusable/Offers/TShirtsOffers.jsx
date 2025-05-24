@@ -3,15 +3,15 @@ import Header from "../Todos/Header/Header";
 import Nav from "../Todos/Nav/Nav";
 import Footer from "../Todos/Footer/Footer";
 
-const ZapatosOfertas = () => {
+const TShirtsOffers = () => {
     return (
         <div>
             <Header />
             <Nav />
-            <h2>ZapatosOfertas</h2>
+            <h2>RemerasOfertas</h2>
             <Footer />
         </div>
     );
 };
 
-export default ZapatosOfertas;
+export default TShirtsOffers;
