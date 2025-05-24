@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Ayuda = () => {
+const Help = () => {
     return (
         <div>
             <h2>Ayuda</h2>
@@ -23,4 +23,4 @@ const Ayuda = () => {
     );
 };
 
-export default Ayuda;
+export default Help;

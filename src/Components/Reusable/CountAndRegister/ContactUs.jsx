@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Contactanos = () => {
+const ContactUs = () => {
     return (
         <div>
             <h2>Contactanos</h2>
@@ -20,4 +20,4 @@ const Contactanos = () => {
     );
 };
 
-export default Contactanos;
+export default ContactUs;

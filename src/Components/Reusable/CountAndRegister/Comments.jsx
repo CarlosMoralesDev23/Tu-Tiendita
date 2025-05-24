@@ -1,6 +1,6 @@
 import React from "react";
 
-const Opiniones = () => {
+const Comments = () => {
     return (
         <div>
             <h2>Opiniones</h2>
@@ -14,4 +14,4 @@ const Opiniones = () => {
     );
 };
 
-export default Opiniones;
+export default Comments;

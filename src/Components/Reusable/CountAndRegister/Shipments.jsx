@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Envios = () => {
+const Shipments = () => {
     return (
         <div>
             <h2>Envios</h2>
@@ -23,4 +23,5 @@ const Envios = () => {
     );
 };
 
-export default Envios;
+export default Shipments
+;
