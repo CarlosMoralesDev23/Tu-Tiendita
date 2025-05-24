@@ -10,18 +10,6 @@ const Home = () => {
             <Header/>
             <Nav/>
             <Product/>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-
-
             <Footer/>
         </div>
     );
