@@ -20,18 +20,26 @@ function App() {
     const [productos, setProductos] = useState([])
 
     //error para cuando no cargue la pagina
-    const [error, seterror] = useState(false)
+    const [error, setError] = useState(false)
 
-    //loader para cargar spiner7loader mientras cargan los productos
-    const [loader, setloader] = useState(true)
+    //loader para cargar spiner/loader mientras cargan los productos
+    const [loader, setLoader] = useState(true)
 
     useEffect(() => {
     
         fetch('/public/data/productos.json')
         .then((resp)=> resp.json())
-        .then((data)=> console.log(data))
-        .catch((error)=> console.log("Error: ", error))
+        .then((data)=> {
+            setTimeout(() => {
+                setProductos(data); setLoader(false)
+            }, 750);
+        })
+        .catch((error)=> {
+            console.log("Error: ", error); setLoader(false); setError(true)
+        })
     }, [])
+
+    console.log(productos)
 
 
 
