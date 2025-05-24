@@ -1,9 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
     return (
         <div>
-            <h2>NotFound</h2>
+            <h1>NotFound</h1>
+            <button>
+                <Link to='/' />Volver al inicio
+            </button>
         </div>
     );
 };

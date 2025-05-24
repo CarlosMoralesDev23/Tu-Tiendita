@@ -1,0 +1,156 @@
+.tarjetaProducto {
+    border: 1px solid #e0e0e0;
+    border: 5px solid #00BFFF;
+
+    border-radius: 10px;
+    padding: 14px;
+    margin: 10px;
+    width: 215px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    font-family: "Arial", sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjetaProducto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.encabezado > div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.nombre h3 {
+    font-size: 1.15em;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+    color: #333;
+}
+
+.valoracion {
+    div{
+        img{
+            width: 15px;
+        };
+    }
+
+}
+
+.favorito {
+    cursor: pointer;
+    padding-top: 2px;
+}
+
+.favorito img {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+.contenedorImagen {
+    width: 100%;
+    height: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.contenedorImagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.contenedorPrecio {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.contenedorAgregar button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    width: 100%;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+}
+
+.contenedorAgregar button:hover {
+    background-color: #0056b3;
+}
+
+.contenedorAgregarCantidades {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedorAgregarCantidades > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    width: auto;
+    padding: 4px;
+}
+
+.contenedorAgregarCantidades button {
+    background-color: #f8f9fa;
+    color: #333;
+    border: none;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.contenedorAgregarCantidades button:hover {
+    background-color: #e9ecef;
+}
+
+.contenedorAgregarCantidades button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.contenedorAgregarCantidades button:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.contenedorAgregarCantidades span {
+    padding: 0 10px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #333;
+    min-width: 25px;
+    text-align: center;
+}
