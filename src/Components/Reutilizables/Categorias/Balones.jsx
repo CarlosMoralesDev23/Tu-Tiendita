@@ -5,7 +5,6 @@ const Balones = ({ productos }) => {
 
     const losBalones = productos.filter((producto) => producto.type === 'balon')
 
-    console.log(losBalones)
 
 
     return (

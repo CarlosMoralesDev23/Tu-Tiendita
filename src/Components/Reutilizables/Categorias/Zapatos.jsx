@@ -3,6 +3,10 @@ import React from "react";
 import ListProducts from "../../ListProducts/ListProducts";
 
 const Zapatos = ({ productos }) => {
+
+    const losZapatos = productos.filter((producto)=> producto.type === 'zapato')
+    console.log(losZapatos)
+
     return (
         <div>
             <div className="Zapatos">
