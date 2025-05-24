@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
-import GuinoGuino from "../assets/Home/guinoguino.jpg";
+import GuinoGuino from "../assets/ImgHome/guinoguino.jpg";
 import Balls from "../Components/Reutilizables/Categorias/Balls";
 import TShirts from "../Components/Reutilizables/Categorias/TShirts";
 import Shoes from "../Components/Reutilizables/Categorias/Shoes";

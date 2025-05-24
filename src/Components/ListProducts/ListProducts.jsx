@@ -2,12 +2,12 @@ import React from "react";
 import Product from "../ListProducts/Product"
 import "../../Styles/ListProducts/ListProducts.css";
 
-const ListProducts = ({productos}) => {
+const ListProducts = ({products}) => {
     return (
         <div className="contenedorListProducts">
             {
-                productos.map((producto)=>(
-                    <Product key={producto.id} producto={producto}/>
+                products.map((product)=>(
+                    <Product key={product.id} producto={product}/>
                 ))
             }
         </div>

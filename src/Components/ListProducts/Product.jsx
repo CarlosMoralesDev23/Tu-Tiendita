@@ -1,13 +1,13 @@
 import React from "react";
 import "../../Styles/ListProducts/Product.css";
-import HeartEmpty from "../../assets/Product/heartEmpty.svg";
-import StarEmpty from "../../assets/Product/starEmpty.svg";
+import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
+import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
-const Product = ({ producto }) => {
+const Product = ({ product }) => {
     return (
         <div className="tarjetaProducto">
             <div className="encabezado">
-                <h3>{producto.name}</h3>
+                <h3>{product.name}</h3>
                 <img src={HeartEmpty} alt="corazon favorito" />
             </div>
 
@@ -20,15 +20,15 @@ const Product = ({ producto }) => {
             </div>
 
             <div className="contenedorImagen">
-                <img src={producto.image} alt="balon" />
+                <img src={product.image} alt="balon" />
             </div>
 
             <div className="contenedorPrecio">
-                <span>{producto.price} $</span>
+                <span>{product.price} $</span>
             </div>
 
             <div className="contenedorStock">
-                <span>Disponibles: {producto.stock}</span>
+                <span>Disponibles: {product.stock}</span>
             </div>
 
             <div className="contenedorAgregar">
