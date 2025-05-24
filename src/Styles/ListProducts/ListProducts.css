@@ -1,6 +1,9 @@
 
 .contenedorListProducts{
+    margin: 0 auto;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    gap: 40px;
     justify-content: space-around;
 }

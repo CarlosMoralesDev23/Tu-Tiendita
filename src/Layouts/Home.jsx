@@ -6,6 +6,7 @@ import GuinoGuino from "../assets/Home/guinoguino.jpg";
 import Balones from "../Components/Reutilizables/Categorias/Balones";
 import Remeras from "../Components/Reutilizables/Categorias/Remeras";
 import Zapatos from "../Components/Reutilizables/Categorias/Zapatos";
+import "../Styles/Layouts/Home.css";
 
 const Home = ({ productos, loader }) => {
     return (
@@ -20,7 +21,7 @@ const Home = ({ productos, loader }) => {
                     <div>
                         <p>
                             Registrate y date una vuelta por la sección de
-                            ofertas "Guiño guiño"
+                            ofertas
                         </p>
                         <img
                             src={GuinoGuino}
