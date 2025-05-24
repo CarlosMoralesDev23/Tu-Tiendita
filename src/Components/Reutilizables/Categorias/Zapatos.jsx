@@ -12,7 +12,7 @@ const Zapatos = ({ productos }) => {
             <div className="Zapatos">
                 <h2>Zapatos</h2>
                 <div className="contenedorTarjetaZapatos">
-                    <ListProducts productos={productos} />
+                    <ListProducts productos={losZapatos} />
                 </div>
             </div>
         </div>

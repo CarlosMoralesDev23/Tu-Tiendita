@@ -2,16 +2,15 @@ import React from "react";
 import "../../Styles/ListProducts/Product.css";
 import HeartEmpty from  "../../assets/Product/heartEmpty.svg"
 import StarEmpty from  "../../assets/Product/starEmpty.svg"
-import balonAdidas from "../../assets/Balones/AdidasAlRihlaWorldCupTraining.webp";
 
 
-const Product = () => {
+const Product = ({producto}) => {
     return (
         <div className="tarjetaProducto">
             <div className="encabezado">
                 <div>
                     <div className="nombre">
-                        <h3>Nombre</h3>
+                        <h3>{producto.name}</h3>
                     </div>
 
                     <div className="valoracion">
@@ -32,13 +31,17 @@ const Product = () => {
 
             <div className="contenedorImagen">
                 <img
-                    src={balonAdidas}
+                    src={producto.image}
                     alt="balon"
                 />
             </div>
 
             <div className="contenedorPrecio">
-                <span>100 $</span>
+                <span>{producto.price} $</span>
+            </div>
+
+            <div className="contenedorStock">
+                <span>Disponibles: {producto.stock}</span>
             </div>
 
             <div className="contenedorAgregar">
