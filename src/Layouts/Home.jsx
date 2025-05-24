@@ -2,10 +2,12 @@ import React from "react";
 import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
-import Product from "../Components/ListProducts/Product";
 import GuinoGuino from "../assets/Home/guinoguino.jpg";
+import Balones from "../Components/Reutilizables/Categorias/Balones";
+import Remeras from "../Components/Reutilizables/Categorias/Remeras";
+import Zapatos from "../Components/Reutilizables/Categorias/Zapatos";
 
-const Home = () => {
+const Home = ({ productos, loader }) => {
     return (
         <div>
             <Header />
@@ -16,7 +18,10 @@ const Home = () => {
                     <h2>¡Me alegra verte por acá!</h2>
                     <p>Tenemos impresionantes productos para ti!!!</p>
                     <div>
-                        <p>Date una vuelta por las ofertas "Guiño guiño"</p>
+                        <p>
+                            Registrate y date una vuelta por la sección de
+                            ofertas "Guiño guiño"
+                        </p>
                         <img
                             src={GuinoGuino}
                             alt=""
@@ -25,25 +30,19 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="Balones">
-                    <h2>Balones</h2>
-                    <div className="contenedorTarjetaBalones">
-                        <Product />
-                    </div>
+                <div>
+                    <button>Ver todo</button>
+                    <Balones productos={productos} />
                 </div>
 
-                <div className="Remeras">
-                    <h2>Remeras</h2>
-                    <div className="contenedorTarjetaRemeras">
-                        <Product />
-                    </div>
+                <div>
+                    <button>Ver todo</button>
+                    <Remeras productos={productos} />
                 </div>
 
-                <div className="Zapatos">
-                    <h2>Zapatos</h2>
-                    <div className="contenedorTarjetaZapatos">
-                        <Product />
-                    </div>
+                <div>
+                    <button>Ver todo</button>
+                    <Zapatos productos={productos} />
                 </div>
             </main>
 

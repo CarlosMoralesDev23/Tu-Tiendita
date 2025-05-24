@@ -1,15 +1,14 @@
 import React from "react";
+import ListProducts from "../../ListProducts/ListProducts";
 
-
-const Remeras = () => {
+const Remeras = ({ productos }) => {
     return (
         <div>
-            <h2>Remeras</h2>
-
-            <div>
-                <span>Ver todo</span>
-
-                <div>Todos los remeras</div>
+            <div className="Remeras">
+                <h2>Remeras</h2>
+                <div className="contenedorTarjetaRemeras">
+                    <ListProducts productos={productos} />
+                </div>
             </div>
         </div>
     );

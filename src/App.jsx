@@ -9,7 +9,8 @@ import Ofertas from "./Layouts/Ofertas";
 import Registrate from "./Layouts/Registrate";
 import Login from "./Layouts/Login";
 import Cart from "./Components/Reutilizables/Cart/Cart";
-import NF404 from "./Layouts/NF404/NotFound.jsx";
+import NF404 from "./Components/Reutilizables/NF404/NotFound.jsx";
+
 
 function App() {
 
@@ -39,16 +40,16 @@ function App() {
         })
     }, [])
 
-    console.log(productos)
-
-
 
 
     return (
         <>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Home />}></Route>
+                    <Route
+                        path="/"
+                        element={<Home productos={productos} loader={loader} />}
+                    ></Route>
                     <Route path="/Categorias" element={<Categorias />}></Route>
                     <Route path="/Ofertas" element={<Ofertas />}></Route>
                     <Route path="/Registrate" element={<Registrate />}></Route>
