@@ -17,6 +17,8 @@ function App() {
     // carrito para agregar productos
     const [cart, setCart] = useState([])
 
+    const [isCartOpen, setIsCartOpen] = useState(false)
+
     // productos para guardar los datos traidos del json
     const [products, setProducts] = useState([])
 
@@ -42,24 +44,61 @@ function App() {
 
 
 
+
+    //* FUNCIONES
+
+    const handleOpenCart = () => setIsCartOpen(true)
+    const handleCloseCart = () => setIsCartOpen(false)
+
+
+
+
+
     return (
         <>
             <Router>
                 <Routes>
                     <Route
                         path="/"
-                        element={<Home products={products} loader={loader} />}
+                        element={
+                            <Home
+                                products={products}
+                                loader={loader}
+                                handleOpenCart={handleOpenCart}
+                            />
+                        }
                     ></Route>
 
-                    <Route path="/Categories" element={<Categories/>}></Route>
-                    <Route path="/Offers" element={<Offers />}></Route>
-                    <Route path="/Register" element={<Register />}></Route>
-                    <Route path="/Login" element={<Login />}></Route>
-                    <Route path="/MyCount" element={<MyCount />}></Route>
-                    <Route path="/Cart" element={<Cart />}></Route>
+                    <Route
+                        path="/Categories"
+                        element={<Categories handleOpenCart={handleOpenCart} />}
+                    ></Route>
+
+                    <Route
+                        path="/Offers"
+                        element={<Offers handleOpenCart={handleOpenCart} />}
+                    ></Route>
+
+                    <Route
+                        path="/Register"
+                        element={<Register handleOpenCart={handleOpenCart} />}
+                    ></Route>
+
+                    <Route
+                        path="/Login"
+                        element={<Login handleOpenCart={handleOpenCart} />}
+                    ></Route>
+
+                    <Route
+                        path="/MyCount"
+                        element={<MyCount handleOpenCart={handleOpenCart} />}
+                    ></Route>
+
                     <Route path="*" element={<NF404 />}></Route>
                 </Routes>
             </Router>
+
+            <Cart isCartOpen={isCartOpen} handleCloseCart={handleCloseCart} />
         </>
     );
 }

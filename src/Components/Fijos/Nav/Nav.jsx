@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../../../Styles/Fijos/Nav.css";
+import ImageCart from "../../../assets/ImgNav/CarritoComprasAzul.png";
 
-const Nav = () => {
+
+const Nav = ({ handleOpenCart }) => {
     return (
         <nav className="main-nav">
             <ul className="nav-list">
@@ -25,9 +27,9 @@ const Nav = () => {
                 <li className="nav-item">
                     <Link to="/Login">Login</Link>
                 </li>
-                <li className="nav-item">
-                    <Link to="/Cart">Cart</Link>
-                </li>
+                <button className="nav-cart-button" onClick={()=>handleOpenCart()}>
+                    <img src={ImageCart} alt="" />
+                </button>
             </ul>
         </nav>
     );

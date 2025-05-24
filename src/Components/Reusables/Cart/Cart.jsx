@@ -1,22 +1,48 @@
 import React from "react";
-import Header from "../../Fijos/Header/Header";
-import Nav from "../../Fijos/Nav/Nav";
-import Product from "../../ListProducts/Product";
-import Footer from "../../Fijos/Footer/Footer";
+import ImageTrash from "../../../assets/ImgCart/Trash.png"
 
-const Cart = () => {
+const Cart = ({ isCartOpen, handleCloseCart }) => {
+    let drawerClassName = "cart-drawer";
+    if (isCartOpen) {
+        drawerClassName += " open";
+    }
+
     return (
-        <div>
-            <div>
+        <div className={drawerClassName}>
+            <div className="cart-header">
                 <h2>Carrito de compras</h2>
-                <button>X</button>
+                <button
+                    className="close-button"
+                    onClick={() => handleCloseCart()}
+                >
+                    X
+                </button>
             </div>
 
-            <div>
-                
+            <div className="cart-content">
+                <div className="cart-item">
+                    <div className="item-details">
+                        <h3>Nombre del Producto Ejemplo</h3>
+                        <span>Precio: $0.00</span>
+                    </div>
+
+                    <div className="item-quantity-controls">
+                        <button>-</button>
+                        <span>0</span>
+                        <button>+</button>
+                    </div>
+
+                    <div className="item-subtotal">
+                        <span>Subtotal: $0.00</span>
+                    </div>
+
+                    <div className="delet-item">
+                        <button>
+                            <img src={ImageTrash} alt="" />
+                        </button>
+                    </div>
+                </div>
             </div>
-
-
         </div>
     );
 };

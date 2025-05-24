@@ -3,11 +3,11 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const Register = () => {
+const Register = ({ handleOpenCart }) => {
     return (
         <div>
             <Header />
-            <Nav />
+            <Nav handleOpenCart={handleOpenCart} />
             <h2>Registrate</h2>
             <h3>EN DESARROLLO</h3>
 
