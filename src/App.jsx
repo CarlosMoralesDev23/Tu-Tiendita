@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -12,6 +12,30 @@ import Cart from "./Components/Reutilizables/Cart/Cart";
 import NF404 from "./Layouts/NF404/NotFound.jsx";
 
 function App() {
+
+    // carrito para agregar productos
+    const [cart, setCart] = useState([])
+
+    // productos para guardar los datos traidos del json
+    const [productos, setProductos] = useState([])
+
+    //error para cuando no cargue la pagina
+    const [error, seterror] = useState(false)
+
+    //loader para cargar spiner7loader mientras cargan los productos
+    const [loader, setloader] = useState(true)
+
+    useEffect(() => {
+    
+        fetch('/public/data/productos.json')
+        .then((resp)=> resp.json())
+        .then((data)=> console.log(data))
+        .catch((error)=> console.log("Error: ", error))
+    }, [])
+
+
+
+
     return (
         <>
             <Router>
