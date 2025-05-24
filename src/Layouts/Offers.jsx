@@ -3,7 +3,7 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const Ofertas = () => {
+const Offers = () => {
     return (
         <div>
             <Header />
@@ -14,4 +14,4 @@ const Ofertas = () => {
     );
 };
 
-export default Ofertas;
+export default Offers;

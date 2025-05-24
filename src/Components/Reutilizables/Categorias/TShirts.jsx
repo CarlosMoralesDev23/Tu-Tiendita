@@ -1,20 +1,20 @@
 import React from "react";
 import ListProducts from "../../ListProducts/ListProducts";
 
-const Remeras = ({ productos }) => {
+const TShirts = ({ products }) => {
 
-    const lasRemeras = productos.filter((producto) => producto.type === 'remera')
+    const theTShirts= products.filter((product) => product.type === 'remera')
 
     return (
         <div>
             <div className="Remeras">
                 <h2>Remeras</h2>
                 <div className="contenedorTarjetaRemeras">
-                    <ListProducts productos={lasRemeras} />
+                    <ListProducts products={theTShirts} />
                 </div>
             </div>
         </div>
     );
 };
 
-export default Remeras;
+export default TShirts;

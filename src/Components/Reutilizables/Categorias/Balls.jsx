@@ -1,9 +1,9 @@
 import React from "react";
 import ListProducts from "../../ListProducts/ListProducts";
 
-const Balones = ({ productos }) => {
+const Balls = ({ products }) => {
 
-    const losBalones = productos.filter((producto) => producto.type === 'balon')
+    const theBalls = products.filter((product) => product.type === 'balon')
 
 
 
@@ -12,11 +12,11 @@ const Balones = ({ productos }) => {
             <div className="Balones">
                 <h2>Balones</h2>
                 <div className="contenedorTarjetaBalones">
-                    <ListProducts productos={losBalones} />
+                    <ListProducts products={theBalls} />
                 </div>
             </div>
         </div>
     );
 };
 
-export default Balones;
+export default Balls;

@@ -3,10 +3,10 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./Layouts/Home";
-import MiCuenta from "./Layouts/MiCuenta";
-import Categorias from "./Layouts/Categorias";
-import Ofertas from "./Layouts/Ofertas";
-import Registrate from "./Layouts/Registrate";
+import MiCuenta from "./Layouts/MyCount.jsx";
+import Categorias from "./Layouts/Categories.jsx";
+import Ofertas from "./Layouts/Offers.jsx";
+import Registrate from "./Layouts/Register.jsx";
 import Login from "./Layouts/Login";
 import Cart from "./Components/Reutilizables/Cart/Cart";
 import NF404 from "./Components/Reutilizables/NF404/NotFound.jsx";
@@ -18,7 +18,7 @@ function App() {
     const [cart, setCart] = useState([])
 
     // productos para guardar los datos traidos del json
-    const [productos, setProductos] = useState([])
+    const [products, setProducts] = useState([])
 
     //error para cuando no cargue la pagina
     const [error, setError] = useState(false)
@@ -32,7 +32,7 @@ function App() {
         .then((resp)=> resp.json())
         .then((data)=> {
             setTimeout(() => {
-                setProductos(data); setLoader(false)
+                setProducts(data); setLoader(false)
             }, 1250);
         })
         .catch((error)=> {
@@ -48,13 +48,13 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={<Home productos={productos} loader={loader} />}
+                        element={<Home products={products} loader={loader} />}
                     ></Route>
-                    <Route path="/Categorias" element={<Categorias />}></Route>
-                    <Route path="/Ofertas" element={<Ofertas />}></Route>
-                    <Route path="/Registrate" element={<Registrate />}></Route>
+                    <Route path="/Categories" element={<Categorias />}></Route>
+                    <Route path="/Offers" element={<Ofertas />}></Route>
+                    <Route path="/Register" element={<Registrate />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
-                    <Route path="/MiCuenta" element={<MiCuenta />}></Route>
+                    <Route path="/MyCount" element={<MiCuenta />}></Route>
                     <Route path="/Cart" element={<Cart />}></Route>
                     <Route path="*" element={<NF404 />}></Route>
                 </Routes>

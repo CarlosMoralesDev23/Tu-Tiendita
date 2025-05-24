@@ -3,7 +3,7 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const Registrate = () => {
+const Register = () => {
     return (
         <div>
             <Header />
@@ -14,4 +14,4 @@ const Registrate = () => {
     );
 };
 
-export default Registrate;
+export default Register;

@@ -3,13 +3,13 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 import GuinoGuino from "../assets/Home/guinoguino.jpg";
-import Balones from "../Components/Reutilizables/Categorias/Balones";
-import Remeras from "../Components/Reutilizables/Categorias/Remeras";
-import Zapatos from "../Components/Reutilizables/Categorias/Zapatos";
+import Balls from "../Components/Reutilizables/Categorias/Balls";
+import TShirts from "../Components/Reutilizables/Categorias/TShirts";
+import Shoes from "../Components/Reutilizables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reutilizables/Loader/Loader";
 
-const Home = ({ productos, loader }) => {
+const Home = ({ products, loader }) => {
     return (
         <div>
             <Header />
@@ -38,17 +38,17 @@ const Home = ({ productos, loader }) => {
                     <>
                         <div>
                             <button>Ver todo</button>
-                            <Balones productos={productos} />
+                            <Balls products={products} />
                         </div>
 
                         <div>
                             <button>Ver todo</button>
-                            <Remeras productos={productos} />
+                            <TShirts products={products} />
                         </div>
 
                         <div>
                             <button>Ver todo</button>
-                            <Zapatos productos={productos} />
+                            <Shoes products={products} />
                         </div>
                     </>
                 )}
