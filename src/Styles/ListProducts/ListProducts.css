@@ -4,6 +4,6 @@
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 20px;
     justify-content: space-around;
 }

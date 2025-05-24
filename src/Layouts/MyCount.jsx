@@ -9,6 +9,8 @@ const MyCount = () => {
             <Header />
             <Nav />
             <h2>MiCuenta</h2>
+            <h3>EN DESARROLLO</h3>
+
             <Footer />
         </div>
     );

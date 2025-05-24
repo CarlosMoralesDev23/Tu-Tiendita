@@ -9,6 +9,7 @@ const Categories = () => {
             <Header />
             <Nav />
             <h2>Categorias</h2>
+            <h3>EN DESARROLLO</h3>
             <Footer />
         </div>
     );

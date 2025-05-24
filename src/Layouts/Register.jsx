@@ -9,6 +9,8 @@ const Register = () => {
             <Header />
             <Nav />
             <h2>Registrate</h2>
+            <h3>EN DESARROLLO</h3>
+
             <Footer />
         </div>
     );

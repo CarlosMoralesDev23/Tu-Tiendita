@@ -7,11 +7,16 @@ import Footer from "../../Fijos/Footer/Footer";
 const Cart = () => {
     return (
         <div>
-            <Header/>
-            <Nav/>
-            <h2>Cart</h2>
-            <Product/>
-            <Footer/>
+            <div>
+                <h2>Carrito de compras</h2>
+                <button>X</button>
+            </div>
+
+            <div>
+                
+            </div>
+
+
         </div>
     );
 };

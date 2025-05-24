@@ -9,6 +9,8 @@ const Offers = () => {
             <Header />
             <Nav />
             <h2>Ofertas</h2>
+            <h3>EN DESARROLLO</h3>
+
             <Footer />
         </div>
     );

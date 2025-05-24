@@ -8,19 +8,19 @@ const Nav = () => {
         <nav className="main-nav">
             <ul className="nav-list">
                 <li className="nav-item">
-                    <Link to="/MiCuenta">GPS</Link>
+                    <Link to="/MyCount">GPS</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Categorias">Categorias</Link>
+                    <Link to="/Categories">Categorias</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Ofertas">Ofertas</Link>
+                    <Link to="/Offers">Ofertas</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Registrate">Registrate</Link>
+                    <Link to="/Register">Registrate</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/Login">Login</Link>
