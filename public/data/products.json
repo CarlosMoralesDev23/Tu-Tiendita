@@ -95,7 +95,7 @@
         "description": "Camiseta oficial local del Real Madrid, diseño clásico.",
         "price": 95.0,
         "stock": 20,
-        "image": "../../src/aImgTShirts/RealMadridHomeJersey2425.webp",
+        "image": "/src/assets/ImgTShirts/RealMadridHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -185,7 +185,7 @@
         "description": "Botines de velocidad para terreno firme, con cuello Dynamic Fit.",
         "price": 270.0,
         "stock": 15,
-        "image": "../../src/aImgShoes/NikeMercurialSuperfly9FG.jpeg",
+        "image": "/src/assets/ImgShoes/NikeMercurialSuperfly9FG.jpeg",
         "type": "zapato"
     },
     {

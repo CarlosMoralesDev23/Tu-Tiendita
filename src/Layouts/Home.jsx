@@ -3,13 +3,14 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 import GuinoGuino from "../assets/ImgHome/guinoguino.jpg";
-import Balls from "../Components/Reutilizables/Categorias/Balls";
-import TShirts from "../Components/Reutilizables/Categorias/TShirts";
-import Shoes from "../Components/Reutilizables/Categorias/Shoes";
+import Balls from "../Components/Reusables/Categorias/Balls";
+import TShirts from "../Components/Reusables/Categorias/TShirts";
+import Shoes from "../Components/Reusables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
-import Loader from "../Components/Reutilizables/Loader/Loader";
+import Loader from "../Components/Reusables/Loader/Loader";
 
 const Home = ({ products, loader }) => {
+
     return (
         <div>
             <Header />
@@ -52,6 +53,8 @@ const Home = ({ products, loader }) => {
                         </div>
                     </>
                 )}
+
+
             </main>
 
             <Footer />

@@ -4,6 +4,9 @@ import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
 import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
 const Product = ({ product }) => {
+
+
+    
     return (
         <div className="tarjetaProducto">
             <div className="encabezado">

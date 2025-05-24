@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./Layouts/Home";
-import MiCuenta from "./Layouts/MyCount.jsx";
-import Categorias from "./Layouts/Categories.jsx";
-import Ofertas from "./Layouts/Offers.jsx";
-import Registrate from "./Layouts/Register.jsx";
-import Login from "./Layouts/Login";
-import Cart from "./Components/Reutilizables/Cart/Cart";
-import NF404 from "./Components/Reutilizables/NF404/NotFound.jsx";
+import Home from "./Layouts/Home.jsx";
+import MyCount from "./Layouts/MyCount.jsx";
+import Categories from "./Layouts/Categories.jsx";
+import Offers from "./Layouts/Offers.jsx";
+import Register from "./Layouts/Register.jsx";
+import Login from "./Layouts/Login.jsx";
+import Cart from "./Components/Reusables/Cart/Cart.jsx";
+import NF404 from "./Components/Reusables/NF404/NotFound.jsx";
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
 
     useEffect(() => {
     
-        fetch('/public/data/productos.json')
+        fetch('/data/products.json')
         .then((resp)=> resp.json())
         .then((data)=> {
             setTimeout(() => {
@@ -50,11 +50,12 @@ function App() {
                         path="/"
                         element={<Home products={products} loader={loader} />}
                     ></Route>
-                    <Route path="/Categories" element={<Categorias />}></Route>
-                    <Route path="/Offers" element={<Ofertas />}></Route>
-                    <Route path="/Register" element={<Registrate />}></Route>
+
+                    <Route path="/Categories" element={<Categories/>}></Route>
+                    <Route path="/Offers" element={<Offers />}></Route>
+                    <Route path="/Register" element={<Register />}></Route>
                     <Route path="/Login" element={<Login />}></Route>
-                    <Route path="/MyCount" element={<MiCuenta />}></Route>
+                    <Route path="/MyCount" element={<MyCount />}></Route>
                     <Route path="/Cart" element={<Cart />}></Route>
                     <Route path="*" element={<NF404 />}></Route>
                 </Routes>

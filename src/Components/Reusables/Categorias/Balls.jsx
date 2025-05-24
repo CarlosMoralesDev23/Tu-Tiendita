@@ -3,6 +3,7 @@ import ListProducts from "../../ListProducts/ListProducts";
 
 const Balls = ({ products }) => {
 
+
     const theBalls = products.filter((product) => product.type === 'balon')
 
 
