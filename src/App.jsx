@@ -33,7 +33,7 @@ function App() {
         .then((data)=> {
             setTimeout(() => {
                 setProductos(data); setLoader(false)
-            }, 750);
+            }, 1250);
         })
         .catch((error)=> {
             console.log("Error: ", error); setLoader(false); setError(true)

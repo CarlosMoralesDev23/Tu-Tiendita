@@ -1,9 +1,10 @@
 import React from "react";
+import LoaderGif from "../../../assets/Loader/Loader.gif"
 
 const Loader = () => {
     return (
         <div>
-            <h2>Loader</h2>
+            <img src={LoaderGif} alt="" />
         </div>
     );
 };

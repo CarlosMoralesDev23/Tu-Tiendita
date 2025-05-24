@@ -7,6 +7,7 @@ import Balones from "../Components/Reutilizables/Categorias/Balones";
 import Remeras from "../Components/Reutilizables/Categorias/Remeras";
 import Zapatos from "../Components/Reutilizables/Categorias/Zapatos";
 import "../Styles/Layouts/Home.css";
+import Loader from "../Components/Reutilizables/Loader/Loader";
 
 const Home = ({ productos, loader }) => {
     return (
@@ -31,20 +32,26 @@ const Home = ({ productos, loader }) => {
                     </div>
                 </div>
 
-                <div>
-                    <button>Ver todo</button>
-                    <Balones productos={productos} />
-                </div>
+                {loader ? (
+                    <Loader />
+                ) : (
+                    <>
+                        <div>
+                            <button>Ver todo</button>
+                            <Balones productos={productos} />
+                        </div>
 
-                <div>
-                    <button>Ver todo</button>
-                    <Remeras productos={productos} />
-                </div>
+                        <div>
+                            <button>Ver todo</button>
+                            <Remeras productos={productos} />
+                        </div>
 
-                <div>
-                    <button>Ver todo</button>
-                    <Zapatos productos={productos} />
-                </div>
+                        <div>
+                            <button>Ver todo</button>
+                            <Zapatos productos={productos} />
+                        </div>
+                    </>
+                )}
             </main>
 
             <Footer />
