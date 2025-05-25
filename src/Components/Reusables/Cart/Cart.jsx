@@ -1,42 +1,44 @@
 import React from "react";
 import ImageTrash from "../../../assets/ImgCart/Trash.png";
 import "../../../Styles/Reusables/Cart.css"
+import Cerrar from "../../../assets/ImgCart/signo-cerrado.png"
 
 const Cart = ({ isCartOpen, handleCloseCart }) => {
-    let drawerClassName = "cart-drawer";
+    let cartClassName = "cartContainer";
     if (isCartOpen) {
-        drawerClassName += " open";
+        cartClassName += " open";
     }
 
     return (
-        <div className={drawerClassName}>
-            <div className="cart-header">
+        <div className={cartClassName}>
+            <div className="cartHeader">
                 <h2>Carrito de compras</h2>
-                <button className="close-button" onClick={handleCloseCart}>
-                    X
+                <button className="closeButton" onClick={handleCloseCart}>
+                    <img src={Cerrar} alt="" />
                 </button>
             </div>
 
-            <div className="cart-content">
-                <div className="cart-item">
-                    <div className="item-details">
+            <div className="cartItemsContainer">
+                <div className="itemContainer">
+                    <div className="itemDetails">
                         <h3>Nombre del Producto Ejemplo</h3>
-                        <span>Precio: $0.00</span>
+                        <span className="price">Precio: $999.00</span>
                     </div>
 
-                    <div className="item-quantity-controls">
-                        <button>-</button>
-                        <span>0</span>
-                        <button>+</button>
+                    <div className="itemQuantityControls">
+                        <div>
+                            <button>-</button>
+                            <span className="quantity">99</span>
+                            <button>+</button>
+                        </div>
+                        <span className="disponible">Disponible: 999</span>
                     </div>
 
-                    <div className="item-subtotal">
-                        <span>Subtotal: $0.00</span>
+                    <div className="itemSubtotal">
+                        <span className="subTotal">Subt: $999.00</span>
                     </div>
 
-                    <div className="delete-item">
-                        {" "}
-                        {/* Typo corregido */}
+                    <div className="deleteItem">
                         <button>
                             <img src={ImageTrash} alt="Eliminar item" />
                         </button>
