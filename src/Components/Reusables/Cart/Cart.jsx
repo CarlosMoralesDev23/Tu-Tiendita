@@ -5,11 +5,10 @@ import "../../../Styles/Reusables/Cart.css";
 import Cerrar from "../../../assets/ImgCart/signo-cerrado.png";
 import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png";
 
-// Imports de Material-UI para el Modal
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button"; // Usaremos el botón de MUI para el modal
+import Button from "@mui/material/Button";
 
 const Cart = ({
     isCartOpen,
@@ -20,10 +19,9 @@ const Cart = ({
     decrementQuantity,
     removeItemFromCart,
 }) => {
-    // Estado para controlar la visibilidad del modal de pago de MUI
+
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
-    // Funciones para el modal de pago
     const handleOpenPaymentModal = () => {
         setIsPaymentModalOpen(true);
     };
@@ -34,11 +32,14 @@ const Cart = ({
 
     const handleConfirmPayment = () => {
         console.log("Pago confirmado a través de MUI Modal!");
-        // Aquí integrarías la lógica real de procesamiento de pago
-        emptyCart(); // Vaciar el carrito
-        handleClosePaymentModal(); // Cerrar el modal de pago
-        // Opcional: handleCloseCart(); // Cerrar también el panel del carrito si está abierto
-        alert("¡Gracias por tu compra!"); // O un mensaje más elaborado
+        alert("¡Gracias por tu compra!"); 
+        handleClosePaymentModal(); 
+
+        emptyCart();
+
+        setTimeout(() => {
+            handleCloseCart()
+        }, 500);
     };
 
     const total = cart.reduce((suma, item) => {
@@ -52,18 +53,18 @@ const Cart = ({
         cartClassName += " open";
     }
 
-    // Estilos para el <Box> que contiene el contenido del Modal de MUI
     const styleModalBox = {
+        color:"black",
         position: "absolute",
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
         width: "90%",
         maxWidth: 450,
-        bgcolor: "background.paper", // Usa el color de fondo del tema de MUI
+        bgcolor: "background.paper",
         border: "1px solid #ccc",
         borderRadius: "8px",
-        boxShadow: 24, // Sombra predefinida de MUI (0-24)
+        boxShadow: 24, 
         p: { xs: 2, sm: 3, md: 4 }, // Padding responsivo (e.g., 16px, 24px, 32px)
         textAlign: "center",
     };
@@ -86,7 +87,6 @@ const Cart = ({
                     cart.map((item, index) => (
                         <div className="itemContainer" key={item.id || index}>
                             {" "}
-                            {/* Prioriza item.id para el key */}
                             <div className="itemDetails">
                                 <h3>{item.name}</h3>
                                 <span className="price">
@@ -124,9 +124,9 @@ const Cart = ({
                                     Subt: $
                                     {item.price && item.quantity
                                         ? (
-                                              parseFloat(item.price) *
-                                              parseInt(item.quantity, 10)
-                                          ).toFixed(2)
+                                                parseFloat(item.price) *
+                                                parseInt(item.quantity, 10)
+                                            ).toFixed(2)
                                         : "0.00"}
                                 </span>
                             </div>
@@ -170,7 +170,6 @@ const Cart = ({
                 </>
             )}
 
-            {/* Modal de Pago usando Material-UI */}
             <Modal
                 open={isPaymentModalOpen}
                 onClose={handleClosePaymentModal} // Se llama al presionar Escape o hacer clic en el fondo
