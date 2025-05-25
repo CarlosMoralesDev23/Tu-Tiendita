@@ -9,11 +9,25 @@ import Shoes from "../Components/Reusables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reusables/Loader/Loader";
 
-const Home = ({ products, loader, handleOpenCart, cart, addToCart, emptyCart }) => {
+const Home = ({
+    products,
+    loader,
+    handleOpenCart,
+    cart,
+    addToCart,
+    emptyCart,
+    incrementQuantity,
+    decrementQuantity
+}) => {
     return (
         <div>
             <Header />
-            <Nav handleOpenCart={handleOpenCart} emptyCart={emptyCart} />
+            <Nav
+                handleOpenCart={handleOpenCart}
+                emptyCart={emptyCart}
+                incrementQuantity={incrementQuantity}
+                decrementQuntity={decrementQuantity}
+            />
 
             <main>
                 <div className="welcome">
@@ -37,18 +51,30 @@ const Home = ({ products, loader, handleOpenCart, cart, addToCart, emptyCart }) 
                 ) : (
                     <>
                         <div>
-                            <Balls products={products} addToCart={addToCart} />
+                            <Balls
+                                products={products}
+                                addToCart={addToCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
+                            />
                         </div>
 
                         <div>
                             <TShirts
                                 products={products}
                                 addToCart={addToCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         </div>
 
                         <div>
-                            <Shoes products={products} addToCart={addToCart} />
+                            <Shoes
+                                products={products}
+                                addToCart={addToCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
+                            />
                         </div>
                     </>
                 )}

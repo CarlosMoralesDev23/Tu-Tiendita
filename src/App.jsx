@@ -69,6 +69,18 @@ function App() {
         setCart([])
     }
 
+    const incrementQuantity = (product)=>{
+        setCart(
+            cart.map((item)=> item.id === product.id ? {...item, quantity: item.quantity +1}: item)
+        )
+    }
+
+    const decrementQuantity = (product) => {
+        setCart(
+            cart.map((item)=> item.id === product.id ? {...item, quantity: item.quantity -1 }: item)
+        )
+    }
+
 
 
 
@@ -87,6 +99,8 @@ function App() {
                                 cart={cart}
                                 addToCart={addToCart}
                                 emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         }
                     ></Route>
@@ -101,6 +115,8 @@ function App() {
                                 cart={cart}
                                 addToCart={addToCart}
                                 emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         }
                     ></Route>
@@ -115,6 +131,8 @@ function App() {
                                 cart={cart}
                                 addToCart={addToCart}
                                 emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         }
                     ></Route>
@@ -129,6 +147,8 @@ function App() {
                                 cart={cart}
                                 addToCart={addToCart}
                                 emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         }
                     ></Route>
@@ -143,6 +163,8 @@ function App() {
                                 cart={cart}
                                 addToCart={addToCart}
                                 emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         }
                     ></Route>
@@ -157,6 +179,8 @@ function App() {
                                 cart={cart}
                                 addToCart={addToCart}
                                 emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
                             />
                         }
                     ></Route>
@@ -174,6 +198,8 @@ function App() {
                 cart={cart}
                 addToCart={addToCart}
                 emptyCart={emptyCart}
+                incrementQuantity={incrementQuantity}
+                decrementQuantity={decrementQuantity}
             />
         </>
     );

@@ -4,13 +4,17 @@ import "../../../Styles/Reusables/Cart.css"
 import Cerrar from "../../../assets/ImgCart/signo-cerrado.png"
 import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png"
 
-const Cart = ({ isCartOpen, handleCloseCart, cart, emptyCart }) => {
-
-
-    const total = cart.reduce((suma, item)=> {
-        return (suma + (item.price * item.quantity) )
-    }, 0)
-
+const Cart = ({
+    isCartOpen,
+    handleCloseCart,
+    cart,
+    emptyCart,
+    incrementQuantity,
+    decrementQuantity,
+}) => {
+    const total = cart.reduce((suma, item) => {
+        return suma + item.price * item.quantity;
+    }, 0);
 
     let cartClassName = "cartContainer";
     if (isCartOpen) {
@@ -34,14 +38,18 @@ const Cart = ({ isCartOpen, handleCloseCart, cart, emptyCart }) => {
                         <div className="itemContainer" key={index}>
                             <div className="itemDetails">
                                 <h3>{item.name}</h3>
-                                <span className="price">Precio: ${item.price}</span>
+                                <span className="price">
+                                    Precio: ${item.price}
+                                </span>
                             </div>
 
                             <div className="itemQuantityControls">
                                 <div>
-                                    <button>-</button>
-                                    <span className="quantity">{item.quantity}</span>
-                                    <button>+</button>
+                                    <button onClick={()=>decrementQuantity(item)}>-</button>
+                                    <span className="quantity">
+                                        {item.quantity}
+                                    </span>
+                                    <button onClick={()=>incrementQuantity(item)}>+</button>
                                 </div>
                                 <span className="available">
                                     Disponible: {item.stock}
@@ -49,7 +57,9 @@ const Cart = ({ isCartOpen, handleCloseCart, cart, emptyCart }) => {
                             </div>
 
                             <div className="itemSubtotal">
-                                <span className="subTotal">Subt: ${item.price * item.quantity}</span>
+                                <span className="subTotal">
+                                    Subt: ${item.price * item.quantity}
+                                </span>
                             </div>
 
                             <div className="deleteItem">
@@ -69,7 +79,7 @@ const Cart = ({ isCartOpen, handleCloseCart, cart, emptyCart }) => {
                     </div>
 
                     <div className="vaciarCarrito">
-                        <button onClick={()=>emptyCart()}>
+                        <button onClick={() => emptyCart()}>
                             <img src={VaciarCarrito} alt="vaciar carrito" />
                             <span>Vaciar Carrito</span>
                         </button>

@@ -2,7 +2,13 @@ import React from "react";
 
 import ListProducts from "../../ListProducts/ListProducts";
 
-const Shoes = ({ products, cart, addToCart }) => {
+const Shoes = ({
+    products,
+    cart,
+    addToCart,
+    incrementQuantity,
+    decrementQuantity,
+}) => {
     const theShoes = products.filter((product) => product.type === "zapato");
 
     return (

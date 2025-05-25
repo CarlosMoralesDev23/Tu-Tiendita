@@ -1,8 +1,14 @@
 import React from "react";
 import ListProducts from "../../ListProducts/ListProducts";
 
-const Balls = ({ products, cart, addToCart }) => {
-    const theBalls = products.filter((product) => product.type === 'balon')
+const Balls = ({
+    products,
+    cart,
+    addToCart,
+    incrementQuantity,
+    decrementQuantity,
+}) => {
+    const theBalls = products.filter((product) => product.type === "balon");
 
     return (
         <div>
