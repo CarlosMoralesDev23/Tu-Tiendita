@@ -74,6 +74,7 @@ const Cart = ({
                 <EmptyAndPay total={total} handleOpenPaymentModal={handleOpenPaymentModal} emptyCart={emptyCart}   />
             )}
 
+
             <ModalPay isPaymentModalOpen={isPaymentModalOpen} handleClosePaymentModal={handleClosePaymentModal} total={total} handleConfirmPayment={handleConfirmPayment} />
 
 
