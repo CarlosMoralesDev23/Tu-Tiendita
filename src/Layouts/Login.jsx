@@ -3,7 +3,7 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const Login = ({ handleOpenCart }) => {
+const Login = ({ handleOpenCart, cart }) => {
     return (
         <div>
             <Header />

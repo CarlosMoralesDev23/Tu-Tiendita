@@ -3,12 +3,13 @@ import "../../Styles/ListProducts/Product.css";
 import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
 import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
-const Product = ({ product }) => {
+const Product = ({ product, addToCart }) => {
 
 
     
     return (
         <div className="tarjetaProducto">
+            
             <div className="encabezado">
                 <h3>{product.name}</h3>
                 <img src={HeartEmpty} alt="corazon favorito" />
@@ -35,7 +36,7 @@ const Product = ({ product }) => {
             </div>
 
             <div className="contenedorAgregar">
-                <button>Agregar</button>
+                <button onClick={()=>addToCart(product)} >Agregar</button>
             </div>
 
             <div className="contenedorAgregarCantidades">

@@ -9,7 +9,7 @@ import Shoes from "../Components/Reusables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reusables/Loader/Loader";
 
-const Home = ({ products, loader, handleOpenCart }) => {
+const Home = ({ products, loader, handleOpenCart, cart, addToCart }) => {
     return (
         <div>
             <Header />
@@ -37,15 +37,15 @@ const Home = ({ products, loader, handleOpenCart }) => {
                 ) : (
                     <>
                         <div>
-                            <Balls products={products} />
+                            <Balls products={products} addToCart={addToCart} />
                         </div>
 
                         <div>
-                            <TShirts products={products} />
+                            <TShirts products={products} addToCart={addToCart} />
                         </div>
 
                         <div>
-                            <Shoes products={products} />
+                            <Shoes products={products} addToCart={addToCart} />
                         </div>
                     </>
                 )}

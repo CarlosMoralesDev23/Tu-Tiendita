@@ -50,6 +50,21 @@ function App() {
     const handleOpenCart = () => setIsCartOpen(true)
     const handleCloseCart = () => setIsCartOpen(false)
 
+    const addToCart = (product)=>{
+
+        const isProduct = cart.find((item)=> item.id === product.id)
+
+        if (isProduct) {
+
+            setCart( cart.map((item) => item.id === product.id ? {...item, quantity: item.quantity+1}:item ));
+
+        }else{
+            setCart([...cart, {...product, quantity:1}])
+        }
+
+        console.log(cart)
+    }
+
 
 
 
@@ -65,40 +80,73 @@ function App() {
                                 products={products}
                                 loader={loader}
                                 handleOpenCart={handleOpenCart}
+                                cart={cart}
+                                addToCart={addToCart}
                             />
                         }
                     ></Route>
 
                     <Route
                         path="/Categories"
-                        element={<Categories handleOpenCart={handleOpenCart} />}
+                        element={
+                            <Categories
+                                handleOpenCart={handleOpenCart}
+                                cart={cart}
+                            />
+                        }
                     ></Route>
 
                     <Route
                         path="/Offers"
-                        element={<Offers handleOpenCart={handleOpenCart} />}
+                        element={
+                            <Offers
+                                handleOpenCart={handleOpenCart}
+                                cart={cart}
+                                addToCart={addToCart}
+                            />
+                        }
                     ></Route>
 
                     <Route
                         path="/Register"
-                        element={<Register handleOpenCart={handleOpenCart} />}
+                        element={
+                            <Register
+                                handleOpenCart={handleOpenCart}
+                                cart={cart}
+                            />
+                        }
                     ></Route>
 
                     <Route
                         path="/Login"
-                        element={<Login handleOpenCart={handleOpenCart} />}
+                        element={
+                            <Login
+                                handleOpenCart={handleOpenCart}
+                                cart={cart}
+                            />
+                        }
                     ></Route>
 
                     <Route
                         path="/MyCount"
-                        element={<MyCount handleOpenCart={handleOpenCart} />}
+                        element={
+                            <MyCount
+                                handleOpenCart={handleOpenCart}
+                                cart={cart}
+                            />
+                        }
                     ></Route>
 
                     <Route path="*" element={<NF404 />}></Route>
                 </Routes>
             </Router>
 
-            <Cart isCartOpen={isCartOpen} handleCloseCart={handleCloseCart} />
+            <Cart
+                isCartOpen={isCartOpen}
+                handleCloseCart={handleCloseCart}
+                cart={cart}
+                addToCart={addToCart}
+            />
         </>
     );
 }
