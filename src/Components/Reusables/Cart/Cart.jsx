@@ -7,7 +7,10 @@ import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png"
 const Cart = ({ isCartOpen, handleCloseCart, cart }) => {
 
 
-    console.log(cart)
+    const total = cart.reduce((suma, item)=> {
+        return (suma + (item.price * item.quantity) )
+    }, 0)
+
 
     let cartClassName = "cartContainer";
     if (isCartOpen) {
@@ -27,8 +30,8 @@ const Cart = ({ isCartOpen, handleCloseCart, cart }) => {
                 {cart.length === 0 ? (
                     <p>Tu Carrito esta vacio</p>
                 ) : (
-                    cart.map((item) => (
-                        <div className="itemContainer" key={item.index}>
+                    cart.map((item, index) => (
+                        <div className="itemContainer" key={index}>
                             <div className="itemDetails">
                                 <h3>{item.name}</h3>
                                 <span className="price">Precio: ${item.price}</span>
@@ -62,7 +65,7 @@ const Cart = ({ isCartOpen, handleCloseCart, cart }) => {
             {cart.length > 0 && (
                 <>
                     <div className="totalAPagar">
-                        <h3>Total a pagar: 9999.9999</h3>
+                        <h3>Total a pagar: {total}</h3>
                     </div>
 
                     <div className="vaciarCarrito">
