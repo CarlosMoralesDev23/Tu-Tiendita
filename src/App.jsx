@@ -70,9 +70,13 @@ function App() {
     }
 
     const incrementQuantity = (product)=>{
-        setCart(
-            cart.map((item)=> item.id === product.id ? {...item, quantity: item.quantity +1}: item)
-        )
+
+        (product.quantity < product.stock ) ? setCart(cart.map((item) =>
+            item.id === product.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+        )): null;
+
     }
 
     const decrementQuantity = (product) => {
@@ -85,6 +89,8 @@ function App() {
     const removeItemFromCart = (product) => {
         setCart(cart.filter((item) => (item.id !== product.id ? item : null)));
     };
+
+
 
 
 

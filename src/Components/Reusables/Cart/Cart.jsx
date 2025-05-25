@@ -87,6 +87,8 @@ const Cart = ({
                         <h3>Total a pagar: {total}</h3>
                     </div>
 
+                    <button>Pagar</button>
+
                     <div className="vaciarCarrito">
                         <button onClick={() => emptyCart()}>
                             <img src={VaciarCarrito} alt="vaciar carrito" />
