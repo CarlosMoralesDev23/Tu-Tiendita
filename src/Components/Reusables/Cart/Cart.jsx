@@ -4,7 +4,7 @@ import "../../../Styles/Reusables/Cart.css"
 import Cerrar from "../../../assets/ImgCart/signo-cerrado.png"
 import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png"
 
-const Cart = ({ isCartOpen, handleCloseCart, cart }) => {
+const Cart = ({ isCartOpen, handleCloseCart, cart, emptyCart }) => {
 
 
     const total = cart.reduce((suma, item)=> {
@@ -69,7 +69,7 @@ const Cart = ({ isCartOpen, handleCloseCart, cart }) => {
                     </div>
 
                     <div className="vaciarCarrito">
-                        <button>
+                        <button onClick={()=>emptyCart()}>
                             <img src={VaciarCarrito} alt="vaciar carrito" />
                             <span>Vaciar Carrito</span>
                         </button>

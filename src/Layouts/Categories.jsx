@@ -3,11 +3,18 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const Categories = ({ handleOpenCart, cart }) => {
+const Categories = ({
+    products,
+    loader,
+    handleOpenCart,
+    cart,
+    addToCart,
+    emptyCart,
+}) => {
     return (
         <div>
             <Header />
-            <Nav handleOpenCart={handleOpenCart} cart={cart}/>
+            <Nav handleOpenCart={handleOpenCart} cart={cart} />
             <h2>Categorias</h2>
             <h3>EN DESARROLLO</h3>
             <Footer />

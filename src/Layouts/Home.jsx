@@ -9,11 +9,11 @@ import Shoes from "../Components/Reusables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reusables/Loader/Loader";
 
-const Home = ({ products, loader, handleOpenCart, cart, addToCart }) => {
+const Home = ({ products, loader, handleOpenCart, cart, addToCart, emptyCart }) => {
     return (
         <div>
             <Header />
-            <Nav handleOpenCart={handleOpenCart} />
+            <Nav handleOpenCart={handleOpenCart} emptyCart={emptyCart} />
 
             <main>
                 <div className="welcome">
@@ -41,7 +41,10 @@ const Home = ({ products, loader, handleOpenCart, cart, addToCart }) => {
                         </div>
 
                         <div>
-                            <TShirts products={products} addToCart={addToCart} />
+                            <TShirts
+                                products={products}
+                                addToCart={addToCart}
+                            />
                         </div>
 
                         <div>

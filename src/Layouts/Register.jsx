@@ -3,7 +3,14 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const Register = ({ handleOpenCart, cart }) => {
+const Register = ({
+    products,
+    loader,
+    handleOpenCart,
+    cart,
+    addToCart,
+    emptyCart,
+}) => {
     return (
         <div>
             <Header />

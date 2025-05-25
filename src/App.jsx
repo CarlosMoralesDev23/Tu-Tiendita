@@ -65,6 +65,10 @@ function App() {
         console.log(cart)
     }
 
+    const emptyCart = ()=>{
+        setCart([])
+    }
+
 
 
 
@@ -82,6 +86,7 @@ function App() {
                                 handleOpenCart={handleOpenCart}
                                 cart={cart}
                                 addToCart={addToCart}
+                                emptyCart={emptyCart}
                             />
                         }
                     ></Route>
@@ -90,8 +95,12 @@ function App() {
                         path="/Categories"
                         element={
                             <Categories
+                                products={products}
+                                loader={loader}
                                 handleOpenCart={handleOpenCart}
                                 cart={cart}
+                                addToCart={addToCart}
+                                emptyCart={emptyCart}
                             />
                         }
                     ></Route>
@@ -100,9 +109,12 @@ function App() {
                         path="/Offers"
                         element={
                             <Offers
+                                products={products}
+                                loader={loader}
                                 handleOpenCart={handleOpenCart}
                                 cart={cart}
                                 addToCart={addToCart}
+                                emptyCart={emptyCart}
                             />
                         }
                     ></Route>
@@ -111,8 +123,12 @@ function App() {
                         path="/Register"
                         element={
                             <Register
+                                products={products}
+                                loader={loader}
                                 handleOpenCart={handleOpenCart}
                                 cart={cart}
+                                addToCart={addToCart}
+                                emptyCart={emptyCart}
                             />
                         }
                     ></Route>
@@ -121,8 +137,12 @@ function App() {
                         path="/Login"
                         element={
                             <Login
+                                products={products}
+                                loader={loader}
                                 handleOpenCart={handleOpenCart}
                                 cart={cart}
+                                addToCart={addToCart}
+                                emptyCart={emptyCart}
                             />
                         }
                     ></Route>
@@ -131,8 +151,12 @@ function App() {
                         path="/MyCount"
                         element={
                             <MyCount
+                                products={products}
+                                loader={loader}
                                 handleOpenCart={handleOpenCart}
                                 cart={cart}
+                                addToCart={addToCart}
+                                emptyCart={emptyCart}
                             />
                         }
                     ></Route>
@@ -144,8 +168,12 @@ function App() {
             <Cart
                 isCartOpen={isCartOpen}
                 handleCloseCart={handleCloseCart}
+                products={products}
+                loader={loader}
+                handleOpenCart={handleOpenCart}
                 cart={cart}
                 addToCart={addToCart}
+                emptyCart={emptyCart}
             />
         </>
     );

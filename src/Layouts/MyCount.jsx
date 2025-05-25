@@ -3,7 +3,14 @@ import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
 
-const MyCount = ({ handleOpenCart, cart }) => {
+const MyCount = ({
+    products,
+    loader,
+    handleOpenCart,
+    cart,
+    addToCart,
+    emptyCart,
+}) => {
     return (
         <div>
             <Header />
