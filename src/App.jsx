@@ -81,6 +81,10 @@ function App() {
         )
     }
 
+    const removeItemFromCart = (product) => {
+        setCart(cart.filter((item) => (item.id !== product.id ? item : null)));
+    };
+
 
 
 
@@ -101,6 +105,7 @@ function App() {
                                 emptyCart={emptyCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         }
                     ></Route>
@@ -117,6 +122,7 @@ function App() {
                                 emptyCart={emptyCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         }
                     ></Route>
@@ -133,6 +139,7 @@ function App() {
                                 emptyCart={emptyCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         }
                     ></Route>
@@ -149,6 +156,7 @@ function App() {
                                 emptyCart={emptyCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         }
                     ></Route>
@@ -165,6 +173,7 @@ function App() {
                                 emptyCart={emptyCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         }
                     ></Route>
@@ -181,6 +190,7 @@ function App() {
                                 emptyCart={emptyCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         }
                     ></Route>
@@ -200,6 +210,7 @@ function App() {
                 emptyCart={emptyCart}
                 incrementQuantity={incrementQuantity}
                 decrementQuantity={decrementQuantity}
+                removeItemFromCart={removeItemFromCart}
             />
         </>
     );

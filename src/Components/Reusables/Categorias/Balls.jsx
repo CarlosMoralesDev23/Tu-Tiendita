@@ -7,6 +7,7 @@ const Balls = ({
     addToCart,
     incrementQuantity,
     decrementQuantity,
+    removeItemFromCart,
 }) => {
     const theBalls = products.filter((product) => product.type === "balon");
 
@@ -15,7 +16,11 @@ const Balls = ({
             <div className="Balones">
                 <h2>Balones</h2>
                 <div className="contenedorTarjetaBalones">
-                    <ListProducts products={theBalls} addToCart={addToCart} />
+                    <ListProducts
+                        products={theBalls}
+                        addToCart={addToCart}
+                        removeItemFromCart={removeItemFromCart}
+                    />
                 </div>
             </div>
         </div>

@@ -17,7 +17,8 @@ const Home = ({
     addToCart,
     emptyCart,
     incrementQuantity,
-    decrementQuantity
+    decrementQuantity,
+    removeItemFromCart
 }) => {
     return (
         <div>
@@ -27,6 +28,7 @@ const Home = ({
                 emptyCart={emptyCart}
                 incrementQuantity={incrementQuantity}
                 decrementQuntity={decrementQuantity}
+                removeItemFromCart={removeItemFromCart}
             />
 
             <main>
@@ -56,6 +58,7 @@ const Home = ({
                                 addToCart={addToCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         </div>
 
@@ -65,6 +68,7 @@ const Home = ({
                                 addToCart={addToCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         </div>
 
@@ -74,6 +78,7 @@ const Home = ({
                                 addToCart={addToCart}
                                 incrementQuantity={incrementQuantity}
                                 decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
                             />
                         </div>
                     </>

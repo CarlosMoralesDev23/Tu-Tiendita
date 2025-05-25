@@ -11,6 +11,7 @@ const Cart = ({
     emptyCart,
     incrementQuantity,
     decrementQuantity,
+    removeItemFromCart,
 }) => {
     const total = cart.reduce((suma, item) => {
         return suma + item.price * item.quantity;
@@ -45,11 +46,19 @@ const Cart = ({
 
                             <div className="itemQuantityControls">
                                 <div>
-                                    <button onClick={()=>decrementQuantity(item)}>-</button>
+                                    <button
+                                        onClick={() => decrementQuantity(item)}
+                                    >
+                                        -
+                                    </button>
                                     <span className="quantity">
                                         {item.quantity}
                                     </span>
-                                    <button onClick={()=>incrementQuantity(item)}>+</button>
+                                    <button
+                                        onClick={() => incrementQuantity(item)}
+                                    >
+                                        +
+                                    </button>
                                 </div>
                                 <span className="available">
                                     Disponible: {item.stock}
@@ -63,7 +72,7 @@ const Cart = ({
                             </div>
 
                             <div className="deleteItem">
-                                <button>
+                                <button onClick={()=>removeItemFromCart(item)}>
                                     <img src={ImageTrash} alt="Eliminar item" />
                                 </button>
                             </div>
