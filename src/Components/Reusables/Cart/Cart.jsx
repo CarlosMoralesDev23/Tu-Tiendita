@@ -2,6 +2,7 @@ import React from "react";
 import ImageTrash from "../../../assets/ImgCart/Trash.png";
 import "../../../Styles/Reusables/Cart.css"
 import Cerrar from "../../../assets/ImgCart/signo-cerrado.png"
+import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png"
 
 const Cart = ({ isCartOpen, handleCloseCart }) => {
     let cartClassName = "cartContainer";
@@ -31,7 +32,7 @@ const Cart = ({ isCartOpen, handleCloseCart }) => {
                             <span className="quantity">99</span>
                             <button>+</button>
                         </div>
-                        <span className="disponible">Disponible: 999</span>
+                        <span className="available">Disponible: 999</span>
                     </div>
 
                     <div className="itemSubtotal">
@@ -44,6 +45,19 @@ const Cart = ({ isCartOpen, handleCloseCart }) => {
                         </button>
                     </div>
                 </div>
+            </div>
+
+
+            <div className="totalAPagar">
+                <h3>Total a pagar: 9999.9999</h3>
+            </div>
+
+
+            <div className="vaciarCarrito">
+                <button>
+                    <img src={VaciarCarrito} alt="vaciar carrito" />
+                    <span>Vaciar Carrito</span>
+                </button>
             </div>
         </div>
     );
