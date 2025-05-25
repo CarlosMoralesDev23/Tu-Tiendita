@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import ImageTrash from "../../../assets/ImgCart/Trash.png";
 import "../../../Styles/Reusables/Cart.css"; 
 import Cerrar from "../../../assets/ImgCart/signo-cerrado.png";
-import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png";
+import CartItem from "./CartItem";
+import EmptyAndPay from "../Cart/EmptyAndPay"
 
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
@@ -19,6 +19,12 @@ const Cart = ({
     decrementQuantity,
     removeItemFromCart,
 }) => {
+
+    const total = cart.reduce((suma, item) => {
+        const price = parseFloat(item.price) || 0;
+        const quantity = parseInt(item.quantity, 10) || 0;
+        return suma + price * quantity;
+    }, 0);
 
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
@@ -42,11 +48,7 @@ const Cart = ({
         }, 500);
     };
 
-    const total = cart.reduce((suma, item) => {
-        const price = parseFloat(item.price) || 0;
-        const quantity = parseInt(item.quantity, 10) || 0;
-        return suma + price * quantity;
-    }, 0);
+
 
     let cartClassName = "cartContainer";
     if (isCartOpen) {
@@ -78,97 +80,17 @@ const Cart = ({
                 </button>
             </div>
 
-            <div className="cartItemsContainer">
-                {cart.length === 0 ? (
-                    <p style={{ textAlign: "center", padding: "20px" }}>
-                        Tu Carrito esta vacio
-                    </p>
-                ) : (
-                    cart.map((item, index) => (
-                        <div className="itemContainer" key={item.id || index}>
-                            {" "}
-                            <div className="itemDetails">
-                                <h3>{item.name}</h3>
-                                <span className="price">
-                                    Precio: $
-                                    {item.price
-                                        ? parseFloat(item.price).toFixed(2)
-                                        : "0.00"}
-                                </span>
-                            </div>
-                            <div className="itemQuantityControls">
-                                <div>
-                                    <button
-                                        onClick={() => decrementQuantity(item)}
-                                    >
-                                        -
-                                    </button>
-                                    <span className="quantity">
-                                        {item.quantity || 0}
-                                    </span>
-                                    <button
-                                        onClick={() => incrementQuantity(item)}
-                                    >
-                                        +
-                                    </button>
-                                </div>
-                                <span className="available">
-                                    Disponible:{" "}
-                                    {item.stock !== undefined
-                                        ? item.stock
-                                        : "N/A"}
-                                </span>
-                            </div>
-                            <div className="itemSubtotal">
-                                <span className="subTotal">
-                                    Subt: $
-                                    {item.price && item.quantity
-                                        ? (
-                                                parseFloat(item.price) *
-                                                parseInt(item.quantity, 10)
-                                            ).toFixed(2)
-                                        : "0.00"}
-                                </span>
-                            </div>
-                            <div className="deleteItem">
-                                <button
-                                    onClick={() => removeItemFromCart(item)}
-                                >
-                                    <img
-                                        src={ImageTrash}
-                                        alt={`Eliminar ${item.name}`}
-                                    />
-                                </button>
-                            </div>
-                        </div>
-                    ))
-                )}
-            </div>
+
+
+            <CartItem cart={cart} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity} removeItemFromCart={removeItemFromCart}   />
+
+
 
             {cart.length > 0 && (
-                <>
-                    <div className="totalAPagar">
-                        <h3>Total a pagar: ${total.toFixed(2)}</h3>
-                    </div>
-                    <div className="cartActions">
-                        {" "}
-                        {/* Contenedor para los botones de acción */}
-                        {/* Botón Pagar ahora abre el modal de MUI */}
-                        <button
-                            className="checkoutButton"
-                            onClick={handleOpenPaymentModal}
-                        >
-                            Pagar
-                        </button>
-                        <div className="vaciarCarrito">
-                            <button onClick={emptyCart}>
-                                <img src={VaciarCarrito} alt="Vaciar carrito" />
-                                <span>Vaciar Carrito</span>
-                            </button>
-                        </div>
-                    </div>
-                </>
+                <EmptyAndPay total={total} handleOpenPaymentModal={handleOpenPaymentModal} emptyCart={emptyCart}   />
             )}
+
+
 
             <Modal
                 open={isPaymentModalOpen}
