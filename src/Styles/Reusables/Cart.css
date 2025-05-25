@@ -33,11 +33,15 @@
 
 .closeButton {
     background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
 
-    img {
-        width: 50px;
-        height: 50px;
-    }
+.closeButton img {
+    width: 30px;
+    height: 30px;
+    display: block;
 }
 
 .cartItemsContainer {
@@ -48,25 +52,32 @@
 }
 
 .itemContainer {
-    padding: 5px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 3px solid rgba(35, 216, 225, 0.524);
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    gap: 10px;
 }
 
 .itemDetails {
     font-size: 14px;
     color: black;
     display: flex;
-    gap: 15px;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
+    flex-grow: 1;
+}
 
-    h3,
-    .price {
-        font-size: 0.9em;
-    }
+.itemDetails h3 {
+    font-size: 0.95em;
+    margin: 0;
+    font-weight: 600;
+}
+
+.itemDetails .price {
+    font-size: 0.9em;
 }
 
 .itemQuantityControls {
@@ -74,92 +85,141 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+}
 
-    div {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: black;
+.itemQuantityControls div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: black;
+}
 
-        button {
-            padding: 4px 8px;
-            background-color: #f0f0f0;
-            border: 1px solid #ccccccc5;
-            cursor: pointer;
-            border-radius: 4px;
-            color: black;
-        }
+.itemQuantityControls div button {
+    padding: 4px 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccccccc5;
+    cursor: pointer;
+    border-radius: 4px;
+    color: black;
+    min-width: 25px;
+}
 
-        .quantity {
-            color: black;
-            min-width: 15px;
-            text-align: center;
-            font-size: 14px;
-        }
-    }
-    .available {
-        font-size: 12px;
-    }
+.itemQuantityControls .quantity {
+    color: black;
+    min-width: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.itemQuantityControls .available {
+    font-size: 11px;
+    color: #757575;
 }
 
 .itemSubtotal {
     color: black;
     font-weight: bold;
     text-align: right;
+    min-width: 80px;
+}
 
-    .subTotal {
-        font-size: 14px;
-    }
+.itemSubtotal .subTotal {
+    font-size: 14px;
 }
 
 .deleteItem {
     text-align: right;
-
-    button {
-        background-color: transparent;
-        border: 1px solid transparent;
-        cursor: pointer;
-        padding: 4px;
-        border-radius: 4px;
-        transition: background-color 0.2s ease, border-color 0.2s ease;
-
-        &:hover {
-            background-color: #ffebee;
-            border-color: #ef9a9a;
-        }
-
-        img {
-            height: 30px;
-            width: auto;
-            display: block;
-        }
-    }
 }
 
-.totalAPagar{
+.deleteItem button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    line-height: 0;
+}
+
+.deleteItem button:hover {
+    background-color: #ffeeee;
+}
+
+.deleteItem button img {
+    height: 20px;
+    width: auto;
+    display: block;
+}
+
+.totalAPagar {
     margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+    text-align: right;
+    font-size: 1.1em;
 }
 
-.vaciarCarrito{
+.totalAPagar h3 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cartActions {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-    button {
-        background-color: transparent;
-        border: 1px solid transparent;
-        cursor: pointer;
-        padding: 12px;
-        transition: background-color 0.2s ease, border-color 0.2s ease;
-        color: black;
+.checkoutButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
 
-        &:hover {
-            background-color: #ffebee;
-            border-color: #ef9a9a;
-        }
+.checkoutButton:hover {
+    background-color: #0056b3;
+}
 
-        img {
-            height: 70px;
-            width: auto;
-            display: block;
-        }
-    }
+.vaciarCarrito button {
+    background-color: transparent;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease,
+        border-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.vaciarCarrito button:hover {
+    background-color: #f8f9fa;
+    border-color: #5a6268;
+    color: #5a6268;
+}
+
+.vaciarCarrito button img {
+    height: 18px;
+    width: auto;
+}
+
+.MuiModal-backdrop {
+    background-color: rgba(0, 0, 0, 0.75) !important;
 }
