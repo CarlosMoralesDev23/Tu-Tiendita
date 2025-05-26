@@ -109,7 +109,22 @@ function App() {
                     ></Route>
 
                     {/* <Route path="/productos/:id/usuarios/:idUser" element={<DetallesProductos/>}></Route> */}
-                    <Route path="/products/:id" element={<DetailsProducts products={products} />}></Route>
+                    <Route
+                        path="/products/:id"
+                        element={
+                            <DetailsProducts
+                                products={products}
+                                loader={loader}
+                                handleOpenCart={handleOpenCart}
+                                cart={cart}
+                                addToCart={addToCart}
+                                emptyCart={emptyCart}
+                                incrementQuantity={incrementQuantity}
+                                decrementQuantity={decrementQuantity}
+                                removeItemFromCart={removeItemFromCart}
+                            />
+                        }
+                    ></Route>
 
                     <Route
                         path="/Categories"
