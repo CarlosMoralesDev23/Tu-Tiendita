@@ -46,14 +46,10 @@ const Cart = ({
         }, 500);
     };
 
-
-
     let cartClassName = "cartContainer";
     if (isCartOpen) {
         cartClassName += " open";
     }
-
-
 
     return (
         <div className={cartClassName}>
@@ -63,8 +59,6 @@ const Cart = ({
                     <img src={Cerrar} alt="Cerrar carrito" />
                 </button>
             </div>
-
-
 
             <CartItem cart={cart} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity} removeItemFromCart={removeItemFromCart}   />
 

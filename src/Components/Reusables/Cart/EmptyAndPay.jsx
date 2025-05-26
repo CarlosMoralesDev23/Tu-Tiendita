@@ -19,7 +19,6 @@ const EmptyAndPay = ({
                 <h3>Total a pagar: ${total.toFixed(2)}</h3>
             </div>
             <div className="cartActions">
-                {" "}
                 <button
                     className="checkoutButton"
                     onClick={handleOpenPaymentModal}

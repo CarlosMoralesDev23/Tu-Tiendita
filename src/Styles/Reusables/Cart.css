@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 415px;
+    width: 420px;
     height: 100%;
     background-color: white;
     transform: translateX(100%);
@@ -24,41 +24,58 @@
     align-items: center;
     padding: 12px;
     margin-bottom: 15px;
+
+    h2 {
+        margin: 0;
+        font-size: 1.4em;
+    }
 }
 
-.cartHeader h2 {
-    margin: 0;
-    font-size: 1.4em;
-}
 
 .closeButton {
     background-color: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
-}
 
-.closeButton img {
-    width: 30px;
-    height: 30px;
-    display: block;
+    img {
+        width: 30px;
+        height: 30px;
+        display: block;
+    }
 }
 
 .cartItemsContainer {
     padding: 0px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    p{
+        text-align: center;
+        padding: 20px;
+    }
 }
 
 .itemContainer {
+    background-color: #dbdbdb;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #d8c4c4;
     border-radius: 6px;
     gap: 10px;
+
+    .itemImage{
+        img{
+            width: 60px;
+            border-radius: 8px;
+
+        }
+    }
 }
 
 .itemDetails {
@@ -68,17 +85,18 @@
     flex-direction: column;
     gap: 5px;
     flex-grow: 1;
+
+    h3 {
+        font-size: 0.95em;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .price {
+        font-size: 0.9em;
+    }
 }
 
-.itemDetails h3 {
-    font-size: 0.95em;
-    margin: 0;
-    font-weight: 600;
-}
-
-.itemDetails .price {
-    font-size: 0.9em;
-}
 
 .itemQuantityControls {
     display: flex;
@@ -86,84 +104,88 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: black;
+
+        button {
+            padding: 4px 8px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccccccc5;
+            cursor: pointer;
+            border-radius: 4px;
+            color: black;
+            min-width: 25px;
+        }
+
+        .quantity {
+            color: black;
+            min-width: 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    .available {
+        font-size: 11px;
+        color: #757575;
+    }
 }
 
-.itemQuantityControls div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: black;
-}
 
-.itemQuantityControls div button {
-    padding: 4px 8px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccccccc5;
-    cursor: pointer;
-    border-radius: 4px;
-    color: black;
-    min-width: 25px;
-}
-
-.itemQuantityControls .quantity {
-    color: black;
-    min-width: 20px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.itemQuantityControls .available {
-    font-size: 11px;
-    color: #757575;
-}
 
 .itemSubtotal {
     color: black;
     font-weight: bold;
-    text-align: right;
-    min-width: 80px;
-}
-
-.itemSubtotal .subTotal {
-    font-size: 14px;
+    text-align: center;
+    min-width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    font-size: 12px;
 }
 
 .deleteItem {
     text-align: right;
+
+    button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        line-height: 0;
+
+        &:hover {
+            background-color: #fbdbdb;
+        }
+
+        img {
+            height: 22px;
+            width: auto;
+            display: block;
+        }
+    }
 }
 
-.deleteItem button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-    line-height: 0;
-}
-
-.deleteItem button:hover {
-    background-color: #ffeeee;
-}
-
-.deleteItem button img {
-    height: 20px;
-    width: auto;
-    display: block;
-}
 
 .totalAPagar {
-    margin-top: 30px;
-    padding-top: 15px;
+    margin-top: 15px;
+    padding-top: 10px;
     border-top: 1px dashed #ccc;
     text-align: right;
-    font-size: 1.1em;
-}
+    font-size: 0.9em;
 
-.totalAPagar h3 {
-    margin: 0;
-    font-weight: 600;
+    h3 {
+        margin: 0;
+        font-weight: 600;
+    }
 }
 
 .cartActions {
@@ -171,24 +193,25 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    .checkoutButton {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: 500;
+        text-align: center;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
 }
 
-.checkoutButton {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 1em;
-    font-weight: 500;
-    text-align: center;
-    transition: background-color 0.2s ease;
-}
-
-.checkoutButton:hover {
-    background-color: #0056b3;
-}
 
 .vaciarCarrito button {
     background-color: transparent;
@@ -196,9 +219,10 @@
     color: #6c757d;
     cursor: pointer;
     padding: 10px 12px;
+    margin-bottom: 30px;
     border-radius: 5px;
-    font-size: 0.95em;
-    font-weight: 500;
+    font-size: 0.70em;
+    font-weight: 400;
     text-align: center;
     transition: background-color 0.2s ease, color 0.2s ease,
         border-color 0.2s ease;
@@ -207,18 +231,19 @@
     justify-content: center;
     gap: 8px;
     width: 100%;
+
+    img {
+        height: 24px;
+        width: auto;
+    }
+
+    &:hover {
+        background-color: #c5c7c8;
+        border-color: #5a6268;
+        color: #40586a;
+    }
 }
 
-.vaciarCarrito button:hover {
-    background-color: #f8f9fa;
-    border-color: #5a6268;
-    color: #5a6268;
-}
-
-.vaciarCarrito button img {
-    height: 18px;
-    width: auto;
-}
 
 .MuiModal-backdrop {
     background-color: rgba(0, 0, 0, 0.75) !important;
