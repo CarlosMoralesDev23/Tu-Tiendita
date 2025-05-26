@@ -7,7 +7,7 @@ const DetailsProducts = ({products}) => {
     // const {id, idUser}= useParams()
 
 
-    const product = products.find((Product)=> Product.id === id)
+    const product = products.find((Product)=> Product.id == id)
     
     return (
         <div>

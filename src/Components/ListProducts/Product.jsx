@@ -3,6 +3,8 @@ import "../../Styles/ListProducts/Product.css";
 import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
 import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
+import { Link } from "react-router-dom";
+
 const Product = ({ product, addToCart }) => {
 
 
@@ -45,6 +47,10 @@ const Product = ({ product, addToCart }) => {
                     <span>0</span>
                     <button>+</button>
                 </div>
+            </div>
+
+            <div>
+                <Link to={`/products/${product.id}`}>Ver Mas</Link>
             </div>
         </div>
     );
