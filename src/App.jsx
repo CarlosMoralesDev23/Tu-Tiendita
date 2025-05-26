@@ -10,22 +10,15 @@ import Register from "./Layouts/Register.jsx";
 import Login from "./Layouts/Login.jsx";
 import Cart from "./Components/Reusables/Cart/Cart.jsx";
 import NF404 from "./Components/Reusables/NF404/NotFound.jsx";
+import DetailsProducts from "./Components/DetailsProducts/DetailsProducts.jsx";
 
 
 function App() {
 
-    // carrito para agregar productos
     const [cart, setCart] = useState([])
-
     const [isCartOpen, setIsCartOpen] = useState(false)
-
-    // productos para guardar los datos traidos del json
     const [products, setProducts] = useState([])
-
-    //error para cuando no cargue la pagina
     const [error, setError] = useState(false)
-
-    //loader para cargar spiner/loader mientras cargan los productos
     const [loader, setLoader] = useState(true)
 
     useEffect(() => {
@@ -41,8 +34,6 @@ function App() {
             console.log("Error: ", error); setLoader(false); setError(true)
         })
     }, [])
-
-
 
 
     //* FUNCIONES
@@ -116,6 +107,9 @@ function App() {
                             />
                         }
                     ></Route>
+
+                    {/* <Route path="/productos/:id/usuarios/:idUser" element={<DetallesProductos/>}></Route> */}
+                    <Route path="/products/:id" element={<DetailsProducts products={products} />}></Route>
 
                     <Route
                         path="/Categories"
