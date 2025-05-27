@@ -35,15 +35,19 @@ const Cart = ({
     };
 
     const handleConfirmPayment = () => {
+
         console.log("Pago confirmado a través de MUI Modal!");
+
         alert("¡Gracias por tu compra!"); 
+
         handleClosePaymentModal(); 
 
         emptyCart();
 
         setTimeout(() => {
             handleCloseCart()
-        }, 500);
+        }, 100);
+
     };
 
     let cartClassName = "cartContainer";
