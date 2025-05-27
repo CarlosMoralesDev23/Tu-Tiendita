@@ -11,6 +11,8 @@ import Login from "./Layouts/Login.jsx";
 import Cart from "./Components/Reusables/Cart/Cart.jsx";
 import NF404 from "./Components/Reusables/NF404/NotFound.jsx";
 import DetailsProducts from "./Components/DetailsProducts/DetailsProducts.jsx";
+import Admin from "./Layouts/Admin.jsx";
+import RutasProtegida from "./auth/RutasProtegida.jsx";
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
     const [products, setProducts] = useState([])
     const [error, setError] = useState(false)
     const [loader, setLoader] = useState(true)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     useEffect(() => {
     
@@ -210,6 +213,17 @@ function App() {
                             />
                         }
                     ></Route>
+
+                    <Route
+                        path="/admin"
+                        element={
+                            <RutasProtegida isAuthenticated={isAuthenticated}>
+                                <Admin />
+                            </RutasProtegida>
+                        }
+                    />
+
+                    <Route path="/login" element={<Login />} />
 
                     <Route path="*" element={<NF404 />}></Route>
                 </Routes>
