@@ -8,7 +8,11 @@ export const CartProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
     const [loader, setLoader] = useState(true);
+
+
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const loginUser = () => setIsAuthenticated(true);
+    const logoutUser = () => setIsAuthenticated(false);
 
     useEffect(() => {
         fetch("/data/products.json")
@@ -58,42 +62,52 @@ export const CartProvider = ({ children }) => {
     };
 
     const incrementQuantity = (productToIncrement) => {
-        const productInCart = cart.find(
-            (item) => item.id === productToAdd.id
-        );
+        const productInCart = cart.find((item) => item.id === productToAdd.id);
 
-
-        if (productInCart && productInCart.quantity < productToIncrement.quantity ) {
+        if (
+            productInCart &&
+            productInCart.quantity < productToIncrement.quantity
+        ) {
             setCart(
                 cart.map((item) =>
                     item.id === product.id
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 )
-            )
+            );
         } else if (productInCart) {
             console.log(`Ya no hay mas ${productToAdd.name} disponibles`);
             alert(`Ya no hay mas ${productToAdd.name} disponibles`);
-            
         }
-
     };
 
-    const decrementQuantity = (product) => {
-        product.quantity === 1
-            ? removeItemFromCart(product)
-            : setCart(
-                  cart.map((item) =>
-                      item.id === product.id
-                          ? { ...item, quantity: item.quantity - 1 }
-                          : item
-                  )
-              );
+    const decrementQuantity = (productToDecrement) => {
+        const productInCart = cart.find((item) => item.id === productToAdd.id);
+
+        if (productInCart) {
+            if (productToDecrement === 1) {
+                removeItemFromCart(productToDecrement);
+            } else {
+                setCart(
+                    cart.map((item) =>
+                        item.id === product.id
+                            ? { ...item, quantity: item.quantity - 1 }
+                            : item
+                    )
+                );
+            }
+        }
     };
 
-    const removeItemFromCart = (product) => {
-        setCart(cart.filter((item) => (item.id !== product.id ? item : null)));
+    const removeItemFromCart = (productToRemove) => {
+        setCart(
+            cart.map((item) =>
+                item.id !== productToRemove.id
+            )
+        );
     };
+
+
 
     return (
         <CartContext.Provider
@@ -105,12 +119,14 @@ export const CartProvider = ({ children }) => {
                 addToCart,
                 removeItemFromCart,
                 handleOpenCart,
+                handleCloseCart,
+                isCartOpen,
                 emptyCart,
                 incrementQuantity,
                 decrementQuantity,
                 isAuthenticated,
-                isCartOpen,
-                handleCloseCart,
+                loginUser,
+                logoutUser
             }}
         >
             {children}
