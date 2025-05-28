@@ -18,6 +18,8 @@ const Cart = ({
     removeItemFromCart,
 }) => {
 
+    const {} = useContext(contextValue)
+
     const total = cart.reduce((suma, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity, 10) || 0;

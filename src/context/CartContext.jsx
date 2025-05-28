@@ -55,32 +55,20 @@ export const CartProvider = ({ children }) => {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
         }
     };
-    const theBalls   = products.filter((product) => product.type === "balon");
+    const theBalls = products.filter((product) => product.type === "balon");
     const theTShirts = products.filter((product) => product.type === "remera");
-    const theShoes   = products.filter((product) => product.type === "zapato");
-
-
-
-
-
-
+    const theShoes = products.filter((product) => product.type === "zapato");
 
     const emptyCart = () => {
         setCart([]);
     };
 
-
-
-
-
-
-
-
-
     const incrementQuantity = (productToIncrement) => {
-        const productInCart = cart.find((item) => item.id === productToIncrement.id);
+        const productInCart = cart.find(
+            (item) => item.id === productToIncrement.id
+        );
 
-        if(productInCart){
+        if (productInCart) {
             if (
                 productInCart &&
                 productInCart.quantity < productToIncrement.stock
@@ -92,21 +80,17 @@ export const CartProvider = ({ children }) => {
                             : item
                     )
                 );
-            } else{
+            } else {
                 console.log(`Ya no hay mas ${productInCart.name} disponibles`);
                 alert(`Ya no hay mas ${productInCart.name} disponibles`);
             }
         }
     };
 
-
-
-
-
-
-
     const decrementQuantity = (productToDecrement) => {
-        const productInCart = cart.find((item) => item.id === productToDecrement.id);
+        const productInCart = cart.find(
+            (item) => item.id === productToDecrement.id
+        );
 
         if (productInCart) {
             if (productInCart === 1) {
@@ -122,16 +106,6 @@ export const CartProvider = ({ children }) => {
             }
         }
     };
-
-
-
-
-
-
-
-
-
-
 
     const removeItemFromCart = (productToRemove) => {
         setCart(cart.filter((item) => item.id !== productToRemove.id));
@@ -157,7 +131,7 @@ export const CartProvider = ({ children }) => {
                 logoutUser,
                 theBalls,
                 theTShirts,
-                theShoes
+                theShoes,
             }}
         >
             {children}

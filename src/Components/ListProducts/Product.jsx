@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import "../../Styles/ListProducts/Product.css";
 import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
 import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ product = [] }) => {
 
+    const {addToCart} = useContext(CartContext)
 
-    
     return (
         <div className="tarjetaProducto">
             
