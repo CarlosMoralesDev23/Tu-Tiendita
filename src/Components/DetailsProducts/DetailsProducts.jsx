@@ -1,9 +1,12 @@
 import React, {useContext} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; 
 import Header from "../Fijos/Header/Header";
 import Nav from "../Fijos/Nav/Nav";
 import Footer from "../Fijos/Footer/Footer";
 import { CartContext } from "../../context/CartContext";
+import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg"
+import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
+
 
 const DetailsProducts = ( ) => {
     const { id } = useParams();
@@ -16,12 +19,63 @@ const DetailsProducts = ( ) => {
     return (
         <div>
             <Header />
-            <Nav/>
+            <Nav />
 
             <h1>Detalle del producto: {id}</h1>
             {/* <h2>Detalle del usuario:{idUser}</h2> */}
 
-            {product ? <h2>{product.name}</h2> : <p>Producto no encontrado</p>}
+            {product ? (
+                <>
+                    <h2>{product.name}</h2>
+
+                    <div className="tarjetaProducto">
+                        <div className="encabezado">
+                            <h3>{product.name}</h3>
+                            <img src={HeartEmpty} alt="corazon favorito" />
+                        </div>
+
+                        <div className="valoracion">
+                            <img src={StarEmpty} alt="" />
+                            <img src={StarEmpty} alt="" />
+                            <img src={StarEmpty} alt="" />
+                            <img src={StarEmpty} alt="" />
+                            <img src={StarEmpty} alt="" />
+                        </div>
+
+                        <div className="contenedorImagen">
+                            <img src={product.image} alt="balon" />
+                        </div>
+
+                        <div className="contenedorPrecio">
+                            <span>{product.price} $</span>
+                        </div>
+
+                        <div className="contenedorStock">
+                            <span>Disponibles: {product.stock}</span>
+                        </div>
+
+                        <div className="contenedorAgregar">
+                            <button onClick={() => addToCart(product)}>
+                                Agregar
+                            </button>
+                        </div>
+
+                        {/* <div className="contenedorAgregarCantidades">
+                <div>
+                    <button>-</button>
+                    <span>0</span>
+                    <button>+</button>
+                </div>
+            </div> */}
+
+                        <div>
+                            <Link to={`/products/${product.id}`}>Ver Mas</Link>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <p>Producto no encontrado</p>
+            )}
 
             <Footer />
         </div>
