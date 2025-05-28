@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { cartContext } from "../context/CartContext.jsx";
+
 import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
@@ -9,27 +11,13 @@ import Shoes from "../Components/Reusables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reusables/Loader/Loader";
 
-const Home = ({
-    products,
-    loader,
-    handleOpenCart,
-    cart,
-    addToCart,
-    emptyCart,
-    incrementQuantity,
-    decrementQuantity,
-    removeItemFromCart
-}) => {
+const Home = () => {
+    const { loader } = useContext(cartContext);
+
     return (
         <div>
             <Header />
-            <Nav
-                handleOpenCart={handleOpenCart}
-                emptyCart={emptyCart}
-                incrementQuantity={incrementQuantity}
-                decrementQuntity={decrementQuantity}
-                removeItemFromCart={removeItemFromCart}
-            />
+            <Nav />
 
             <main>
                 <div className="welcome">
@@ -52,35 +40,11 @@ const Home = ({
                     <Loader />
                 ) : (
                     <>
-                        <div>
-                            <Balls
-                                products={products}
-                                addToCart={addToCart}
-                                incrementQuantity={incrementQuantity}
-                                decrementQuantity={decrementQuantity}
-                                removeItemFromCart={removeItemFromCart}
-                            />
-                        </div>
+                        <Balls />
 
-                        <div>
-                            <TShirts
-                                products={products}
-                                addToCart={addToCart}
-                                incrementQuantity={incrementQuantity}
-                                decrementQuantity={decrementQuantity}
-                                removeItemFromCart={removeItemFromCart}
-                            />
-                        </div>
+                        <TShirts />
 
-                        <div>
-                            <Shoes
-                                products={products}
-                                addToCart={addToCart}
-                                incrementQuantity={incrementQuantity}
-                                decrementQuantity={decrementQuantity}
-                                removeItemFromCart={removeItemFromCart}
-                            />
-                        </div>
+                        <Shoes />
                     </>
                 )}
             </main>
