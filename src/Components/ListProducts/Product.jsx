@@ -41,13 +41,13 @@ const Product = ({ product, addToCart }) => {
                 <button onClick={()=>addToCart(product)} >Agregar</button>
             </div>
 
-            <div className="contenedorAgregarCantidades">
+            {/* <div className="contenedorAgregarCantidades">
                 <div>
                     <button>-</button>
                     <span>0</span>
                     <button>+</button>
                 </div>
-            </div>
+            </div> */}
 
             <div>
                 <Link to={`/products/${product.id}`}>Ver Mas</Link>
