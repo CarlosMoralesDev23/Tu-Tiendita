@@ -7,8 +7,6 @@ const CartItem = ( ) => {
 
     const {cart, decrementQuantity, incrementQuantity, removeItemFromCart} = useContext(CartContext)
 
-
-
     return (
         <div className="cartItemsContainer">
             {cart.length === 0 ? (<p>Tu Carrito esta vacio</p>) : (

@@ -10,44 +10,49 @@ import TShirts from "../Components/Reusables/Categorias/TShirts";
 import Shoes from "../Components/Reusables/Categorias/Shoes";
 import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reusables/Loader/Loader";
+import NotFound from "../Components/Reusables/NF404/NotFound.jsx";
 
 const Home = () => {
-    const { loader } = useContext(CartContext);
+    const { loader, error } = useContext(CartContext);
 
     return (
         <div>
             <Header />
             <Nav />
 
-            <main>
-                <div className="welcome">
-                    <h2>¡Me alegra verte por acá!</h2>
-                    <p>Tenemos impresionantes productos para ti!!!</p>
-                    <div>
-                        <p>
-                            Registrate y date una vuelta por la sección de
-                            ofertas
-                        </p>
-                        <img
-                            src={GuinoGuino}
-                            alt=""
-                            style={{ width: "45px", borderRadius: "50%" }}
-                        />
+            {error ? (
+                <NotFound />
+            ) : (
+                <main>
+                    <div className="welcome">
+                        <h2>¡Me alegra verte por acá!</h2>
+                        <p>Tenemos impresionantes productos para ti!!!</p>
+                        <div>
+                            <p>
+                                Registrate y date una vuelta por la sección de
+                                ofertas
+                            </p>
+                            <img
+                                src={GuinoGuino}
+                                alt=""
+                                style={{ width: "45px", borderRadius: "50%" }}
+                            />
+                        </div>
                     </div>
-                </div>
 
-                {loader ? (
-                    <Loader />
-                ) : (
-                    <>
-                        <Balls />
+                    {loader ? (
+                        <Loader />
+                    ) : (
+                        <>
+                            <Balls />
 
-                        <TShirts />
+                            <TShirts />
 
-                        <Shoes />
-                    </>
-                )}
-            </main>
+                            <Shoes />
+                        </>
+                    )}
+                </main>
+            )}
 
             <Footer />
         </div>

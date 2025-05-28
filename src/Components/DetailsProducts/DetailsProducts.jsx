@@ -10,7 +10,6 @@ import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
 const DetailsProducts = ( ) => {
     const { id } = useParams();
-    // const {id, idUser}= useParams()
 
     const {products} = useContext(CartContext)
 
@@ -22,7 +21,6 @@ const DetailsProducts = ( ) => {
             <Nav />
 
             <h1>Detalle del producto: {id}</h1>
-            {/* <h2>Detalle del usuario:{idUser}</h2> */}
 
             {product ? (
                 <>
