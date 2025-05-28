@@ -1,16 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 
 import ListProducts from "../../ListProducts/ListProducts";
+import { CartContext } from "../../../context/CartContext";
 
-const Shoes = ({
-    products,
-    cart,
-    addToCart,
-    incrementQuantity,
-    decrementQuantity,
-    removeItemFromCart,
-}) => {
-    const theShoes = products.filter((product) => product.type === "zapato");
+const Shoes = ( ) => {
+
+    const {theShoes} = useContext(CartContext)
 
     return (
         <div>
@@ -19,8 +14,6 @@ const Shoes = ({
                 <div className="contenedorTarjetaZapatos">
                     <ListProducts
                         products={theShoes}
-                        addToCart={addToCart}
-                        removeItemFromCart={removeItemFromCart}
                     />
                 </div>
             </div>

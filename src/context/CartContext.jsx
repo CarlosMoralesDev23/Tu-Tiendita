@@ -55,30 +55,52 @@ export const CartProvider = ({ children }) => {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
         }
     };
+    const theBalls   = products.filter((product) => product.type === "balon");
+    const theTShirts = products.filter((product) => product.type === "remera");
+    const theShoes   = products.filter((product) => product.type === "zapato");
+
+
+
+
+
+
 
     const emptyCart = () => {
         setCart([]);
     };
 
+
+
+
+
+
+
+
+
     const incrementQuantity = (productToIncrement) => {
         const productInCart = cart.find((item) => item.id === productToIncrement.id);
 
-        if (
-            productInCart &&
-            productInCart.quantity < productToIncrement.stock
-        ) {
-            setCart(
-                cart.map((item) =>
-                    item.id === productToIncrement.id
-                        ? { ...item, quantity: item.quantity + 1 }
-                        : item
-                )
-            );
-        } else if (productInCart) {
-            console.log(`Ya no hay mas ${productInCart.name} disponibles`);
-            alert(`Ya no hay mas ${productInCart.name} disponibles`);
+        if(productInCart){
+            if (
+                productInCart &&
+                productInCart.quantity < productToIncrement.stock
+            ) {
+                setCart(
+                    cart.map((item) =>
+                        item.id === productToIncrement.id
+                            ? { ...item, quantity: item.quantity + 1 }
+                            : item
+                    )
+                );
+            } else{
+                console.log(`Ya no hay mas ${productInCart.name} disponibles`);
+                alert(`Ya no hay mas ${productInCart.name} disponibles`);
+            }
         }
     };
+
+
+
 
 
 
@@ -100,6 +122,13 @@ export const CartProvider = ({ children }) => {
             }
         }
     };
+
+
+
+
+
+
+
 
 
 
@@ -126,6 +155,9 @@ export const CartProvider = ({ children }) => {
                 isAuthenticated,
                 loginUser,
                 logoutUser,
+                theBalls,
+                theTShirts,
+                theShoes
             }}
         >
             {children}
