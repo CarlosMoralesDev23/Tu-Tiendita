@@ -1,17 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import VaciarCarrito from "../../../assets/ImgCart/vaciarCarrito.png";
-
+import { CartContext } from "../../../context/CartContext";
 
 const EmptyAndPay = ({
-
-    emptyCart,
-
-    total,
-    handleOpenPaymentModal
+    handleOpenPaymentModal,
 }) => {
-
-
-
+    const {emptyCart, total} = useContext(CartContext);
 
     return (
         <>

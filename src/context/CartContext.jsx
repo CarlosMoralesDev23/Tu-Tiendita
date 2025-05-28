@@ -64,15 +64,12 @@ export const CartProvider = ({ children }) => {
     };
 
     const incrementQuantity = (productToIncrement) => {
-        const productInCart = cart.find(
+        const itemInCart = cart.find(
             (item) => item.id === productToIncrement.id
         );
 
-        if (productInCart) {
-            if (
-                productInCart &&
-                productInCart.quantity < productToIncrement.stock
-            ) {
+        if (itemInCart) {
+            if (itemInCart.quantity < productToIncrement.stock) {
                 setCart(
                     cart.map((item) =>
                         item.id === productToIncrement.id
@@ -81,19 +78,19 @@ export const CartProvider = ({ children }) => {
                     )
                 );
             } else {
-                console.log(`Ya no hay mas ${productInCart.name} disponibles`);
-                alert(`Ya no hay mas ${productInCart.name} disponibles`);
+                console.log(`Stock máximo alcanzado para ${itemInCart.name}`);
+                alert(`No hay más stock disponible para ${itemInCart.name}.`);
             }
         }
     };
 
     const decrementQuantity = (productToDecrement) => {
-        const productInCart = cart.find(
+        const itemInCart = cart.find(
             (item) => item.id === productToDecrement.id
         );
 
-        if (productInCart) {
-            if (productInCart === 1) {
+        if (itemInCart) {
+            if (itemInCart.quantity === 1) {
                 removeItemFromCart(productToDecrement);
             } else {
                 setCart(
@@ -110,6 +107,13 @@ export const CartProvider = ({ children }) => {
     const removeItemFromCart = (productToRemove) => {
         setCart(cart.filter((item) => item.id !== productToRemove.id));
     };
+
+
+    const total = cart.reduce((suma, item) => {
+        const price = parseFloat(item.price) || 0;
+        const quantity = parseInt(item.quantity, 10) || 0;
+        return suma + price * quantity;
+    }, 0);
 
     return (
         <CartContext.Provider
@@ -132,6 +136,7 @@ export const CartProvider = ({ children }) => {
                 theBalls,
                 theTShirts,
                 theShoes,
+                total,
             }}
         >
             {children}

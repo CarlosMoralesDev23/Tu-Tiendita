@@ -1,35 +1,22 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useParams } from "react-router-dom";
 import Header from "../Fijos/Header/Header";
 import Nav from "../Fijos/Nav/Nav";
 import Footer from "../Fijos/Footer/Footer";
+import { CartContext } from "../../context/CartContext";
 
-const DetailsProducts = ({
-    products,
-    loader,
-    handleOpenCart,
-    cart,
-    addToCart,
-    emptyCart,
-    incrementQuantity,
-    decrementQuantity,
-    removeItemFromCart,
-}) => {
+const DetailsProducts = ( ) => {
     const { id } = useParams();
     // const {id, idUser}= useParams()
+
+    const {products} = useContext(CartContext)
 
     const product = products.find((Product) => Product.id == id);
 
     return (
         <div>
             <Header />
-            <Nav
-                handleOpenCart={handleOpenCart}
-                emptyCart={emptyCart}
-                incrementQuantity={incrementQuantity}
-                decrementQuntity={decrementQuantity}
-                removeItemFromCart={removeItemFromCart}
-            />
+            <Nav/>
 
             <h1>Detalle del producto: {id}</h1>
             {/* <h2>Detalle del usuario:{idUser}</h2> */}

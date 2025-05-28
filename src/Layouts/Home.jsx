@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { cartContext } from "../context/CartContext.jsx";
+import { CartContext } from "../context/CartContext.jsx";
 
 import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
@@ -12,7 +12,7 @@ import "../Styles/Layouts/Home.css";
 import Loader from "../Components/Reusables/Loader/Loader";
 
 const Home = () => {
-    const { loader } = useContext(cartContext);
+    const { loader } = useContext(CartContext);
 
     return (
         <div>

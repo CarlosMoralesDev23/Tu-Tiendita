@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import ImageTrash from "../../../assets/ImgCart/Trash.png";
+import { CartContext } from "../../../context/CartContext";
 
 
-const CartItem = ({
-    cart,
-    incrementQuantity,
-    decrementQuantity,
-    removeItemFromCart,
-}) => {
+const CartItem = ( ) => {
+
+    const {cart, decrementQuantity, incrementQuantity, removeItemFromCart} = useContext(CartContext)
+
+
+
     return (
         <div className="cartItemsContainer">
             {cart.length === 0 ? (<p>Tu Carrito esta vacio</p>) : (

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext.jsx";
 
-const RutasProtegida = ({ isAuthenticated, children }) => {
+const RutasProtegida = ({ children }) => {
+    const { isAuthenticated } = useContext(CartContext);
 
-    if(!isAuthenticated){
-        return <Navigate to="/login" replace />
+    if (!isAuthenticated) {
+        return <Navigate to="/login" replace />;
     }
 
+    //* Si esta autenticado va a Administrador,  sino permanece o vuelve  a login
+    
+    
     return children;
 };
 

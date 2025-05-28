@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { CartContext } from "../../../context/CartContext";
 
 
-const ModalPay = ({isPaymentModalOpen, handleClosePaymentModal, total, handleConfirmPayment}) => {
+const ModalPay = ({isPaymentModalOpen, handleClosePaymentModal, handleConfirmPayment}) => {
+
+    const {total} = useContext(CartContext)
     
     const styleModalBox = {
         color: "black",

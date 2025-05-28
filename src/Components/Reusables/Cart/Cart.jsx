@@ -1,30 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import "../../../Styles/Reusables/Cart.css"; 
 import Cerrar from "../../../assets/ImgCart/signo-cerrado.png";
 import CartItem from "./CartItem";
 import EmptyAndPay from "../Cart/EmptyAndPay"
 import ModalPay from "../Cart/ModalPay"
+import { CartContext } from "../../../context/CartContext";
+
+const Cart = ( ) => {
+
+    const {cart, isCartOpen, handleCloseCart, emptyCart} = useContext(CartContext)
 
 
-
-const Cart = ({
-    isCartOpen,
-    handleCloseCart,
-    cart = [],
-    emptyCart,
-    incrementQuantity,
-    decrementQuantity,
-    removeItemFromCart,
-}) => {
-
-    const {} = useContext(contextValue)
-
-    const total = cart.reduce((suma, item) => {
-        const price = parseFloat(item.price) || 0;
-        const quantity = parseInt(item.quantity, 10) || 0;
-        return suma + price * quantity;
-    }, 0);
 
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
@@ -66,16 +53,16 @@ const Cart = ({
                 </button>
             </div>
 
-            <CartItem cart={cart} incrementQuantity={incrementQuantity} decrementQuantity={decrementQuantity} removeItemFromCart={removeItemFromCart}   />
+            <CartItem />
 
 
 
             {cart.length > 0 && (
-                <EmptyAndPay total={total} handleOpenPaymentModal={handleOpenPaymentModal} emptyCart={emptyCart}   />
+                <EmptyAndPay handleOpenPaymentModal={handleOpenPaymentModal} />
             )}
 
 
-            <ModalPay isPaymentModalOpen={isPaymentModalOpen} handleClosePaymentModal={handleClosePaymentModal} total={total} handleConfirmPayment={handleConfirmPayment} />
+            <ModalPay isPaymentModalOpen={isPaymentModalOpen} handleClosePaymentModal={handleClosePaymentModal} handleConfirmPayment={handleConfirmPayment} />
 
 
         </div>
