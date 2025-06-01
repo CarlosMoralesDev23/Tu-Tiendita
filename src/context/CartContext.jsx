@@ -131,6 +131,7 @@ export const CartProvider = ({ children }) => {
                 incrementQuantity,
                 decrementQuantity,
                 isAuthenticated,
+                setIsAuthenticated,
                 loginUser,
                 logoutUser,
                 theBalls,

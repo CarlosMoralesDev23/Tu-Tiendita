@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Components/Fijos/Header/Header";
 import Nav from "../Components/Fijos/Nav/Nav";
 import Footer from "../Components/Fijos/Footer/Footer";
+import "../styles/Layouts/Login.css";
 
 const Login = () => {
     const { setIsAuthenticated } = useContext(CartContext);
@@ -15,33 +16,22 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        //objeto vacio para guardar mensaje de error si se envian campos vacios
         let validationErrors = {};
 
-        //Si el campo email se envia vacio, se setea un mensaje en error
-        if (!email) {
-            validationErrors.email = "Email es requerido";
-        }
-
-        //Si el campo password se envia vacio, se setea un mensaje en error
-        if (!password) {
-            validationErrors.password = "La contraseña es requerida";
-        }
+        if (!email) validationErrors.email = "Email es requerido";
+        if (!password) validationErrors.password = "La contraseña es requerida";
 
         if (Object.keys(validationErrors).length > 0) {
             setError(validationErrors);
             return;
         }
 
-        // si hubo errores , pero se corriegieron y ya hay datos a validar entonces...
         setError({});
 
         try {
-            const res = await fetch("data/users.json");
+            const res = await fetch("/data/user.json");
 
-            if (!res.ok) {
-                throw new Error("No llego la respuesta");
-            }
+            if (!res.ok) throw new Error("No llego la respuesta");
 
             const users = await res.json();
 
@@ -50,7 +40,7 @@ const Login = () => {
             );
 
             if (!foundUser) {
-                setError({ email: "Credenciales invalidas" });
+                setError({ email: "Credenciales inválidas" });
             } else {
                 if (foundUser.role === "admin") {
                     setIsAuthenticated(true);
@@ -60,8 +50,9 @@ const Login = () => {
                 }
             }
         } catch (error) {
+            console.log("Error al obtener datos del json: ", error)
             setError({
-                email: "Algo salio mal. Por favor, intentalo mas tarde",
+                email: "Algo salió mal. Por favor, intentalo más tarde",
             });
         }
     };
@@ -70,50 +61,31 @@ const Login = () => {
         <div>
             <Header />
             <Nav />
+            <div className="login-container">
+                <form className="login-form" onSubmit={handleSubmit}>
+                    <h2>Iniciar sesión</h2>
 
-            <div style={{ padding: "2rem" }}>
-                <h2>Login</h2>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="email"
+                    />
+                    <div className="error">{error.email || " "}</div>
 
-                <form
-                    onSubmit={() => handleSubmit()}
-                    style={{ maxWidth: "400px" }}
-                >
-                    <div style={{ marginBottom: "1rem" }}>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            style={{ width: "100%" }}
-                        />
+                    <input
+                        type="password"
+                        placeholder="Contraseña"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        autoComplete="current-password"
+                    />
+                    <div className="error">{error.password || " "}</div>
 
-                        {error.email && (
-                            <p style={{ color: "red", margin: 0 }}>
-                                {error.email}
-                            </p>
-                        )}
-                    </div>
-
-                    <div style={{ marginBottom: "1rem" }}>
-                        <label>Contraseña</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            style={{ width: "100%" }}
-                        />
-                    </div>
-
-                    {error.password && (
-                        <p style={{ color: "red", margin: 0 }}>
-                            {error.password}
-                        </p>
-                    )}
-
-                    <button type="submit">Iniciar sesión</button>
+                    <button type="submit">Entrar</button>
                 </form>
             </div>
-
             <Footer />
         </div>
     );
