@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
     const [loader, setLoader] = useState(true);
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const loginUser = () => setIsAuthenticated(true);
+    const loginUser  = () => setIsAuthenticated(true);
     const logoutUser = () => setIsAuthenticated(false);
 
     useEffect(() => {
