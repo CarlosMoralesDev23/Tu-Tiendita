@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 
 import { Link } from "react-router-dom";
@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 import "../../../Styles/Fijos/Nav.css";
 import ImageCart from "../../../assets/ImgNav/CarritoComprasAzul.png";
 
-
-const Nav = ( ) => {
-
-    const {handleOpenCart} = useContext(CartContext)
+const Nav = () => {
+    const { handleOpenCart, isAuthenticated, userName } =
+        useContext(CartContext);
 
     return (
         <nav className="main-nav">
@@ -30,9 +29,16 @@ const Nav = ( ) => {
                     <Link to="/Register">Registrate</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Login">Login</Link>
+                    {isAuthenticated ? (
+                        <Link to="/MyCount">{userName || "User"}</Link>
+                    ) : (
+                        <Link to="/Login">Login</Link>
+                    )}
                 </li>
-                <button className="nav-cart-button" onClick={()=>handleOpenCart()}>
+                <button
+                    className="nav-cart-button"
+                    onClick={() => handleOpenCart()}
+                >
                     <img src={ImageCart} alt="abrir carrito de compras" />
                 </button>
             </ul>

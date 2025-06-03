@@ -9,9 +9,19 @@ export const CartProvider = ({ children }) => {
     const [error, setError] = useState(false);
     const [loader, setLoader] = useState(true);
 
+    const [userName, setUserName] = useState("")
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const loginUser  = () => setIsAuthenticated(true);
-    const logoutUser = () => setIsAuthenticated(false);
+    const loginUser  = (userName) => {
+        setIsAuthenticated(true);
+        setUserName(userName)
+    } 
+    const logoutUser = () => {
+        setIsAuthenticated(false);
+        setUserName("")
+
+    };
+
+
 
     useEffect(() => {
         fetch("/data/products.json")
@@ -136,6 +146,7 @@ export const CartProvider = ({ children }) => {
                 setIsAuthenticated,
                 loginUser,
                 logoutUser,
+                userName,
                 theBalls,
                 theTShirts,
                 theShoes,

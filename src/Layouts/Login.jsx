@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Layouts/Login.css";
 
 const Login = () => {
-    const { setIsAuthenticated } = useContext(CartContext);
+    const { setIsAuthenticated, loginUser } = useContext(CartContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
@@ -53,6 +53,9 @@ const Login = () => {
             if (!foundUser) {
                 setError({ email: "Credenciales inválidas" });
             } else {
+
+                loginUser(foundUser.name)
+
                 if (foundUser.role === "admin") {
                     setIsAuthenticated(true);
                     navigate("/admin");

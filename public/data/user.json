@@ -6,14 +6,14 @@
         "name": "Adminsitrador"
     },
     {
-        "email": "client05@ex.com",
-        "password": "client123",
+        "email": "carlitos@ex.com",
+        "password": "carlitos123",
         "role": "client",
         "name": "Carlitos"
     },
     {
-        "email": "client17@ex.com",
-        "password": "client123",
+        "email": "sofia@ex.com",
+        "password": "sofia123",
         "role": "client",
         "name": "Sofia"
     }
