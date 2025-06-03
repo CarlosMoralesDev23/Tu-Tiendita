@@ -1,9 +1,6 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import Header from "../Components/Fijos/Header/Header";
-import Nav from "../Components/Fijos/Nav/Nav";
-import Footer from "../Components/Fijos/Footer/Footer";
 import "../styles/Layouts/Login.css";
 
 const Login = () => {
@@ -16,24 +13,38 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        //*Si loscampos estan vacios ejecutamos lo siguiente:
+
         let validationErrors = {};
 
         if (!email) validationErrors.email = "Email es requerido";
         if (!password) validationErrors.password = "La contraseña es requerida";
 
         if (Object.keys(validationErrors).length > 0) {
+            //Object.keys(validationErrors): Devuelve un array con todas las claves (nombres de propiedades)
             setError(validationErrors);
             return;
         }
 
+
+        //*Si los campos estan llenos ejecutamos los siguiente:
+
         setError({});
+        //limpia error  porque ya los campos no estan vacíos.
+
 
         try {
             const res = await fetch("/data/user.json");
 
             if (!res.ok) throw new Error("No llego la respuesta");
+            // res.ok   Es una propiedad booleana del objeto 'Response'. Es `true` si la respuesta HTTP
+            //tiene un código de estado en el rango 200-299 (éxito), y `false` en otro caso (ej. 404 Not Found, 500 Server Error).
+
+            // Si la respuesta no fue exitosa (`!res.ok`), lanzamos un nuevo objeto 'Error'.
+            // Cuando se lanza un error aquí, la ejecución salta inmediatamente al bloque `catch`.
 
             const users = await res.json();
+            //Se convierte en un array de objetos
 
             const foundUser = users.find(
                 (user) => user.email === email && user.password === password
@@ -50,17 +61,22 @@ const Login = () => {
                 }
             }
         } catch (error) {
-            console.log("Error al obtener datos del json: ", error)
+            console.log("Error al obtener datos del json: ", error);
             setError({
                 email: "Algo salió mal. Por favor, intentalo más tarde",
             });
         }
     };
 
+    const dontHaveAccount = () => {
+        navigate("/"); // Redirige a la ruta principal (Home)
+    };
+
     return (
         <div>
-            <Header />
-            <Nav />
+
+
+
             <div className="login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2>Iniciar sesión</h2>
@@ -86,7 +102,9 @@ const Login = () => {
                     <button type="submit">Entrar</button>
                 </form>
             </div>
-            <Footer />
+
+            <button onClick={()=>dontHaveAccount()}>No tengo cuenta</button>
+
         </div>
     );
 };

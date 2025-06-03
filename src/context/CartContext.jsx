@@ -115,6 +115,8 @@ export const CartProvider = ({ children }) => {
         return suma + price * quantity;
     }, 0);
 
+
+
     return (
         <CartContext.Provider
             value={{
@@ -137,7 +139,7 @@ export const CartProvider = ({ children }) => {
                 theBalls,
                 theTShirts,
                 theShoes,
-                total,
+                total
             }}
         >
             {children}
