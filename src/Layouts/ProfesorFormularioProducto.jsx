@@ -12,7 +12,6 @@ function FormularioProducto({ onAgregar }) {
         setProducto({ ...producto, [name]: value });
     };
 
-
     const validarFormulario = () => {
         const nuevosErrores = {};
         if (!producto.nombre.trim()) {

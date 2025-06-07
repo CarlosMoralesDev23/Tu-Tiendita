@@ -17,11 +17,12 @@ const Login = () => {
 
         let validationErrors = {};
 
-        if (!email) validationErrors.email = "Email es requerido";
-        if (!password) validationErrors.password = "La contraseña es requerida";
+        if (!email) validationErrors.email = "Email es requerido, no puede estar vacío";
+        if (!password) validationErrors.password = "La contraseña es requerida, no puede estar vacía";
 
         if (Object.keys(validationErrors).length > 0) {
-            //Object.keys(validationErrors): Devuelve un array con todas las claves (nombres de propiedades)
+            //Object.keys(validationErrors): retorna un [] con todas las claves (nombres de propiedades), 
+            //Entonces si algun campo se envio vacío... 
             setError(validationErrors);
             return;
         }
@@ -30,7 +31,7 @@ const Login = () => {
         //*Si los campos estan llenos ejecutamos los siguiente:
 
         setError({});
-        //limpia error  porque ya los campos no estan vacíos.
+        //limpia error porque ya los campos no estan vacíos.
 
 
         try {
@@ -72,14 +73,11 @@ const Login = () => {
     };
 
     const dontHaveAccount = () => {
-        navigate("/"); // Redirige a la ruta principal (Home)
+        navigate("/"); // Redirige a la ruta principal (Home), pero sin hacer login, sin autenticarte, sin ingresar a tu cuenta.    
     };
 
     return (
         <div>
-
-
-
             <div className="login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
                     <h2>Iniciar sesión</h2>
