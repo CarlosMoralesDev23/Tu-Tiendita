@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormAddProducts = () => {
+const FormAddProducts = ({ agregarProducto }) => {
     const [product, setProduct] = useState({
         id: "",
         name: "",
@@ -59,7 +59,7 @@ const FormAddProducts = () => {
             return;
         }
 
-        onAgregar(product);
+        agregarProducto(product);
 
         setProduct({
             id: "",

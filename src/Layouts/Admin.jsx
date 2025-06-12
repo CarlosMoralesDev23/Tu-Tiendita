@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FormAddProducts from "../Layouts/FormAddProducts";
+import Loader from "../Components/Reusables/Loader/Loader";
 
 const Admin = () => {
     const [productos, setProductos] = useState([]);
@@ -13,20 +14,28 @@ const Admin = () => {
         type: "",
     });
     const [loading, setLoading] = useState(true);
-    const [open, setOpen] = useState(false);
+    const [openForm, setOpenForm] = useState(false);
+    const [errorFromFetch, setErrorFromFetch] = useState(false);
+
 
     useEffect(() => {
-        fetch("/data/data.json")
-            .then((response) => response.json())
+        fetch("/data/products.json")
+            .then((response) => {
+                if(!response.ok){
+                    throw new Error(`Error HTTP: ${response.status}`);
+                    
+                }
+                return response.json();
+            })
             .then((data) => {
                 setTimeout(() => {
                     setProductos(data);
                     setLoading(false);
-                }, 2000);
+                }, 1000);
             })
             .catch((error) => {
-                console.error("Error fetching data:", error);
-                setError(true);
+                console.error("Error al cargar datos iniciales:", error);
+                setErrorFromFetch(true);
                 setLoading(false);
             });
     }, []);
@@ -44,21 +53,35 @@ const Admin = () => {
                 }
             );
             if (!respuesta.ok) {
-                throw new Error("Error al agregar producto");
+                throw new Error(`Error al agregar producto: ${respuesta.status} ${respuesta.statusText}`);
             }
             const data = await respuesta.json();
             alert("Producto agregado correctamente");
 
-            setOpen(false);
+            setProductos((prevProductos) => [...prevProductos, data]);
+
+
+            setOpenForm(false);
         } catch (error) {
-            console.log(error.message);
+            console.error("Error al añadir el producto:", error);
+            alert(
+                `Hubo un error al agregar el producto: ${
+                    error.message || "Error desconocido"
+                }`
+            );
+
         }
     };
 
     return (
         <div className="container">
-            {loading ? (
-                <p>Cargando...</p>
+            {errorFromFetch ? (
+                <p style={{ color: "red" }}>
+                    Error al cargar los productos. Por favor, verifica la
+                    consola.
+                </p>
+            ) : loading ? (
+                <Loader/>
             ) : (
                 <>
                     <nav>
@@ -79,17 +102,16 @@ const Admin = () => {
                         {productos.map((product) => (
                             <li key={product.id} className="listItem">
                                 <img
-                                    src={product.imagen}
-                                    alt={product.nombre}
+                                    src={product.image || product.imagen}
+                                    alt={product.name || product.nombre}
                                     className="listItemImage"
                                 />
-                                <span>{product.nombre}</span>
-                                <span>${product.precio}</span>
+                                <span>{product.name || product.nombre}</span>
+                                <span>${product.price || product.precio}</span>
                                 <div>
                                     <button className="editButton">
                                         Editar
                                     </button>
-
                                     <button className="deleteButton">
                                         Eliminar
                                     </button>
@@ -99,14 +121,19 @@ const Admin = () => {
                     </ul>
                 </>
             )}
-            <button onClick={() => setOpen(true)}>
+            <button onClick={() => setOpenForm(true)}>
                 Agregar producto nuevo
             </button>
-            {open && (
+            {openForm && (
                 <>
-                    <FormularioProducto onAgregar={agregarProducto} />
+                    <FormAddProducts agregarProducto={agregarProducto} />
 
-                    <button onClick={()=>setOpen(false)} style={{marginTop:"10px"}}>Cerrar Formulario</button>
+                    <button
+                        onClick={() => setOpenForm(false)}
+                        style={{ marginTop: "10px" }}
+                    >
+                        Cerrar Formulario
+                    </button>
                 </>
             )}
         </div>
