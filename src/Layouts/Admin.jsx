@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import FormAddProducts from "../Layouts/FormAddProducts";
 import Loader from "../Components/Reusables/Loader/Loader";
+import NotFound from "../Components/Reusables/NF404/NotFound";
+
+import "../Styles/Layouts/Admin.css"
 
 const Admin = () => {
     const [productos, setProductos] = useState([]);
@@ -19,7 +22,7 @@ const Admin = () => {
 
 
     useEffect(() => {
-        fetch("/data/products.json")
+        fetch("/data/produ.json")
             .then((response) => {
                 if(!response.ok){
                     throw new Error(`Error HTTP: ${response.status}`);
@@ -76,12 +79,15 @@ const Admin = () => {
     return (
         <div className="container">
             {errorFromFetch ? (
-                <p style={{ color: "red" }}>
-                    Error al cargar los productos. Por favor, verifica la
-                    consola.
-                </p>
+                <>
+                    <p style={{ color: "red" }}>
+                        Error al cargar los productos. Por favor, verifica la
+                        consola.
+                    </p>
+                    <NotFound />
+                </>
             ) : loading ? (
-                <Loader/>
+                <Loader />
             ) : (
                 <>
                     <nav>
@@ -119,11 +125,12 @@ const Admin = () => {
                             </li>
                         ))}
                     </ul>
+                    <button onClick={() => setOpenForm(true)}>
+                        Agregar producto nuevo
+                    </button>
                 </>
             )}
-            <button onClick={() => setOpenForm(true)}>
-                Agregar producto nuevo
-            </button>
+
             {openForm && (
                 <>
                     <FormAddProducts agregarProducto={agregarProducto} />

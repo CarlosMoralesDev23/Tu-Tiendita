@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+
 
 const FormAddProducts = ({ agregarProducto }) => {
     const [product, setProduct] = useState({

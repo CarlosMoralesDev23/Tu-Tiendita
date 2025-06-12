@@ -17,22 +17,31 @@ const Login = () => {
 
         let validationErrors = {};
 
-        if (!email) validationErrors.email = "Email es requerido, no puede estar vacío";
-        if (!password) validationErrors.password = "La contraseña es requerida, no puede estar vacía";
+        if (!email)
+            validationErrors.email = "Email es requerido, no puede estar vacío";
+        if (!password)
+            validationErrors.password =
+                "La contraseña es requerida, no puede estar vacía";
 
         if (Object.keys(validationErrors).length > 0) {
-            //Object.keys(validationErrors): retorna un [] con todas las claves (nombres de propiedades), 
-            //Entonces si algun campo se envio vacío... 
+            //Object.keys(validationErrors): retorna un [] con todas las claves (nombres de propiedades),
+            //Entonces si algun campo se envio vacío...
             setError(validationErrors);
             return;
         }
-
 
         //*Si los campos estan llenos ejecutamos los siguiente:
 
         setError({});
         //limpia error porque ya los campos no estan vacíos.
 
+        // ********** TEMPORAL: BYPASS PARA ENTRAR RÁPIDO EN DESARROLLO **********
+        if (email === "j" && password === "j") {
+            loginUser("Dev Admin"); // O cualquier nombre que quieras ver
+            setIsAuthenticated(true); // Asegurarse de que esté autenticado
+            navigate("/admin");
+            return; // Detener la ejecución aquí
+        }
 
         try {
             const res = await fetch("/data/user.json");
@@ -54,8 +63,7 @@ const Login = () => {
             if (!foundUser) {
                 setError({ email: "Credenciales inválidas" });
             } else {
-
-                loginUser(foundUser.name)
+                loginUser(foundUser.name);
 
                 if (foundUser.role === "admin") {
                     setIsAuthenticated(true);
@@ -79,7 +87,19 @@ const Login = () => {
     return (
         <div>
             <div className="login-container">
-                <form className="login-form" onSubmit={handleSubmit}>
+
+
+                //!SACAR EL noValidate en el form
+                //!SACAR EL noValidate en el form
+                //!SACAR EL noValidate en el form
+                //!SACAR EL noValidate en el form
+                //!SACAR EL noValidate en el form
+
+                <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
+
+
+
+                <form className="login-form" onSubmit={handleSubmit} noValidate>
                     <h2>Iniciar sesión</h2>
 
                     <input
