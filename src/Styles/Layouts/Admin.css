@@ -8,6 +8,8 @@
     background-color: #f0f2f5;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow-x: hidden;
 }
 
 .title {
@@ -133,40 +135,91 @@
     background-color: #bd2130;
 }
 
-button[onClick="() => setOpenForm(true)"] {
-    display: block;
-    width: fit-content;
-    margin: 15px auto;
-    padding: 8px 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.1s ease;
+.form-sidebar-container {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -6px 0 16px rgba(0, 0, 0, 0.25);
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
 }
 
-button[onClick="() => setOpenForm(true)"]:hover {
-    background-color: #218838;
+.form-sidebar-container.open {
+    right: 0;
 }
 
-button[onClick="() => setOpenForm(false)"] {
-    display: block;
-    width: fit-content;
-    margin: 8px auto;
-    padding: 8px 15px;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-sidebar-container form {
+    margin: 0;
+    max-width: 100%;
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+    gap: 10px;
+}
+
+.form-sidebar-container button[onClick="() => setOpenForm(false)"] {
+    width: calc(100% - 40px);
+    margin: 15px 0 0 0;
+    padding: 10px 0;
+    font-size: 1em;
     background-color: #6c757d;
     color: white;
     border: none;
-    border-radius: 3px;
-    font-size: 0.9em;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.1s ease;
+    transition: background-color 0.2s ease;
 }
 
-button[onClick="() => setOpenForm(false)"]:hover {
+.form-sidebar-container button[onClick="() => setOpenForm(false)"]:hover {
     background-color: #5a6268;
+}
+
+.container > button[onClick="() => setOpenForm(true)"] {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px 25px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.container > button[onClick="() => setOpenForm(true)"]:hover {
+    background-color: #218838;
 }
 
 p[style*="color: red"] {

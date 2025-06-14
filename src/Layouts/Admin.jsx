@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from "react";
 import FormAddProducts from "../Layouts/FormAddProducts";
 import Loader from "../Components/Reusables/Loader/Loader";
-import NotFound from "../Components/Reusables/NF404/NotFound";
+import NotFound from "../Components/Reusables/NF404/NotFound.jsx";
 
-import "../Styles/Layouts/Admin.css"
+import "../Styles/Layouts/Admin.css";
 
 const Admin = () => {
     const [productos, setProductos] = useState([]);
-    const [form, setForm] = useState({
-        id: null,
-        name: "",
-        description: "",
-        price: "",
-        stock: "",
-        image: "",
-        type: "",
-    });
+    const [selectedProductToEdit, setSelectedProductToEdit] = useState(null);
     const [loading, setLoading] = useState(true);
     const [openForm, setOpenForm] = useState(false);
-    const [errorFromFetch, setErrorFromFetch] = useState(false);
-
+    const [fetchError, setFetchError] = useState(false);
 
     useEffect(() => {
-        fetch("/data/produ.json")
+        fetch("/data/products.json")
             .then((response) => {
-                if(!response.ok){
-                    throw new Error(`Error HTTP: ${response.status}`);
-                    
+                if (!response.ok) {
+                    throw new Error(
+                        `Error HTTP: ${response.status} - ${response.statusText}`
+                    );
                 }
                 return response.json();
             })
@@ -38,12 +30,12 @@ const Admin = () => {
             })
             .catch((error) => {
                 console.error("Error al cargar datos iniciales:", error);
-                setErrorFromFetch(true);
+                setFetchError(true);
                 setLoading(false);
             });
     }, []);
 
-    const agregarProducto = async (producto) => {
+    const agregarProducto = async (nuevoProducto) => {
         try {
             const respuesta = await fetch(
                 "https://682e2f0e746f8ca4a47c2dbd.mockapi.io/product",
@@ -52,17 +44,20 @@ const Admin = () => {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(producto),
+                    body: JSON.stringify(nuevoProducto),
                 }
             );
+
             if (!respuesta.ok) {
-                throw new Error(`Error al agregar producto: ${respuesta.status} ${respuesta.statusText}`);
+                throw new Error(
+                    `Error al agregar producto: ${respuesta.status} ${respuesta.statusText}`
+                );
             }
+
             const data = await respuesta.json();
             alert("Producto agregado correctamente");
 
             setProductos((prevProductos) => [...prevProductos, data]);
-
 
             setOpenForm(false);
         } catch (error) {
@@ -72,13 +67,12 @@ const Admin = () => {
                     error.message || "Error desconocido"
                 }`
             );
-
         }
     };
 
     return (
         <div className="container">
-            {errorFromFetch ? (
+            {fetchError ? (
                 <>
                     <p style={{ color: "red" }}>
                         Error al cargar los productos. Por favor, verifica la
@@ -125,23 +119,33 @@ const Admin = () => {
                             </li>
                         ))}
                     </ul>
-                    <button onClick={() => setOpenForm(true)}>
-                        Agregar producto nuevo
-                    </button>
                 </>
             )}
 
-            {openForm && (
-                <>
-                    <FormAddProducts agregarProducto={agregarProducto} />
+            <button onClick={() => setOpenForm(true)}>
+                Agregar producto nuevo
+            </button>
 
+            {openForm && (
+                <div
+                    className={`form-sidebar-container ${
+                        openForm ? "open" : ""
+                    }`}
+                >
+                    <FormAddProducts onAgregar={agregarProducto} />
                     <button
                         onClick={() => setOpenForm(false)}
                         style={{ marginTop: "10px" }}
                     >
                         Cerrar Formulario
                     </button>
-                </>
+                </div>
+            )}
+            {openForm && (
+                <div
+                    className="overlay"
+                    onClick={() => setOpenForm(false)}
+                ></div>
             )}
         </div>
     );
