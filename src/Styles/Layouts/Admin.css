@@ -1,8 +1,6 @@
-/* src/styles/Layouts/Admin.css */
-
 .container {
     padding: 8px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 10px auto;
     font-family: 'Poppins', sans-serif;
     background-color: #f0f2f5;
@@ -10,6 +8,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow-x: hidden;
+    background-color: #0056b3;
 }
 
 .title {

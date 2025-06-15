@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import FormAddProducts from "../Layouts/FormAddProducts";
 import Loader from "../Components/Reusables/Loader/Loader";
 import NotFound from "../Components/Reusables/NF404/NotFound.jsx";
+import Delete from "../assets/ImgAdmin/Delete.png"
+import Edit from "../assets/ImgAdmin/Edit.png"
 
 import "../Styles/Layouts/Admin.css";
 
 const Admin = () => {
     const [productos, setProductos] = useState([]);
-    const [selectedProductToEdit, setSelectedProductToEdit] = useState(null);
     const [loading, setLoading] = useState(true);
     const [openForm, setOpenForm] = useState(false);
     const [fetchError, setFetchError] = useState(false);
@@ -110,10 +111,10 @@ const Admin = () => {
                                 <span>${product.price || product.precio}</span>
                                 <div>
                                     <button className="editButton">
-                                        Editar
+                                        <img src={Edit} alt="" style={{width:"20px"}}/>
                                     </button>
                                     <button className="deleteButton">
-                                        Eliminar
+                                        <img src={Delete} alt="" style={{width:"20px"}}/>
                                     </button>
                                 </div>
                             </li>
