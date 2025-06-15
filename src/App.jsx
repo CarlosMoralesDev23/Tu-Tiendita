@@ -9,7 +9,7 @@ import Offers from "./Layouts/Offers.jsx";
 import Register from "./Layouts/Register.jsx";
 import Login from "./Layouts/Login.jsx";
 import DetailsProducts from "./Components/DetailsProducts/DetailsProducts.jsx";
-import Admin from "./Layouts/Admin.jsx";
+import Admin from "./Layouts/Admin/Admin.jsx";
 
 import NF404 from "./Components/Reusables/NF404/NotFound.jsx";
 import Cart from "./Components/Reusables/Cart/Cart.jsx";

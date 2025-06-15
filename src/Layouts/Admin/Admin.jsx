@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from "react";
-import FormAddProducts from "../Layouts/FormAddProducts";
-import Loader from "../Components/Reusables/Loader/Loader";
-import NotFound from "../Components/Reusables/NF404/NotFound.jsx";
-import Delete from "../assets/ImgAdmin/Delete.png"
-import Edit from "../assets/ImgAdmin/Edit.png"
+import React, { useState, useEffect, useContext } from "react";
+import FormAddProducts from "./FormAddProducts.jsx";
+import Loader from "../../Components/Reusables/Loader/Loader.jsx";
+import NotFound from "../../Components/Reusables/NF404/NotFound.jsx";
+import { Link } from "react-router-dom";
+import {CartContext} from "../../context/CartContext.jsx"
 
-import "../Styles/Layouts/Admin.css";
+import "../../Styles/Layouts/Admin.css";
+import AdminNotFound from "./AdminNotFound.jsx";
+import AdminNav from "./AdminNav.jsx";
 
 const Admin = () => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [openForm, setOpenForm] = useState(false);
     const [fetchError, setFetchError] = useState(false);
+
+    const { logoutUser } = useContext(CartContext)
 
     useEffect(() => {
         fetch("/data/products.json")
@@ -75,28 +79,13 @@ const Admin = () => {
         <div className="container">
             {fetchError ? (
                 <>
-                    <p style={{ color: "red" }}>
-                        Error al cargar los productos. Por favor, verifica la
-                        consola.
-                    </p>
-                    <NotFound />
+                    <AdminNotFound/>
                 </>
             ) : loading ? (
                 <Loader />
             ) : (
                 <>
-                    <nav>
-                        <ul className="nav">
-                            <li className="navItem">
-                                <button className="navButton">
-                                    <i className="fa-solid fa-right-from-bracket"></i>
-                                </button>
-                            </li>
-                            <li className="navItem">
-                                <a href="/admin">Admin</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <AdminNav/>
                     <h1 className="title">Panel Administrativo</h1>
 
                     <ul className="list">
@@ -111,10 +100,10 @@ const Admin = () => {
                                 <span>${product.price || product.precio}</span>
                                 <div>
                                     <button className="editButton">
-                                        <img src={Edit} alt="" style={{width:"20px"}}/>
+                                        <i className="fa-solid fa-pencil"></i>
                                     </button>
                                     <button className="deleteButton">
-                                        <img src={Delete} alt="" style={{width:"20px"}}/>
+                                        <i className="fa-solid fa-trash"></i>
                                     </button>
                                 </div>
                             </li>

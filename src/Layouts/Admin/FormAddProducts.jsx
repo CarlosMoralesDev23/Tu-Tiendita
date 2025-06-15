@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Styles/Layouts/FormAddProducts.css";
+import "../../Styles/Layouts/FormAddProducts.css";
 
 const FormAddProducts = ({ onAgregar }) => {
     const [product, setProduct] = useState({
