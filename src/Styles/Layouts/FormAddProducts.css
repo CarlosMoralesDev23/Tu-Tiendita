@@ -32,6 +32,7 @@ h2 {
     gap: 3px;
 }
 
+
 .id-price-stock-group {
     grid-column: span 3;
     display: grid;
