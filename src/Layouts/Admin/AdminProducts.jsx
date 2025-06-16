@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { AdminContext } from "../../context/AdminContext";
 import "../../Styles/Admin/AdminProducts.css";
-import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
-import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
+import AdminProductsStock from "./AdminProductsStock";
 
 const AdminProducts = () => {
     const { productos, eliminarProducto } = useContext(AdminContext);
@@ -25,17 +24,8 @@ const AdminProducts = () => {
                     <div className="admin-list-product-description">
                         <p>{product.description || product.descripcion}</p>
                     </div>
-                    <div>
-                        
-                    </div>
-                    <div>
-                        <button className="edit-button">
-                            <i className="fa-solid fa-pencil"></i>
-                        </button>
-                        <button className="delete-button" onClick={()=>eliminarProducto(product.id)}>
-                            <i className="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
+
+                    <AdminProductsStock product={product}/>
                 </li>
             ))}
         </ul>

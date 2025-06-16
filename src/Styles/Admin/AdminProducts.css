@@ -19,7 +19,7 @@
     align-items: center;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     font-size: 0.75em;
-    height: 250px;
+    height: 300px;
     justify-content: space-between;
 }
 

@@ -99,7 +99,6 @@ export const AdminProvider = ({ children }) => {
     };
 
     const actualizarProducto = async (productoActualizado) => {
-        // Lógica para actualizar un producto en la API (método PUT)
         try {
             const respuesta = await fetch(
                 `https://682e2f0e746f8ca4a47c2dbd.mockapi.io/product/${productoActualizado.id}`,
@@ -120,7 +119,7 @@ export const AdminProvider = ({ children }) => {
             alert("Producto actualizado correctamente (desde AdminContext)");
             setProductos((prevProductos) =>
                 prevProductos.map((p) => (p.id === data.id ? data : p))
-            ); // Actualiza el producto en la lista
+            );
         } catch (error) {
             console.error(
                 "Error al actualizar el producto (desde AdminContext):",
