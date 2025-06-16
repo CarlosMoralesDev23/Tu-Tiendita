@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 
-import "../../../Styles/Reusables/Cart.css"; 
+import "../../../Styles/ReusablesCSS/Cart.css"; 
 import CartItem from "./CartItem";
 import EmptyAndPay from "../Cart/EmptyAndPay"
 import ModalPay from "../Cart/ModalPay"

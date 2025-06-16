@@ -58,14 +58,6 @@ const DetailsProducts = ( ) => {
                             </button>
                         </div>
 
-                        {/* <div className="contenedorAgregarCantidades">
-                <div>
-                    <button>-</button>
-                    <span>0</span>
-                    <button>+</button>
-                </div>
-            </div> */}
-
                         <div>
                             <Link to={`/products/${product.id}`}>Ver Mas</Link>
                         </div>

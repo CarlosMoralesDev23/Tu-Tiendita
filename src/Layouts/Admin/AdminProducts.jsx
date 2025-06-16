@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { AdminContext } from "../../context/AdminContext";
-import "../../Styles/Admin/AdminProducts.css";
+import "../../Styles/AdminCSS/AdminProducts.css";
 import AdminProductsStock from "./AdminProductsStock";
+import AdminProductsEditDelet from "./AdminProductsEditDelet";
 
 const AdminProducts = () => {
     const { productos, eliminarProducto } = useContext(AdminContext);
@@ -26,6 +27,7 @@ const AdminProducts = () => {
                     </div>
 
                     <AdminProductsStock product={product}/>
+                    <AdminProductsEditDelet/>
                 </li>
             ))}
         </ul>

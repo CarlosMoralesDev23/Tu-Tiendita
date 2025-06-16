@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Loader from "../../Components/Reusables/Loader/Loader.jsx";
 
 
-import "../../Styles/Admin/Admin.css";
+import "../../Styles/AdminCSS/Admin.css";
 import AdminNotFound from "./AdminNotFound.jsx";
 import AdminNav from "./AdminNav.jsx";
 import AdminProducts from "./AdminProducts.jsx";

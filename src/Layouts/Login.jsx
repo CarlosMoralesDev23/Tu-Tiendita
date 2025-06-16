@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import "../styles/Layouts/Login.css";
+import "../styles/LayoutsCSS/Login.css";
 
 const Login = () => {
     const { setIsAuthenticated, loginUser } = useContext(CartContext);

@@ -3,7 +3,7 @@ import { CartContext } from "../../../context/CartContext";
 
 import { Link } from "react-router-dom";
 
-import "../../../Styles/Fijos/Nav.css";
+import "../../../Styles/FijosCSS/Nav.css";
 
 const Nav = () => {
     const { handleOpenCart, isAuthenticated, userName } =
