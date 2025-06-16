@@ -7,7 +7,6 @@ import AdminNotFound from "./AdminNotFound.jsx";
 import AdminNav from "./AdminNav.jsx";
 import AdminProducts from "./AdminProducts.jsx";
 import AdminOpenForm from "./AdminOpenForm.jsx";
-import AdminCloseForm from "./AdminCloseForm.jsx";
 
 
 
@@ -37,7 +36,6 @@ const Admin = () => {
             )}
 
             {openForm && <AdminOpenForm />}
-            {openForm && <AdminCloseForm />}
         </div>
     );
 };

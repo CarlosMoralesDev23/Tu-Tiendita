@@ -1,0 +1,8 @@
+
+.admin-not-found-message{
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-top: 8px;
+}
