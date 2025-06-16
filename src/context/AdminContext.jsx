@@ -1,8 +1,7 @@
-import React from "react";
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const AdminContext = createContext();
-const AdminContext = ({ children }) => {
+export const AdminProvider = ({ children }) => {
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [openForm, setOpenForm] = useState(false);
@@ -138,9 +137,22 @@ const AdminContext = ({ children }) => {
 
 
     return (
-        <div>
-            <h2>admincontext</h2>
-        </div>
+        <AdminContext.Provider
+            value={{
+                productos, 
+                loading, 
+                fetchError, 
+                selectedProductToEdit, 
+                setSelectedProductToEdit,
+                agregarProducto,
+                eliminarProducto, 
+                actualizarProducto,
+                openForm,
+                setOpenForm
+            }}
+        >
+            {children}
+        </AdminContext.Provider>
     );
 };
 

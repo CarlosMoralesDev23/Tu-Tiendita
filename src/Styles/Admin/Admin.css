@@ -1,5 +1,5 @@
 .container {
-    padding: 25px 20px;
+    padding: 25px;
     max-width: 1200px;
     margin: 10px auto;
 
@@ -12,36 +12,7 @@
     overflow-x: hidden;
 }
 
-.admin-nav {
-    ul {
-        list-style: none;
-        padding: 4px;
-        margin: 0 0 8px 0;
-        display: flex;
-        justify-content: flex-end;
-        gap: 8px;
-        background-color: #071b2f;
-        padding: 4px 8px;
-        border-radius: 3px;
 
-        li{
-            .navButton {
-                background: none;
-                border: none;
-                cursor: pointer;
-                color: #dc3545;
-                font-size: 0.9em;
-            }
-            
-            a {
-                text-decoration: none;
-                color: #007bff;
-                font-weight: 500;
-                font-size: 0.8em;
-            }
-        }
-    }
-}
 
 
 

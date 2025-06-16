@@ -1,0 +1,272 @@
+[
+    {
+        "id": "ball-001",
+        "name": "Adidas Finale Pro Ball",
+        "description": "Balón oficial de partidos UEFA Champions League.",
+        "price": 135.0,
+        "stock": 18,
+        "image": "../../src/assets/ImgBalls/AdidasFinaleProBall.jpg",
+        "type": "balon"
+    },
+    {
+        "id": "ball-002",
+        "name": "Nike Flight Premier League",
+        "description": "Balón de fútbol con tecnología Nike Flight para vuelo consistente.",
+        "price": 125.0,
+        "stock": 22,
+        "image": "../../src/assets/ImgBalls/NikeFlightPremierLeague.jpeg",
+        "type": "balon"
+    },
+    {
+        "id": "ball-003",
+        "name": "Puma Orbita LaLiga 1",
+        "description": "Balón oficial de LaLiga, alta visibilidad y durabilidad.",
+        "price": 98.0,
+        "stock": 25,
+        "image": "../../src/assets/ImgBalls/PumaOrbitaLaLiga1.webp",
+        "type": "balon"
+    },
+    {
+        "id": "ball-004",
+        "name": "Adidas Brazuca World Cup Replica",
+        "description": "Réplica del icónico balón del Mundial 2014.",
+        "price": 75.0,
+        "stock": 15,
+        "image": "../../src/assets/ImgBalls/AdidasBrazucaWorldCupReplica.jpg",
+        "type": "balon"
+    },
+    {
+        "id": "ball-005",
+        "name": "Nike Merlin Match Ball",
+        "description": "Balón de partido Nike con cubierta texturizada para mejor control.",
+        "price": 105.0,
+        "stock": 20,
+        "image": "../../src/assets/ImgBalls/NikeMerlinMatchBall.webp",
+        "type": "balon"
+    },
+    {
+        "id": "ball-006",
+        "name": "Select Brillant Super",
+        "description": "Balón premium, costura a mano, para alto rendimiento.",
+        "price": 115.0,
+        "stock": 10,
+        "image": "../../src/assets/ImgBalls/SelectBrillantSuper.jpg",
+        "type": "balon"
+    },
+    {
+        "id": "ball-007",
+        "name": "Adidas Al Rihla World Cup Training",
+        "description": "Balón de entrenamiento, inspirado en el diseño del Mundial 2022.",
+        "price": 68.0,
+        "stock": 12,
+        "image": "../../src/assets/ImgBalls/AdidasAlRihlaWorldCupTraining.webp",
+        "type": "balon"
+    },
+    {
+        "id": "ball-008",
+        "name": "Puma Teamfinal 21 Futsal",
+        "description": "Balón de futsal con rebote controlado para juego en cancha cubierta.",
+        "price": 70.0,
+        "stock": 23,
+        "image": "../../src/assets/ImgBalls/PumaTeamfinal21Futsal.webp",
+        "type": "balon"
+    },
+    {
+        "id": "ball-009",
+        "name": "Nike Academy Team Football",
+        "description": "Balón de entrenamiento duradero y resistente.",
+        "price": 55.0,
+        "stock": 8,
+        "image": "../../src/assets/ImgBalls/NikeAcademyTeamFootball.jpeg",
+        "type": "balon"
+    },
+    {
+        "id": "ball-010",
+        "name": "Adidas Capitano Football",
+        "description": "Ideal para sesiones de entrenamiento y juego recreativo.",
+        "price": 50.0,
+        "stock": 17,
+        "image": "../../src/assets/ImgBalls/AdidasCapitanoFootball.jpg",
+        "type": "balon"
+    },
+    {
+        "id": "jersey-001",
+        "name": "Real Madrid Home Jersey 24/25",
+        "description": "Camiseta oficial local del Real Madrid, diseño clásico.",
+        "price": 95.0,
+        "stock": 20,
+        "image": "/src/assets/ImgTShirts/RealMadridHomeJersey2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-002",
+        "name": "AC Milan Home Jersey 24/25",
+        "description": "Icónica camiseta local del AC Milan, rayas rojas y negras.",
+        "price": 90.0,
+        "stock": 15,
+        "image": "../../src/assets/ImgTShirts/ACMilanHomeJersey2425.jpeg",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-003",
+        "name": "Manchester United Home Jersey 24/25",
+        "description": "Camiseta oficial local del Manchester United, color rojo clásico.",
+        "price": 92.0,
+        "stock": 25,
+        "image": "../../src/assets/ImgTShirts/ManchesterUnitedHomeJersey2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-004",
+        "name": "Chelsea Home Jersey 24/25",
+        "description": "Camiseta azul local del Chelsea FC, diseño moderno.",
+        "price": 88.0,
+        "stock": 18,
+        "image": "../../src/assets/ImgTShirts/ChelseaHomeJersey2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-005",
+        "name": "Real Madrid Away Jersey 24/25",
+        "description": "Camiseta de visitante del Real Madrid, elegante y moderna.",
+        "price": 98.0,
+        "stock": 10,
+        "image": "../../src/assets/ImgTShirts/RealMadridAwayJersey2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-006",
+        "name": "AC Milan Away Jersey 24/25",
+        "description": "Camiseta de visitante del AC Milan, con detalles dorados.",
+        "price": 95.0,
+        "stock": 12,
+        "image": "../../src/assets/ImgTShirts/ACMilanAwayJersey2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-007",
+        "name": "Manchester United Away Jersey 24/25",
+        "description": "Diseño audaz para la camiseta de visitante del Man Utd.",
+        "price": 93.0,
+        "stock": 22,
+        "image": "../../src/assets/ImgTShirts/ManchesterUnitedAwayJersey2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-008",
+        "name": "Chelsea Third Kit 24/25",
+        "description": "Tercera equipación del Chelsea con un diseño único.",
+        "price": 105.0,
+        "stock": 14,
+        "image": "../../src/assets/ImgTShirts/ChelseaThirdKit2425.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-009",
+        "name": "Argentina Home Jersey (2022 World Cup)",
+        "description": "Camiseta local de Argentina de la Copa del Mundo 2022, con 3 estrellas.",
+        "price": 140.0,
+        "stock": 16,
+        "image": "../../src/assets/ImgTShirts/ArgentinaHomeJersey2022WorldCup.webp",
+        "type": "remera"
+    },
+    {
+        "id": "jersey-010",
+        "name": "Germany Home Jersey (Latest Edition)",
+        "description": "Camiseta local de Alemania, diseño elegante y moderno.",
+        "price": 85.0,
+        "stock": 9,
+        "image": "../../src/assets/ImgTShirts/GermanyHomeJerseyLatestEdition.webp",
+        "type": "remera"
+    },
+    {
+        "id": "shoe-001",
+        "name": "Nike Mercurial Superfly 9 FG",
+        "description": "Botines de velocidad para terreno firme, con cuello Dynamic Fit.",
+        "price": 270.0,
+        "stock": 15,
+        "image": "/src/assets/ImgShoes/NikeMercurialSuperfly9FG.jpeg",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-002",
+        "name": "Adidas Predator Accuracy.1 FG",
+        "description": "Botines de precisión con elementos de goma High-Definition Grip.",
+        "price": 220.0,
+        "stock": 18,
+        "image": "../../src/assets/ImgShoes/AdidasPredatorAccuracy1FG.webp",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-003",
+        "name": "Puma Future Ultimate FG/AG",
+        "description": "Botines adaptables para terreno firme y artificial, con tecnología FUZIONFIT360.",
+        "price": 190.0,
+        "stock": 20,
+        "image": "../../src/assets/ImgShoes/PumaFutureUltimateFGAG.jpeg",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-004",
+        "name": "Nike Phantom GX Elite FG",
+        "description": "Botines para control del balón y agilidad, con tecnología Gripknit.",
+        "price": 230.0,
+        "stock": 22,
+        "image": "../../src/assets/ImgShoes/NikePhantomGXEliteFG.webp",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-005",
+        "name": "Adidas Copa Pure.1 FG",
+        "description": "Botines de cuero premium para un toque clásico y confort.",
+        "price": 180.0,
+        "stock": 10,
+        "image": "../../src/assets/ImgShoes/AdidasCopaPure1FG.webp",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-006",
+        "name": "Puma Ultra Ultimate FG/AG",
+        "description": "Botines ultraligeros para velocidad explosiva.",
+        "price": 170.0,
+        "stock": 25,
+        "image": "../../src/assets/ImgShoes/PumaUltraUltimateFGAG.jpeg",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-007",
+        "name": "Nike Tiempo Legend 9 Elite FG",
+        "description": "Botines clásicos con cuero para un toque superior.",
+        "price": 160.0,
+        "stock": 8,
+        "image": "../../src/assets/ImgShoes/NikeTiempoLegend9EliteFG.webp",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-008",
+        "name": "Adidas X Speedportal.1 FG",
+        "description": "Botines diseñados para la aceleración y cambios de dirección rápidos.",
+        "price": 200.0,
+        "stock": 19,
+        "image": "../../src/assets/ImgShoes/AdidasXSpeedportal1FG.jpeg",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-009",
+        "name": "Puma King Ultimate FG/AG",
+        "description": "Renovación del clásico Puma King, con materiales modernos.",
+        "price": 150.0,
+        "stock": 12,
+        "image": "../../src/assets/ImgShoes/PumaKingUltimateFGAG.webp",
+        "type": "zapato"
+    },
+    {
+        "id": "shoe-010",
+        "name": "Nike Zoom Mercurial Vapor 15 Elite FG",
+        "description": "Innovación en velocidad con unidad Zoom Air para propulsión.",
+        "price": 260.0,
+        "stock": 14,
+        "image": "../../src/assets/ImgShoes/NikeZoomMercurialVapor15EliteFG.webp",
+        "type": "zapato"
+    }
+]

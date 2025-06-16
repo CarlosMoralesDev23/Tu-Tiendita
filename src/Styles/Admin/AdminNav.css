@@ -1,0 +1,32 @@
+.admin-nav {
+    ul {
+        width: 100%;
+        list-style: none;
+        padding: 4px;
+        margin: 8px auto;
+        display: flex;
+        justify-content: space-between;
+        background-color: #071b2f;
+        padding: 4px 8px;
+        border-radius: 3px;
+
+        li {
+
+            h2{
+                color: white;
+                font-size: 26px;
+            }
+
+            .admin-logout {
+                background: none;
+                cursor: pointer;
+                font-size: 2em;
+            }
+
+            a {
+                text-decoration: none;
+                color: #ff0000;
+            }
+        }
+    }
+}

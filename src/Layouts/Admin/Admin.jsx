@@ -1,44 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Loader from "../../Components/Reusables/Loader/Loader.jsx";
 
 
-import "../../Styles/Layouts/Admin.css";
+import "../../Styles/Admin/Admin.css";
 import AdminNotFound from "./AdminNotFound.jsx";
 import AdminNav from "./AdminNav.jsx";
 import AdminProducts from "./AdminProducts.jsx";
 import AdminOpenForm from "./AdminOpenForm.jsx";
 import AdminCloseForm from "./AdminCloseForm.jsx";
 
+
+
+import { AdminContext } from "../../context/AdminContext.jsx"
+
 const Admin = () => {
-    const [productos, setProductos] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [openForm, setOpenForm] = useState(false);
-    const [fetchError, setFetchError] = useState(false);
 
-
-    useEffect(() => {
-        fetch("/data/products.json")
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(
-                        `Error HTTP: ${response.status} - ${response.statusText}`
-                    );
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setTimeout(() => {
-                    setProductos(data);
-                    setLoading(false);
-                }, 1000);
-            })
-            .catch((error) => {
-                console.error("Error al cargar datos iniciales:", error);
-                setFetchError(true);
-                setLoading(false);
-            });
-    }, []);
-
+    const {fetchError, loading, setOpenForm, openForm} = useContext(AdminContext)
 
 
     return (
@@ -52,9 +29,7 @@ const Admin = () => {
             ) : (
                 <>
                     <AdminNav />
-                    <h1 className="title">Panel Administrativo</h1>
-
-                    <AdminProducts productos={productos} />
+                    <AdminProducts/>
                 </>
             )}
 
@@ -63,9 +38,9 @@ const Admin = () => {
             </button>
 
             {openForm && (
-                <AdminOpenForm openForm={openForm} setOpenFor={setOpenForm} setProductos={setProductos}/>
+                <AdminOpenForm/>
             )}
-            {openForm && <AdminCloseForm setOpenFor={setOpenForm} />}
+            {openForm && <AdminCloseForm/>}
         </div>
     );
 };

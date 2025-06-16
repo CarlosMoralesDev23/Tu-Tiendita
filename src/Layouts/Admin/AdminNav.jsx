@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import "../../Styles/Admin/AdminNav.css";
+
 
 
 import { CartContext } from "../../context/CartContext.jsx";
@@ -12,15 +14,19 @@ const AdminNav = () => {
         <nav className="admin-nav">
             <ul>
                 <li>
-                    <h2>Admin</h2>
+                    <h2>Administrador</h2>
                 </li>
+
+
                 <li>
-                    <button className="navButton" onClick={logoutUser}>
+                    <button className="admin-logout" onClick={logoutUser}>
                         <Link to="/admin">
                             <i className="fa-solid fa-right-from-bracket"></i>
                         </Link>
                     </button>
                 </li>
+
+
             </ul>
         </nav>
     );

@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormAddProducts from "./FormAddProducts.jsx";
+import AdminContext from "../../context/AdminContext.jsx";
 
-
-const AdminOpenForm = ({openForm, setOpenForm, setProductos}) => {
-
-
+const AdminOpenForm = () => {
+    const { openForm, setOpenForm, agregarProducto } = useContext(AdminContext);
 
     return (
         <div className={`form-sidebar-container ${openForm ? "open" : ""}`}>

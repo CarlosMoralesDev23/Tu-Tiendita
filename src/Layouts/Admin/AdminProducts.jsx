@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import AdminContext from "../../context/AdminContext";
 
-const AdminProducts = ({productos}) => {
+const AdminProducts = () => {
+    const { productos } = useContext(AdminContext);
+
     return (
         <ul className="list">
             {productos.map((product) => (
