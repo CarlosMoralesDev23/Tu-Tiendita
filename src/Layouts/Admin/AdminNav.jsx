@@ -20,13 +20,11 @@ const AdminNav = () => {
 
                 <li>
                     <button className="admin-logout" onClick={logoutUser}>
-                        <Link to="/admin">
+                        <Link to="/login">
                             <i className="fa-solid fa-right-from-bracket"></i>
                         </Link>
                     </button>
                 </li>
-
-
             </ul>
         </nav>
     );

@@ -1,25 +1,35 @@
 import React, { useContext } from "react";
-import AdminContext from "../../context/AdminContext";
+import { AdminContext } from "../../context/AdminContext";
+import "../../Styles/Admin/AdminProducts.css";
+import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
+import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
 const AdminProducts = () => {
     const { productos } = useContext(AdminContext);
 
     return (
-        <ul className="list">
+        <ul className="admin-list">
             {productos.map((product) => (
-                <li key={product.id} className="listItem">
+                <li key={product.id} className="admin-list-item">
                     <img
                         src={product.image || product.imagen}
                         alt={product.name || product.nombre}
-                        className="listItemImage"
+                        className="admin-list-item-image"
                     />
-                    <span>{product.name || product.nombre}</span>
-                    <span>${product.price || product.precio}</span>
+                    <span className="admin-list-product-name">
+                        {product.name || product.nombre}
+                    </span>
+                    <span className="admin-list-product-price">
+                        ${product.price || product.precio}
+                    </span>
+                    <div className="admin-list-product-description">
+                        <p>{product.description || product.descripcion}</p>
+                    </div>
                     <div>
-                        <button className="editButton">
+                        <button className="edit-button">
                             <i className="fa-solid fa-pencil"></i>
                         </button>
-                        <button className="deleteButton">
+                        <button className="delete-button">
                             <i className="fa-solid fa-trash"></i>
                         </button>
                     </div>
