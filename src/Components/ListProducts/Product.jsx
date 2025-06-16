@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import "../../Styles/ListProducts/Product.css";
-import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
-import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
+import HeartEmpty from "../../assets/Generals/ImgCardProduct/HeartEmpty.svg";
+import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
 
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";

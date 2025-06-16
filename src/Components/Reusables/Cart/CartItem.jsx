@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import ImageTrash from "../../../assets/ImgCart/Trash.png";
+import ImageTrash from "../../../assets/Generals/ImgCart/Trash.png";
 import { CartContext } from "../../../context/CartContext";
 
 

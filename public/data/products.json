@@ -5,7 +5,7 @@
         "description": "Balón oficial de partidos UEFA Champions League.",
         "price": 135.0,
         "stock": 18,
-        "image": "../../src/assets/ImgBalls/AdidasFinaleProBall.jpg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasFinaleProBall.jpg",
         "type": "balon"
     },
     {
@@ -14,7 +14,7 @@
         "description": "Balón de fútbol con tecnología Nike Flight para vuelo consistente.",
         "price": 125.0,
         "stock": 22,
-        "image": "../../src/assets/ImgBalls/NikeFlightPremierLeague.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/NikeFlightPremierLeague.jpeg",
         "type": "balon"
     },
     {
@@ -23,7 +23,7 @@
         "description": "Balón oficial de LaLiga, alta visibilidad y durabilidad.",
         "price": 98.0,
         "stock": 25,
-        "image": "../../src/assets/ImgBalls/PumaOrbitaLaLiga1.webp",
+        "image": "../../src/assets/ImgProducts/ImgBalls/PumaOrbitaLaLiga1.webp",
         "type": "balon"
     },
     {
@@ -32,7 +32,7 @@
         "description": "Réplica del icónico balón del Mundial 2014.",
         "price": 75.0,
         "stock": 15,
-        "image": "../../src/assets/ImgBalls/AdidasBrazucaWorldCupReplica.jpg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasBrazucaWorldCupReplica.jpg",
         "type": "balon"
     },
     {
@@ -41,7 +41,7 @@
         "description": "Camiseta oficial local del Real Madrid, diseño clásico.",
         "price": 95.0,
         "stock": 20,
-        "image": "/src/assets/ImgTShirts/RealMadridHomeJersey2425.webp",
+        "image": "/src/assets/ImgProducts/ImgTShirts/RealMadridHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -50,7 +50,7 @@
         "description": "Icónica camiseta local del AC Milan, rayas rojas y negras.",
         "price": 90.0,
         "stock": 15,
-        "image": "../../src/assets/ImgTShirts/ACMilanHomeJersey2425.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ACMilanHomeJersey2425.jpeg",
         "type": "remera"
     },
     {
@@ -59,7 +59,7 @@
         "description": "Camiseta oficial local del Manchester United, color rojo clásico.",
         "price": 92.0,
         "stock": 25,
-        "image": "../../src/assets/ImgTShirts/ManchesterUnitedHomeJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ManchesterUnitedHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -68,7 +68,7 @@
         "description": "Camiseta azul local del Chelsea FC, diseño moderno.",
         "price": 88.0,
         "stock": 18,
-        "image": "../../src/assets/ImgTShirts/ChelseaHomeJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ChelseaHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -77,7 +77,7 @@
         "description": "Botines de velocidad para terreno firme, con cuello Dynamic Fit.",
         "price": 270.0,
         "stock": 15,
-        "image": "/src/assets/ImgShoes/NikeMercurialSuperfly9FG.jpeg",
+        "image": "/src/assets/ImgProducts/ImgShoes/NikeMercurialSuperfly9FG.jpeg",
         "type": "zapato"
     },
     {
@@ -86,7 +86,7 @@
         "description": "Botines de precisión con elementos de goma High-Definition Grip.",
         "price": 220.0,
         "stock": 18,
-        "image": "../../src/assets/ImgShoes/AdidasPredatorAccuracy1FG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/AdidasPredatorAccuracy1FG.webp",
         "type": "zapato"
     },
     {
@@ -95,7 +95,7 @@
         "description": "Botines adaptables para terreno firme y artificial, con tecnología FUZIONFIT360.",
         "price": 190.0,
         "stock": 20,
-        "image": "../../src/assets/ImgShoes/PumaFutureUltimateFGAG.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgShoes/PumaFutureUltimateFGAG.jpeg",
         "type": "zapato"
     },
     {
@@ -104,7 +104,7 @@
         "description": "Botines adaptables para terreno firme y artificial, con tecnología FUZIONFIT360.",
         "price": 190.0,
         "stock": 20,
-        "image": "../../src/assets/ImgShoes/PumaFutureUltimateFGAG.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgShoes/PumaFutureUltimateFGAG.jpeg",
         "type": "zapato"
     }
 ]

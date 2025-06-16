@@ -4,8 +4,8 @@ import Header from "../Fijos/Header/Header";
 import Nav from "../Fijos/Nav/Nav";
 import Footer from "../Fijos/Footer/Footer";
 import { CartContext } from "../../context/CartContext";
-import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg"
-import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
+import HeartEmpty from "../../assets/Generals/ImgCardProduct/HeartEmpty.svg"
+import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
 
 
 const DetailsProducts = ( ) => {

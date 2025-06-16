@@ -5,7 +5,7 @@
         "description": "Balón oficial de partidos UEFA Champions League.",
         "price": 135.0,
         "stock": 18,
-        "image": "../../src/assets/ImgBalls/AdidasFinaleProBall.jpg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasFinaleProBall.jpg",
         "type": "balon"
     },
     {
@@ -14,7 +14,7 @@
         "description": "Balón de fútbol con tecnología Nike Flight para vuelo consistente.",
         "price": 125.0,
         "stock": 22,
-        "image": "../../src/assets/ImgBalls/NikeFlightPremierLeague.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/NikeFlightPremierLeague.jpeg",
         "type": "balon"
     },
     {
@@ -23,7 +23,7 @@
         "description": "Balón oficial de LaLiga, alta visibilidad y durabilidad.",
         "price": 98.0,
         "stock": 25,
-        "image": "../../src/assets/ImgBalls/PumaOrbitaLaLiga1.webp",
+        "image": "../../src/assets/ImgProducts/ImgBalls/PumaOrbitaLaLiga1.webp",
         "type": "balon"
     },
     {
@@ -32,7 +32,7 @@
         "description": "Réplica del icónico balón del Mundial 2014.",
         "price": 75.0,
         "stock": 15,
-        "image": "../../src/assets/ImgBalls/AdidasBrazucaWorldCupReplica.jpg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasBrazucaWorldCupReplica.jpg",
         "type": "balon"
     },
     {
@@ -41,7 +41,7 @@
         "description": "Balón de partido Nike con cubierta texturizada para mejor control.",
         "price": 105.0,
         "stock": 20,
-        "image": "../../src/assets/ImgBalls/NikeMerlinMatchBall.webp",
+        "image": "../../src/assets/ImgProducts/ImgBalls/NikeMerlinMatchBall.webp",
         "type": "balon"
     },
     {
@@ -50,7 +50,7 @@
         "description": "Balón premium, costura a mano, para alto rendimiento.",
         "price": 115.0,
         "stock": 10,
-        "image": "../../src/assets/ImgBalls/SelectBrillantSuper.jpg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/SelectBrillantSuper.jpg",
         "type": "balon"
     },
     {
@@ -59,7 +59,7 @@
         "description": "Balón de entrenamiento, inspirado en el diseño del Mundial 2022.",
         "price": 68.0,
         "stock": 12,
-        "image": "../../src/assets/ImgBalls/AdidasAlRihlaWorldCupTraining.webp",
+        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasAlRihlaWorldCupTraining.webp",
         "type": "balon"
     },
     {
@@ -68,7 +68,7 @@
         "description": "Balón de futsal con rebote controlado para juego en cancha cubierta.",
         "price": 70.0,
         "stock": 23,
-        "image": "../../src/assets/ImgBalls/PumaTeamfinal21Futsal.webp",
+        "image": "../../src/assets/ImgProducts/ImgBalls/PumaTeamfinal21Futsal.webp",
         "type": "balon"
     },
     {
@@ -77,7 +77,7 @@
         "description": "Balón de entrenamiento duradero y resistente.",
         "price": 55.0,
         "stock": 8,
-        "image": "../../src/assets/ImgBalls/NikeAcademyTeamFootball.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/NikeAcademyTeamFootball.jpeg",
         "type": "balon"
     },
     {
@@ -86,7 +86,7 @@
         "description": "Ideal para sesiones de entrenamiento y juego recreativo.",
         "price": 50.0,
         "stock": 17,
-        "image": "../../src/assets/ImgBalls/AdidasCapitanoFootball.jpg",
+        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasCapitanoFootball.jpg",
         "type": "balon"
     },
     {
@@ -95,7 +95,7 @@
         "description": "Camiseta oficial local del Real Madrid, diseño clásico.",
         "price": 95.0,
         "stock": 20,
-        "image": "/src/assets/ImgTShirts/RealMadridHomeJersey2425.webp",
+        "image": "/src/assets/ImgProducts/ImgTShirts/RealMadridHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -104,7 +104,7 @@
         "description": "Icónica camiseta local del AC Milan, rayas rojas y negras.",
         "price": 90.0,
         "stock": 15,
-        "image": "../../src/assets/ImgTShirts/ACMilanHomeJersey2425.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ACMilanHomeJersey2425.jpeg",
         "type": "remera"
     },
     {
@@ -113,7 +113,7 @@
         "description": "Camiseta oficial local del Manchester United, color rojo clásico.",
         "price": 92.0,
         "stock": 25,
-        "image": "../../src/assets/ImgTShirts/ManchesterUnitedHomeJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ManchesterUnitedHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -122,7 +122,7 @@
         "description": "Camiseta azul local del Chelsea FC, diseño moderno.",
         "price": 88.0,
         "stock": 18,
-        "image": "../../src/assets/ImgTShirts/ChelseaHomeJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ChelseaHomeJersey2425.webp",
         "type": "remera"
     },
     {
@@ -131,7 +131,7 @@
         "description": "Camiseta de visitante del Real Madrid, elegante y moderna.",
         "price": 98.0,
         "stock": 10,
-        "image": "../../src/assets/ImgTShirts/RealMadridAwayJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/RealMadridAwayJersey2425.webp",
         "type": "remera"
     },
     {
@@ -140,7 +140,7 @@
         "description": "Camiseta de visitante del AC Milan, con detalles dorados.",
         "price": 95.0,
         "stock": 12,
-        "image": "../../src/assets/ImgTShirts/ACMilanAwayJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ACMilanAwayJersey2425.webp",
         "type": "remera"
     },
     {
@@ -149,7 +149,7 @@
         "description": "Diseño audaz para la camiseta de visitante del Man Utd.",
         "price": 93.0,
         "stock": 22,
-        "image": "../../src/assets/ImgTShirts/ManchesterUnitedAwayJersey2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ManchesterUnitedAwayJersey2425.webp",
         "type": "remera"
     },
     {
@@ -158,7 +158,7 @@
         "description": "Tercera equipación del Chelsea con un diseño único.",
         "price": 105.0,
         "stock": 14,
-        "image": "../../src/assets/ImgTShirts/ChelseaThirdKit2425.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ChelseaThirdKit2425.webp",
         "type": "remera"
     },
     {
@@ -167,7 +167,7 @@
         "description": "Camiseta local de Argentina de la Copa del Mundo 2022, con 3 estrellas.",
         "price": 140.0,
         "stock": 16,
-        "image": "../../src/assets/ImgTShirts/ArgentinaHomeJersey2022WorldCup.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/ArgentinaHomeJersey2022WorldCup.webp",
         "type": "remera"
     },
     {
@@ -176,7 +176,7 @@
         "description": "Camiseta local de Alemania, diseño elegante y moderno.",
         "price": 85.0,
         "stock": 9,
-        "image": "../../src/assets/ImgTShirts/GermanyHomeJerseyLatestEdition.webp",
+        "image": "../../src/assets/ImgProducts/ImgTShirts/GermanyHomeJerseyLatestEdition.webp",
         "type": "remera"
     },
     {
@@ -185,7 +185,7 @@
         "description": "Botines de velocidad para terreno firme, con cuello Dynamic Fit.",
         "price": 270.0,
         "stock": 15,
-        "image": "/src/assets/ImgShoes/NikeMercurialSuperfly9FG.jpeg",
+        "image": "/src/assets/ImgProducts/ImgShoes/NikeMercurialSuperfly9FG.jpeg",
         "type": "zapato"
     },
     {
@@ -194,7 +194,7 @@
         "description": "Botines de precisión con elementos de goma High-Definition Grip.",
         "price": 220.0,
         "stock": 18,
-        "image": "../../src/assets/ImgShoes/AdidasPredatorAccuracy1FG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/AdidasPredatorAccuracy1FG.webp",
         "type": "zapato"
     },
     {
@@ -203,7 +203,7 @@
         "description": "Botines adaptables para terreno firme y artificial, con tecnología FUZIONFIT360.",
         "price": 190.0,
         "stock": 20,
-        "image": "../../src/assets/ImgShoes/PumaFutureUltimateFGAG.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgShoes/PumaFutureUltimateFGAG.jpeg",
         "type": "zapato"
     },
     {
@@ -212,7 +212,7 @@
         "description": "Botines para control del balón y agilidad, con tecnología Gripknit.",
         "price": 230.0,
         "stock": 22,
-        "image": "../../src/assets/ImgShoes/NikePhantomGXEliteFG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/NikePhantomGXEliteFG.webp",
         "type": "zapato"
     },
     {
@@ -221,7 +221,7 @@
         "description": "Botines de cuero premium para un toque clásico y confort.",
         "price": 180.0,
         "stock": 10,
-        "image": "../../src/assets/ImgShoes/AdidasCopaPure1FG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/AdidasCopaPure1FG.webp",
         "type": "zapato"
     },
     {
@@ -230,7 +230,7 @@
         "description": "Botines ultraligeros para velocidad explosiva.",
         "price": 170.0,
         "stock": 25,
-        "image": "../../src/assets/ImgShoes/PumaUltraUltimateFGAG.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgShoes/PumaUltraUltimateFGAG.jpeg",
         "type": "zapato"
     },
     {
@@ -239,7 +239,7 @@
         "description": "Botines clásicos con cuero para un toque superior.",
         "price": 160.0,
         "stock": 8,
-        "image": "../../src/assets/ImgShoes/NikeTiempoLegend9EliteFG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/NikeTiempoLegend9EliteFG.webp",
         "type": "zapato"
     },
     {
@@ -248,7 +248,7 @@
         "description": "Botines diseñados para la aceleración y cambios de dirección rápidos.",
         "price": 200.0,
         "stock": 19,
-        "image": "../../src/assets/ImgShoes/AdidasXSpeedportal1FG.jpeg",
+        "image": "../../src/assets/ImgProducts/ImgShoes/AdidasXSpeedportal1FG.jpeg",
         "type": "zapato"
     },
     {
@@ -257,7 +257,7 @@
         "description": "Renovación del clásico Puma King, con materiales modernos.",
         "price": 150.0,
         "stock": 12,
-        "image": "../../src/assets/ImgShoes/PumaKingUltimateFGAG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/PumaKingUltimateFGAG.webp",
         "type": "zapato"
     },
     {
@@ -266,7 +266,7 @@
         "description": "Innovación en velocidad con unidad Zoom Air para propulsión.",
         "price": 260.0,
         "stock": 14,
-        "image": "../../src/assets/ImgShoes/NikeZoomMercurialVapor15EliteFG.webp",
+        "image": "../../src/assets/ImgProducts/ImgShoes/NikeZoomMercurialVapor15EliteFG.webp",
         "type": "zapato"
     }
 ]
