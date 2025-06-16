@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 
 import "../../../Styles/Reusables/Cart.css"; 
-import Cerrar from "../../../assets/ImgCart/signo-cerrado.png";
 import CartItem from "./CartItem";
 import EmptyAndPay from "../Cart/EmptyAndPay"
 import ModalPay from "../Cart/ModalPay"
@@ -49,22 +48,21 @@ const Cart = ( ) => {
             <div className="cartHeader">
                 <h2>Carrito de compras</h2>
                 <button className="closeButton" onClick={handleCloseCart}>
-                    <img src={Cerrar} alt="Cerrar carrito" />
+                    <i className="fa-solid fa-right-from-bracket" style={{backgroundColor:"black"}}></i>
                 </button>
             </div>
 
             <CartItem />
 
-
-
             {cart.length > 0 && (
                 <EmptyAndPay handleOpenPaymentModal={handleOpenPaymentModal} />
             )}
 
-
-            <ModalPay isPaymentModalOpen={isPaymentModalOpen} handleClosePaymentModal={handleClosePaymentModal} handleConfirmPayment={handleConfirmPayment} />
-
-
+            <ModalPay
+                isPaymentModalOpen={isPaymentModalOpen}
+                handleClosePaymentModal={handleClosePaymentModal}
+                handleConfirmPayment={handleConfirmPayment}
+            />
         </div>
     );
 };

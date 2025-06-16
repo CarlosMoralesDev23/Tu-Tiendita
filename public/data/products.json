@@ -97,5 +97,14 @@
         "stock": 20,
         "image": "../../src/assets/ImgShoes/PumaFutureUltimateFGAG.jpeg",
         "type": "zapato"
+    },
+    {
+        "id": "shoe-004",
+        "name": "Puma Future Ultimate FG/AG",
+        "description": "Botines adaptables para terreno firme y artificial, con tecnología FUZIONFIT360.",
+        "price": 190.0,
+        "stock": 20,
+        "image": "../../src/assets/ImgShoes/PumaFutureUltimateFGAG.jpeg",
+        "type": "zapato"
     }
 ]

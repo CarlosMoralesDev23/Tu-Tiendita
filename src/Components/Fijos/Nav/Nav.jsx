@@ -4,7 +4,6 @@ import { CartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 
 import "../../../Styles/Fijos/Nav.css";
-import ImageCart from "../../../assets/ImgNav/CarritoComprasAzul.png";
 
 const Nav = () => {
     const { handleOpenCart, isAuthenticated, userName } =
@@ -39,7 +38,7 @@ const Nav = () => {
                     className="nav-cart-button"
                     onClick={() => handleOpenCart()}
                 >
-                    <img src={ImageCart} alt="abrir carrito de compras" />
+                    <i className="fa-solid fa-cart-shopping"></i>{" "}
                 </button>
             </ul>
         </nav>
