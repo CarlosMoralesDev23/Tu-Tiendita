@@ -5,7 +5,7 @@ import HeartEmpty from "../../assets/ImgCardProduct/HeartEmpty.svg";
 import StarEmpty from "../../assets/ImgCardProduct/StarEmpty.svg";
 
 const AdminProducts = () => {
-    const { productos } = useContext(AdminContext);
+    const { productos, eliminarProducto } = useContext(AdminContext);
 
     return (
         <ul className="admin-list">
@@ -26,10 +26,13 @@ const AdminProducts = () => {
                         <p>{product.description || product.descripcion}</p>
                     </div>
                     <div>
+                        
+                    </div>
+                    <div>
                         <button className="edit-button">
                             <i className="fa-solid fa-pencil"></i>
                         </button>
-                        <button className="delete-button">
+                        <button className="delete-button" onClick={()=>eliminarProducto(product.id)}>
                             <i className="fa-solid fa-trash"></i>
                         </button>
                     </div>

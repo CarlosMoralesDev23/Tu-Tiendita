@@ -69,7 +69,6 @@ export const AdminProvider = ({ children }) => {
     };
 
     const eliminarProducto = async (idProducto) => {
-        // Lógica para eliminar un producto de la API
         try {
             const respuesta = await fetch(
                 `https://682e2f0e746f8ca4a47c2dbd.mockapi.io/product/${idProducto}`,
@@ -85,7 +84,7 @@ export const AdminProvider = ({ children }) => {
             alert("Producto eliminado correctamente (desde AdminContext)");
             setProductos((prevProductos) =>
                 prevProductos.filter((p) => p.id !== idProducto)
-            ); // Actualiza la lista
+            ); 
         } catch (error) {
             console.error(
                 "Error al eliminar el producto (desde AdminContext):",

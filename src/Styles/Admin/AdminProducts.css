@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(130px, 1fr));
     gap: 15px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .admin-list-item {

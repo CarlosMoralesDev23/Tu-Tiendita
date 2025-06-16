@@ -29,18 +29,15 @@ const Admin = () => {
             ) : (
                 <>
                     <AdminNav />
-                    <AdminProducts/>
+                    <button onClick={() => setOpenForm(true)}>
+                        Agregar producto nuevo
+                    </button>
+                    <AdminProducts />
                 </>
             )}
 
-            <button onClick={() => setOpenForm(true)}>
-                Agregar producto nuevo
-            </button>
-
-            {openForm && (
-                <AdminOpenForm/>
-            )}
-            {openForm && <AdminCloseForm/>}
+            {openForm && <AdminOpenForm />}
+            {openForm && <AdminCloseForm />}
         </div>
     );
 };
