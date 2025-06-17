@@ -1,17 +1,20 @@
 import React, { useContext } from "react";
-import FormAddProducts from "../Admin/FormAddProducts.jsx";
-import { AdminContext } from "../../context/AdminContext.jsx";
+import FormAddProducts from "../Admin/FormAddProducts/FormAddProducts.jsx";
+
+import { AdminContext } from "../../context/AdminContext.jsx"; 
+import { FormAddProductsProvider } from "../../context/FormAddProductsContext.jsx"; 
 
 import "../../Styles/AdminCSS/AdminOpenForm.css"
 
 const AdminOpenForm = () => {
-    const { openForm, setOpenForm, agregarProducto } = useContext(AdminContext);
+    const { setOpenForm, agregarProducto } = useContext(AdminContext);
 
     return (
-        <div className={`form-sidebar-container ${openForm ? "open" : ""}`}>
+        <div className={`form-sidebar-container ${true ? "open" : ""}`}>
+            <FormAddProductsProvider>
+                <FormAddProducts onAgregar={agregarProducto} />
+            </FormAddProductsProvider>
 
-            <FormAddProducts onAgregar={agregarProducto} />
-            
             <button
                 onClick={() => setOpenForm(false)}
                 style={{ marginTop: "10px" }}
