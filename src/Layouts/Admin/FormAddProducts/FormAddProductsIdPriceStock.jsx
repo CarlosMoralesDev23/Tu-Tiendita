@@ -1,0 +1,56 @@
+import React, { useState, useContext } from "react";
+import "../../../Styles/AdminCSS/FormAddProducts.css";
+import { FormAddProductsContext } from "../../../context/FormAddProductsContext";
+
+const FormAddProductsIdPriceStock = () => {
+    const {
+        product,
+        errors,
+        handleChange,
+    } = useContext(FormAddProductsContext);
+
+    return (
+        <div className="id-price-stock-group">
+            <div>
+                <label htmlFor="productId">Id:</label>
+                <input
+                    type="text"
+                    name="id"
+                    id="productId"
+                    value={product.id}
+                    onChange={handleChange}
+                    required
+                />
+                {errors.id && <p style={{ color: "red" }}>{errors.id}</p>}
+            </div>
+            <div>
+                <label htmlFor="productPrice">Precio:</label>
+                <input
+                    type="number"
+                    name="price"
+                    id="productPrice"
+                    value={product.price}
+                    onChange={handleChange}
+                    required
+                    min="0"
+                />
+                {errors.price && <p style={{ color: "red" }}>{errors.price}</p>}
+            </div>
+            <div>
+                <label htmlFor="productStock">Stock:</label>
+                <input
+                    type="number"
+                    name="stock"
+                    id="productStock"
+                    value={product.stock}
+                    onChange={handleChange}
+                    required
+                    min="1"
+                />
+                {errors.stock && <p style={{ color: "red" }}>{errors.stock}</p>}
+            </div>
+        </div>
+    );
+};
+
+export default FormAddProductsIdPriceStock;
