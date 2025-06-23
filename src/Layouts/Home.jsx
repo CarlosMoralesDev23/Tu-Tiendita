@@ -13,6 +13,7 @@ import "../Styles/LayoutsCSS/Home.css";
 import Loader from "../Utils/Loader/Loader.jsx";
 import NotFound from "../Utils/NotFound.jsx";
 
+
 const Home = () => {
     const { loader, error } = useContext(CartContext);
 
