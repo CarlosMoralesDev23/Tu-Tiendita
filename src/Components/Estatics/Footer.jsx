@@ -1,9 +1,9 @@
 import React from "react";
-import "../../../Styles/FijosCSS/Footer.css"
+import "../Estatics/Statics.css";
 
 const Footer = () => {
     return (
-        <footer className="Footer">
+        <footer className="footer">
             <div className="footer-content">
                 <div className="footer-section about">
                     <h3 className="footer-title">Tu Tiendita Sport</h3>

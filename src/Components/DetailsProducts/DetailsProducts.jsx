@@ -1,8 +1,7 @@
 import React, {useContext} from "react";
 import { useParams, Link } from "react-router-dom"; 
-import Header from "../Fijos/Header/Header";
-import Nav from "../Fijos/Nav/Nav";
-import Footer from "../Fijos/Footer/Footer";
+import Header from "../Estatics/Header";
+import Footer from "../Estatics/Footer";
 import { CartContext } from "../../context/CartContext";
 import HeartEmpty from "../../assets/Generals/ImgCardProduct/HeartEmpty.svg"
 import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
