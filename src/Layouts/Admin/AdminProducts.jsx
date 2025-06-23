@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AdminContext } from "../../context/AdminContext";
-import "../../Styles/AdminCSS/AdminProducts.css";
+import "./AdminCSS/AdminProducts.css";
 import AdminProductsStock from "./AdminProductsStock";
 import AdminProductsEditDelet from "./AdminProductsEditDelet";
 

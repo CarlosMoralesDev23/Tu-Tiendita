@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "../ListProducts/Product"
-import "../../Styles/ListProductsCSS/ListProducts.css";
+import "./ListProducts.css";
 
 const ListProducts = ({products = []}) => {
 

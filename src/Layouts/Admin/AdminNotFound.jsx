@@ -1,6 +1,6 @@
 import React from "react";
-import NotFound from "../../Components/Reusables/NF404/NotFound";
-import "../../Styles/AdminCSS/AdminNotFound.css"
+import NotFound from "../../Utils/NotFound";
+import "./AdminCSS/AdminNotFound.css"
 
 const AdminNotFound = () => {
     return (

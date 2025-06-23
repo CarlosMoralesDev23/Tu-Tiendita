@@ -4,7 +4,7 @@ import FormAddProducts from "../../Components/FormAddProducts/FormAddProducts.js
 import { AdminContext } from "../../context/AdminContext.jsx"; 
 import { FormAddProductsProvider } from "../../context/FormAddProductsContext.jsx"; 
 
-import "../../Styles/AdminCSS/AdminOpenForm.css"
+import "./AdminCSS/AdminOpenForm.css"
 
 const AdminOpenForm = () => {
     const { setOpenForm, agregarProducto } = useContext(AdminContext);

@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import "../../Styles/ListProductsCSS/Product.css";
+import "./Product.css";
 import HeartEmpty from "../../assets/Generals/ImgCardProduct/HeartEmpty.svg";
 import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
 

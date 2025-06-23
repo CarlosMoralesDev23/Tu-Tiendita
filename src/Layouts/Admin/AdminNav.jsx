@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import "../../Styles/AdminCSS/AdminNav.css";
+import "./AdminCSS/AdminNav.css";
 
 
 

@@ -24,12 +24,6 @@ const Header = () => {
                         <Link to="/Categories">Categorias</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/Offers">Ofertas</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/Register">Registrate</Link>
-                    </li>
-                    <li className="nav-item">
                         {isAuthenticated ? (
                             <Link to="/MyCount">{userName || "User"}</Link>
                         ) : (

@@ -4,14 +4,14 @@ import { CartContext } from "../context/CartContext.jsx";
 import Header from "../Components/Estatics/Header";
 import Footer from "../Components/Estatics/Footer";
 import GuinoGuino from "../assets/Generals/ImgHome/guinoguino.jpg";
-import Balls from "../Components/Reusables/Categorias/Balls";
-import TShirts from "../Components/Reusables/Categorias/TShirts";
-import Shoes from "../Components/Reusables/Categorias/Shoes";
+import Balls from "../Components/Categorias/Balls.jsx";
+import TShirts from "../Components/Categorias/TShirts";
+import Shoes from "../Components/Categorias/Shoes";
 
 import "../Styles/LayoutsCSS/Home.css";
 
-import Loader from "../Components/Reusables/Loader/Loader";
-import NotFound from "../Components/Reusables/NF404/NotFound.jsx";
+import Loader from "../Utils/Loader/Loader.jsx";
+import NotFound from "../Utils/NotFound.jsx";
 
 const Home = () => {
     const { loader, error } = useContext(CartContext);
