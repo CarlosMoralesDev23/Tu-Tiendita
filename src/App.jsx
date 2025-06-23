@@ -12,7 +12,7 @@ import DetailsProducts from "./Components/DetailsProducts/DetailsProducts.jsx";
 import Admin from "./Layouts/Admin/Admin.jsx";
 
 import NF404 from "./Components/Reusables/NF404/NotFound.jsx";
-import Cart from "./Components/Reusables/Cart/Cart.jsx";
+import Cart from "./Components/Cart/Cart.jsx";
 import RutasProtegida from "./auth/RutasProtegida.jsx";
 
 import { CartContext } from "./context/CartContext.jsx";

@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 
-import "../../../Styles/ReusablesCSS/Cart.css"; 
+import "../Cart/Cart.css"; 
 import CartItem from "./CartItem";
 import EmptyAndPay from "../Cart/EmptyAndPay"
 import ModalPay from "../Cart/ModalPay"
-import { CartContext } from "../../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
 const Cart = ( ) => {
 
