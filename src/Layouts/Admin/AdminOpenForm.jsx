@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import FormAddProducts from "../Admin/FormAddProducts/FormAddProducts.jsx";
+import FormAddProducts from "../../Components/FormAddProducts/FormAddProducts.jsx";
 
 import { AdminContext } from "../../context/AdminContext.jsx"; 
 import { FormAddProductsProvider } from "../../context/FormAddProductsContext.jsx"; 

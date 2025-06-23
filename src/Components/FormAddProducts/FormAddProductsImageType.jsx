@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import "../../../Styles/AdminCSS/FormAddProducts.css";
-import { FormAddProductsContext } from "../../../context/FormAddProductsContext";
+import "../FormAddProducts/FormAddProducts.css";
+import { FormAddProductsContext } from "../../context/FormAddProductsContext";
 
 const FormAddProductsImageType = () => {
     const { product, errors, handleChange } = useContext(

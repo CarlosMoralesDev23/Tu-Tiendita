@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import "../../../Styles/AdminCSS/FormAddProducts.css";
-import { FormAddProductsContext } from "../../../context/FormAddProductsContext"
+import "../FormAddProducts/FormAddProducts.css";
+import { FormAddProductsContext } from "../../context/FormAddProductsContext"
 import FormAddProductsIdPriceStock from "./FormAddProductsIdPriceStock";
 import FormAddProductsNameDescription from "./FormAddProductsNameDescription";
 import FormAddProductsImageType from "./FormAddProductsImageType";
