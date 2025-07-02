@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -12,10 +11,8 @@ import NF404 from "./Utils/NotFound.jsx";
 import Cart from "./Components/Cart/Cart.jsx";
 import RutasProtegida from "./auth/RutasProtegida.jsx";
 
-import { CartContext } from "./context/CartContext.jsx";
 
 function App() {
-    const { isCartOpen, handleCloseCart } = useContext(CartContext);
 
     return (
         <>
@@ -47,7 +44,7 @@ function App() {
                 </Routes>
             </Router>
 
-            <Cart isCartOpen={isCartOpen} handleCloseCart={handleCloseCart} />
+            <Cart />
         </>
     );
 }
