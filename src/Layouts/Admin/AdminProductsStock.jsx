@@ -11,4 +11,5 @@ const AdminProductsStock = ({ product }) => {
 };
 
 
+
 export default AdminProductsStock;
