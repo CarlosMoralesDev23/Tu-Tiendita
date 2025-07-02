@@ -24,14 +24,18 @@ const FormAddProductsImageType = () => {
 
             <div className="full-width-field">
                 <label htmlFor="productType">Tipo:</label>
-                <input
-                    type="text"
+                <select
                     name="type"
                     id="productType"
-                    value={product.type}
+                    value={product.type} 
                     onChange={handleChange}
                     required
-                />
+                >
+                    <option value="">Selecciona un tipo</option>
+                    <option value="ball">Ball</option>
+                    <option value="tshirt">T-Shirt</option>
+                    <option value="shoes">Shoes</option>
+                </select>
                 {errors.type && <p style={{ color: "red" }}>{errors.type}</p>}
             </div>
         </>
