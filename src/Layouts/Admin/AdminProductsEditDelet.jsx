@@ -24,6 +24,7 @@ const AdminProductsEditDelet = ({ product }) => {
             eliminarProducto(product.id); 
         }
         
+
     };
 
     return (
