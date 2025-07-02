@@ -7,8 +7,7 @@ export const AdminProvider = ({ children }) => {
     const [openForm, setOpenForm] = useState(false);
     const [fetchError, setFetchError] = useState(false);
 
-    const [selectedProductToEdit, setSelectedProductToEdit] = useState(null); 
-
+    const [selectedProductToEdit, setSelectedProductToEdit] = useState(null);
 
     useEffect(() => {
         fetch("/data/products.json")
@@ -84,7 +83,7 @@ export const AdminProvider = ({ children }) => {
             alert("Producto eliminado correctamente (desde AdminContext)");
             setProductos((prevProductos) =>
                 prevProductos.filter((p) => p.id !== idProducto)
-            ); 
+            );
         } catch (error) {
             console.error(
                 "Error al eliminar el producto (desde AdminContext):",
@@ -133,25 +132,22 @@ export const AdminProvider = ({ children }) => {
         }
     };
 
-
     return (
         <AdminContext.Provider
             value={{
-                productos, 
-                loading, 
-                fetchError, 
-                selectedProductToEdit, 
+                productos,
+                loading,
+                fetchError,
+                selectedProductToEdit,
                 setSelectedProductToEdit,
                 agregarProducto,
-                eliminarProducto, 
+                eliminarProducto,
                 actualizarProducto,
                 openForm,
-                setOpenForm
+                setOpenForm,
             }}
         >
             {children}
         </AdminContext.Provider>
     );
 };
-
-export default AdminContext;

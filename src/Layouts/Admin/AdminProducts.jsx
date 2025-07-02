@@ -5,12 +5,13 @@ import AdminProductsStock from "./AdminProductsStock";
 import AdminProductsEditDelet from "./AdminProductsEditDelet";
 
 const AdminProducts = () => {
-    const { productos, eliminarProducto } = useContext(AdminContext);
+    const { productos } = useContext(AdminContext); 
 
     return (
         <ul className="admin-list">
             {productos.map((product) => (
                 <li key={product.id} className="admin-list-item">
+                    <p>{product.id}</p>
                     <img
                         src={product.image || product.imagen}
                         alt={product.name || product.nombre}
@@ -26,8 +27,9 @@ const AdminProducts = () => {
                         <p>{product.description || product.descripcion}</p>
                     </div>
 
-                    <AdminProductsStock product={product}/>
-                    <AdminProductsEditDelet/>
+                    <AdminProductsStock product={product} />
+                    {/* PASAMOS EL PRODUCTO COMO PROP AQUÍ */}
+                    <AdminProductsEditDelet product={product} />
                 </li>
             ))}
         </ul>

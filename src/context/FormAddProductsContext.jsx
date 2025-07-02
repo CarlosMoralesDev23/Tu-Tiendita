@@ -13,6 +13,7 @@ export const FormAddProductsProvider = ({ children }) => {
         type: "",
     });
     const [errors, setErrors] = useState({});
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProduct({ ...product, [name]: value });
@@ -20,10 +21,6 @@ export const FormAddProductsProvider = ({ children }) => {
 
     const validateForm = () => {
         const newErrors = {};
-        if (!product.id.trim() || product.id.length < 4) {
-            newErrors.id =
-                "El ID es obligatorio y debe tener al menos 4 caracteres.";
-        }
 
         if (!product.name.trim() || product.name.length < 2) {
             newErrors.name =
@@ -51,35 +48,13 @@ export const FormAddProductsProvider = ({ children }) => {
                 "La URL de la imagen es requerida y debe tener al menos 4 caracteres.";
         }
 
-        if (!product.type.trim() || product.type.length < 3) {
-            newErrors.type =
-                "El tipo de producto es requerido (mínimo 3 caracteres).";
+        if (!product.type.trim()) {
+            newErrors.type = "El tipo de producto es requerido.";
         }
 
         setErrors(newErrors);
 
         return Object.keys(newErrors).length === 0;
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (!validateForm()) {
-            return;
-        }
-
-        onAgregar(product);
-
-        setProduct({
-            id: "",
-            name: "",
-            description: "",
-            price: "",
-            stock: "",
-            image: "",
-            type: "",
-        });
-        setErrors({});
     };
 
     return (
@@ -91,12 +66,9 @@ export const FormAddProductsProvider = ({ children }) => {
                 setErrors,
                 handleChange,
                 validateForm,
-                handleSubmit, // Exponemos handleSubmit tal como está aquí
             }}
         >
-            {children} {/* Esto permitirá renderizar el FormAddProducts.jsx */}
+            {children}
         </FormAddProductsContext.Provider>
     );
 };
-
-export default FormAddProductsContext;

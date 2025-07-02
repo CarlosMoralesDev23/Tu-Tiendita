@@ -27,7 +27,7 @@ const FormAddProductsImageType = () => {
                 <select
                     name="type"
                     id="productType"
-                    value={product.type} 
+                    value={product.type}
                     onChange={handleChange}
                     required
                 >
