@@ -9,8 +9,14 @@ export const AdminProvider = ({ children }) => {
 
     const [selectedProductToEdit, setSelectedProductToEdit] = useState(null);
 
+    const MOCK_API_URL =
+        "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/products";
+
     useEffect(() => {
-        fetch("/data/products.json")
+        setLoading(true);
+        setFetchError(false);
+
+        fetch(MOCK_API_URL)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(
@@ -20,13 +26,14 @@ export const AdminProvider = ({ children }) => {
                 return response.json();
             })
             .then((data) => {
-                setTimeout(() => {
-                    setProductos(data);
-                    setLoading(false);
-                }, 1000);
+                setProductos(data);
+                setLoading(false);
             })
             .catch((error) => {
-                console.error("Error al cargar datos iniciales:", error);
+                console.error(
+                    "Error al cargar datos iniciales desde MockAPI:",
+                    error
+                );
                 setFetchError(true);
                 setLoading(false);
             });
@@ -34,16 +41,13 @@ export const AdminProvider = ({ children }) => {
 
     const agregarProducto = async (nuevoProducto) => {
         try {
-            const respuesta = await fetch(
-                "https://682e2f0e746f8ca4a47c2dbd.mockapi.io/product",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(nuevoProducto),
-                }
-            );
+            const respuesta = await fetch(MOCK_API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(nuevoProducto),
+            });
 
             if (!respuesta.ok) {
                 throw new Error(
@@ -69,10 +73,9 @@ export const AdminProvider = ({ children }) => {
 
     const eliminarProducto = async (idProducto) => {
         try {
-            const respuesta = await fetch(
-                `https://682e2f0e746f8ca4a47c2dbd.mockapi.io/product/${idProducto}`,
-                { method: "DELETE" }
-            );
+            const respuesta = await fetch(`${MOCK_API_URL}/${idProducto}`, {
+                method: "DELETE",
+            });
 
             if (!respuesta.ok) {
                 throw new Error(
@@ -80,15 +83,12 @@ export const AdminProvider = ({ children }) => {
                 );
             }
 
-            alert("Producto eliminado correctamente (desde AdminContext)");
+            alert("Producto eliminado correctamente");
             setProductos((prevProductos) =>
                 prevProductos.filter((p) => p.id !== idProducto)
             );
         } catch (error) {
-            console.error(
-                "Error al eliminar el producto (desde AdminContext):",
-                error
-            );
+            console.error("Error al eliminar el producto:", error);
             alert(
                 `Hubo un error al eliminar el producto: ${
                     error.message || "Error desconocido"
@@ -100,7 +100,7 @@ export const AdminProvider = ({ children }) => {
     const actualizarProducto = async (productoActualizado) => {
         try {
             const respuesta = await fetch(
-                `https://682e2f0e746f8ca4a47c2dbd.mockapi.io/product/${productoActualizado.id}`,
+                `${MOCK_API_URL}/${productoActualizado.id}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -115,15 +115,12 @@ export const AdminProvider = ({ children }) => {
             }
 
             const data = await respuesta.json();
-            alert("Producto actualizado correctamente (desde AdminContext)");
+            alert("Producto actualizado correctamente");
             setProductos((prevProductos) =>
                 prevProductos.map((p) => (p.id === data.id ? data : p))
             );
         } catch (error) {
-            console.error(
-                "Error al actualizar el producto (desde AdminContext):",
-                error
-            );
+            console.error("Error al actualizar el producto:", error);
             alert(
                 `Hubo un error al actualizar el producto: ${
                     error.message || "Error desconocido"
