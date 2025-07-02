@@ -4,15 +4,11 @@ import { AdminContext } from "../../context/AdminContext.jsx";
 const AdminProductsStock = ({ product }) => {
     return (
         <div>
-            <button>
-                <i className="fa-solid fa-minus"></i>
-            </button>
-            <span style={{ color: "black" }}>{product.stock}</span>
-            <button>
-                <i className="fa-solid fa-plus"></i>
-            </button>
+            <span style={{ color: "black" }}>Stock : {product.stock}</span>
+
         </div>
     );
 };
+
 
 export default AdminProductsStock;
