@@ -5,7 +5,7 @@
         "description": "Balón oficial de partidos UEFA Champions League.",
         "price": 135.0,
         "stock": 18,
-        "image": "../../src/assets/ImgProducts/ImgBalls/AdidasFinaleProBall.jpg",
+        "image": "https://carlosmoralesdev23.github.io/Tu-Tiendita/src/assets/ImgProducts/ImgBalls/AdidasFinaleProBall.jpg",
         "type": "balon"
     },
     {
