@@ -3,11 +3,27 @@ import { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        // Intentamos obtener el carrito del localStorage y parsearlo.
+        const storedCart = localStorage.getItem("cart");
+        try {
+            // Si hay un carrito guardado, lo devolvemos.
+            return storedCart ? JSON.parse(storedCart) : [];
+        } catch (e) {
+            console.error("Error al parsear el carrito de localStorage:", e);
+            return []; // Si ocurre un error, devuelve un carrito vacío para que no se rompa la app.
+        }
+    });
+
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
     const [loader, setLoader] = useState(true);
+
+    //Guardamos en el localStorage el carrito cada vez que cambia
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
 
     useEffect(() => {
         fetch("/data/products.json")
