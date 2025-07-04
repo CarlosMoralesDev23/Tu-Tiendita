@@ -9,17 +9,54 @@ export const CartProvider = ({ children }) => {
     const [error, setError] = useState(false);
     const [loader, setLoader] = useState(true);
 
-    const [userName, setUserName] = useState("")
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const loginUser  = (userName) => {
+
+
+    // --- localStorage - login ---
+    const [isAuthenticated, setIsAuthenticated] = useState(() => {
+
+        // Ver si esta logueado en localStorage, trae true o false
+        const storedAuth = localStorage.getItem("isAuthenticated");
+
+        // Retornamos e iniciamos isAuthenticated con la siguiente comparación
+        return storedAuth === "true";
+    });
+
+    const [userName, setUserName] = useState(() => {
+
+        // Hay un nombre de usuario en el local Storage?
+        const storedUserName = localStorage.getItem("userName");
+        return storedUserName || "";
+    });
+
+    const loginUser = (name) => {
         setIsAuthenticated(true);
-        setUserName(userName)
-    } 
+        setUserName(name);
+    };
+
     const logoutUser = () => {
         setIsAuthenticated(false);
-        setUserName("")
+        setUserName("");
 
+        //Borrar del Local Store las credenciales del usuario
+        localStorage.removeItem("isAuthenticated");
+        localStorage.removeItem("userName");
     };
+
+    // Setear isAuthenticated en el local Storage cuando cambia
+    useEffect(() => {
+        localStorage.setItem("isAuthenticated", isAuthenticated);
+    }, [isAuthenticated]);
+
+    // Setear userName en el local Storage cuando cambia
+    useEffect(() => {
+        if (userName) {
+            localStorage.setItem("userName", userName);
+        } else {
+            localStorage.removeItem("userName");
+        }
+    }, [userName]);
+    // --- Termina implementación de localStorage ---
+
 
 
 
@@ -39,7 +76,6 @@ export const CartProvider = ({ children }) => {
             });
     }, []);
 
-    //* FUNCIONES Carrito
     const handleOpenCart = () => setIsCartOpen(true);
     const handleCloseCart = () => setIsCartOpen(false);
 
@@ -118,14 +154,11 @@ export const CartProvider = ({ children }) => {
         setCart(cart.filter((item) => item.id !== productToRemove.id));
     };
 
-
     const total = cart.reduce((suma, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity, 10) || 0;
         return suma + price * quantity;
     }, 0);
-
-
 
     return (
         <CartContext.Provider
@@ -150,7 +183,7 @@ export const CartProvider = ({ children }) => {
                 theBalls,
                 theTShirts,
                 theShoes,
-                total
+                total,
             }}
         >
             {children}
