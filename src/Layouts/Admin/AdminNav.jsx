@@ -4,12 +4,12 @@ import "./AdminCSS/AdminNav.css";
 
 
 
-import { CartContext } from "../../context/CartContext.jsx";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 
 const AdminNav = () => {
-        const { logoutUser } = useContext(CartContext)
-    
+        const { logoutUser } = useContext(AuthContext)
+
     return (
         <nav className="admin-nav">
             <ul>

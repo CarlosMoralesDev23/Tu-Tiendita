@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/LayoutsCSS/Login.css";
 
 const Login = () => {
-    const { setIsAuthenticated, loginUser } = useContext(CartContext);
+    const { setIsAuthenticated, loginUser } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
