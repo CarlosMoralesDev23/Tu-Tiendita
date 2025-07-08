@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import ListProducts from "../ListProducts/ListProducts";
-import { CartContext } from "../../context/CartContext";
+import { ProductContext } from "../../context/ProductContext";
+
 
 const TShirts = () => {
-    const { theTShirts } = useContext(CartContext);
+    const { theTShirts } = useContext(ProductContext);
 
     return (
         <div>

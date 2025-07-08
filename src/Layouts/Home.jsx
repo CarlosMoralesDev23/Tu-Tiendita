@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext.jsx";
+import { ProductContext } from "../context/ProductContext";
+
 
 import Header from "../Components/Estatics/Header";
 import Footer from "../Components/Estatics/Footer";
@@ -16,6 +18,7 @@ import NotFound from "../Utils/NotFound.jsx";
 
 const Home = () => {
     const { loader, error } = useContext(CartContext);
+    const { productos } = useContext(ProductContext);
 
     return (
         <div>

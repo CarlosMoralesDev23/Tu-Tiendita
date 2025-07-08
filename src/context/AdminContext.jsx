@@ -1,147 +1,131 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { ProductContext } from "./ProductContext";
 
 export const AdminContext = createContext();
-export const AdminProvider = ({ children }) => {
-    const [productos, setProductos] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [openForm, setOpenForm] = useState(false);
-    const [fetchError, setFetchError] = useState(false);
 
+const MOCK_API_URL =
+    "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/products"; 
+
+export const AdminProvider = ({ children }) => {
+
+    const [adminLoading, setAdminLoading] = useState(false);
+    const [adminError, setAdminError] = useState(null);
+    const [adminMessage, setAdminMessage] = useState(null);
+
+    const [openForm, setOpenForm] = useState(false);
     const [selectedProductToEdit, setSelectedProductToEdit] = useState(null);
 
-    const MOCK_API_URL =
-        "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/products";
+    const { fetchAllProducts } = useContext(ProductContext);
 
-    useEffect(() => {
-        setLoading(true);
-        setFetchError(false);
+    const sendAdminRequest = async (url, method, data = null) => {
+        setAdminLoading(true);
+        setAdminError(null);
+        setAdminMessage(null);
 
-        fetch(MOCK_API_URL)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error(
-                        `Error HTTP: ${response.status} - ${response.statusText}`
-                    );
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setProductos(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error(
-                    "Error al cargar datos iniciales desde MockAPI:",
-                    error
-                );
-                setFetchError(true);
-                setLoading(false);
-            });
-    }, []);
-
-    const agregarProducto = async (nuevoProducto) => {
         try {
-            const respuesta = await fetch(MOCK_API_URL, {
-                method: "POST",
+
+            const options = {
+                method: method,
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(nuevoProducto),
-            });
+                body: data ? JSON.stringify(data) : null,
+            };
 
-            if (!respuesta.ok) {
-                throw new Error(
-                    `Error al agregar producto: ${respuesta.status} ${respuesta.statusText}`
-                );
+            const response = await fetch(url, options);
+
+
+
+            if (!response.ok) {
+                let errorDetails = `Error HTTP: ${response.status} ${response.statusText}`;
+
+                try {
+                    const errorJson = await response.json();
+                    errorDetails += ` - ${
+                        errorJson.message || JSON.stringify(errorJson)
+                    }`;
+
+                } catch (jsonParseError) {
+                    errorDetails += " - No se pudo parsear el JSON de error";
+                }
+
+                throw new Error(errorDetails);
             }
 
-            const data = await respuesta.json();
-            alert("Producto agregado correctamente");
 
-            setProductos((prevProductos) => [...prevProductos, data]);
 
-            setOpenForm(false);
+            const result =
+                method === "DELETE" || response.status === 204
+                    ? { success: true, message: "Operación exitosa" }
+                    : await response.json();
+            setAdminMessage("¡Operación exitosa!");
+            return result;
+
+
         } catch (error) {
-            console.error("Error al añadir el producto:", error);
-            alert(
-                `Hubo un error al agregar el producto: ${
-                    error.message || "Error desconocido"
-                }`
-            );
+            console.error("Error en sendAdminRequest:", error);
+            setAdminError(error.message);
+            setAdminMessage(`Error: ${error.message}`); 
+            return null;
+
+
+        } finally {
+            setAdminLoading(false);
+            fetchAllProducts();
+            setTimeout(() => setAdminMessage(null), 3000);
         }
+    };
+
+
+    
+    const agregarProducto = async (nuevoProducto) => {
+        const result = await sendAdminRequest(
+            MOCK_API_URL,
+            "POST",
+            nuevoProducto
+        );
+        return result;
     };
 
     const eliminarProducto = async (idProducto) => {
-        try {
-            const respuesta = await fetch(`${MOCK_API_URL}/${idProducto}`, {
-                method: "DELETE",
-            });
-
-            if (!respuesta.ok) {
-                throw new Error(
-                    `Error al eliminar producto: ${respuesta.status} ${respuesta.statusText}`
-                );
-            }
-
-            alert("Producto eliminado correctamente");
-            setProductos((prevProductos) =>
-                prevProductos.filter((p) => p.id !== idProducto)
-            );
-        } catch (error) {
-            console.error("Error al eliminar el producto:", error);
-            alert(
-                `Hubo un error al eliminar el producto: ${
-                    error.message || "Error desconocido"
-                }`
-            );
-        }
+        const result = await sendAdminRequest(
+            `${MOCK_API_URL}/${idProducto}`,
+            "DELETE"
+        );
+        return result;
     };
 
     const actualizarProducto = async (productoActualizado) => {
-        try {
-            const respuesta = await fetch(
-                `${MOCK_API_URL}/${productoActualizado.id}`,
-                {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(productoActualizado),
-                }
-            );
+        const result = await sendAdminRequest(
+            `${MOCK_API_URL}/${productoActualizado.id}`,
+            "PUT",
+            productoActualizado
+        );
+        return result;
+    };
 
-            if (!respuesta.ok) {
-                throw new Error(
-                    `Error al actualizar producto: ${respuesta.status} ${respuesta.statusText}`
-                );
-            }
-
-            const data = await respuesta.json();
-            alert("Producto actualizado correctamente");
-            setProductos((prevProductos) =>
-                prevProductos.map((p) => (p.id === data.id ? data : p))
-            );
-        } catch (error) {
-            console.error("Error al actualizar el producto:", error);
-            alert(
-                `Hubo un error al actualizar el producto: ${
-                    error.message || "Error desconocido"
-                }`
-            );
-        }
+    const getProductById = async (productId) => {
+        const result = await sendAdminRequest(
+            `${MOCK_API_URL}/${productId}`,
+            "GET"
+        );
+        return result;
     };
 
     return (
         <AdminContext.Provider
             value={{
-                productos,
-                loading,
-                fetchError,
+                adminLoading,
+                adminError,
+                adminMessage,
+                openForm,
+                setOpenForm,
                 selectedProductToEdit,
                 setSelectedProductToEdit,
                 agregarProducto,
                 eliminarProducto,
                 actualizarProducto,
-                openForm,
-                setOpenForm,
+                getProductById, // Por si lo necesitas
             }}
         >
             {children}
