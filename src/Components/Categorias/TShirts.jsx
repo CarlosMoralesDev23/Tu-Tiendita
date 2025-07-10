@@ -4,7 +4,12 @@ import { ProductContext } from "../../context/ProductContext";
 
 
 const TShirts = () => {
-    const { theTShirts } = useContext(ProductContext);
+    const { products } = useContext(ProductContext);
+    const theTShirts = products.filter((product) => product.type === "tshirt");
+
+    if (theTShirts.length === 0) {
+        return <p>No hay remeras disponibles en este momento.</p>;
+    }
 
     return (
         <div>

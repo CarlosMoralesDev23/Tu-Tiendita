@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import ListProducts from "../../Components/ListProducts/ListProducts";
-import { ProductContext } from "../../context/ProductContext";
 
-const Balls = () => {
-    const { theBalls } = useContext(ProductContext);
+const Balls = ({ products }) => {
+    const theBalls = products.filter((product) => product.type === "ball");
+
+    if (theBalls.length === 0) {
+        return <p>No hay balones disponibles en este momento.</p>;
+    }
 
     return (
         <div>

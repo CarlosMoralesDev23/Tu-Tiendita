@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import { CartContext } from "../context/CartContext.jsx";
 import { ProductContext } from "../context/ProductContext";
-
 
 import Header from "../Components/Estatics/Header";
 import Footer from "../Components/Estatics/Footer";
@@ -15,10 +13,8 @@ import "../Styles/LayoutsCSS/Home.css";
 import Loader from "../Utils/Loader/Loader.jsx";
 import NotFound from "../Utils/NotFound.jsx";
 
-
 const Home = () => {
-    const { loader, error } = useContext(CartContext);
-    const { productos } = useContext(ProductContext);
+    const { products, loading, error } = useContext(ProductContext);
 
     return (
         <div>
@@ -26,6 +22,8 @@ const Home = () => {
 
             {error ? (
                 <NotFound />
+            ) : loading ? (
+                <Loader />
             ) : (
                 <main>
                     <div className="welcome">
@@ -44,17 +42,9 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {loader ? (
-                        <Loader />
-                    ) : (
-                        <>
-                            <Balls />
-
-                            <TShirts />
-
-                            <Shoes />
-                        </>
-                    )}
+                    <Balls products={products} />
+                    <TShirts products={products} />
+                    <Shoes products={products} />
                 </main>
             )}
 

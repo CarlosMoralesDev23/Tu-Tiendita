@@ -1,25 +1,39 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Loader from "../../Utils/Loader/Loader.jsx";
-
-
 import "./AdminCSS/Admin.css";
 import AdminNotFound from "./AdminNotFound.jsx";
 import AdminNav from "./AdminNav.jsx";
 import AdminProducts from "./AdminProducts.jsx";
 import AdminOpenForm from "./AdminOpenForm.jsx";
 
-
-
-import { AdminContext } from "../../context/AdminContext.jsx"
+import { ProductContext } from "../../context/ProductContext.jsx";
+import { AdminContext } from "../../context/AdminContext.jsx";
 
 const Admin = () => {
+    const { products, loading, error, fetchAllProducts } =
+        useContext(ProductContext);
+    const { setOpenForm, openForm, adminMessage, adminLoading, adminError } =
+        useContext(AdminContext);
 
-    const {fetchError, loading, setOpenForm, openForm} = useContext(AdminContext)
-
+    useEffect(() => {
+        fetchAllProducts();
+    }, [fetchAllProducts]);
 
     return (
         <div className="container">
-            {fetchError ? (
+            {adminLoading && (
+                <p className="admin-status-message loading">Procesando...</p>
+            )}
+            {adminError && (
+                <p className="admin-status-message error">
+                    Error: {adminError}
+                </p>
+            )}
+            {adminMessage && !adminError && !adminLoading && (
+                <p className="admin-status-message success">{adminMessage}</p>
+            )}
+
+            {error ? (
                 <>
                     <AdminNotFound />
                 </>
@@ -28,10 +42,13 @@ const Admin = () => {
             ) : (
                 <>
                     <AdminNav />
-                    <button onClick={() => setOpenForm(true)}>
+                    <button
+                        className="add-product-btn"
+                        onClick={() => setOpenForm(true)}
+                    >
                         Agregar producto nuevo
                     </button>
-                    <AdminProducts />
+                    <AdminProducts products={products} />
                 </>
             )}
 

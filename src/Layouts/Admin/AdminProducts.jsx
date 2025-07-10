@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
-import { AdminContext } from "../../context/AdminContext";
+import React from "react";
 import "./AdminCSS/AdminProducts.css";
 import AdminProductsStock from "./AdminProductsStock";
 import AdminProductsEditDelet from "./AdminProductsEditDelet";
 
-const AdminProducts = () => {
-    const { productos } = useContext(AdminContext); 
+const AdminProducts = ({ products }) => {
+    if (!products || products.length === 0) {
+        return (
+            <p className="no-products-message">
+                No hay productos para mostrar.
+            </p>
+        );
+    }
 
     return (
         <ul className="admin-list">
-            {productos.map((product) => (
+            {products.map((product) => (
                 <li key={product.id} className="admin-list-item">
                     <p>{product.id}</p>
                     <img
@@ -28,7 +33,6 @@ const AdminProducts = () => {
                     </div>
 
                     <AdminProductsStock product={product} />
-                    {/* PASAMOS EL PRODUCTO COMO PROP AQUÍ */}
                     <AdminProductsEditDelet product={product} />
                 </li>
             ))}

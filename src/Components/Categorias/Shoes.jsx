@@ -5,7 +5,12 @@ import { ProductContext } from "../../context/ProductContext";
 
 
 const Shoes = () => {
-    const { theShoes } = useContext(ProductContext);
+    const { products } = useContext(ProductContext);
+    const theShoes = products.filter((product) => product.type === "shoes");
+
+    if (theShoes.length === 0) {
+        return <p>No hay zapatos disponibles en este momento.</p>;
+    }
 
     return (
         <div>
