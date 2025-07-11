@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "../Estatics/Statics.css"
 
 const Header = () => {
-    const { handleOpenCart, isAuthenticated, userName } =
+    const { handleOpenCart, isAuthenticated, userName, itemCount } =
         useContext(CartContext);
 
     return (
@@ -34,7 +34,10 @@ const Header = () => {
                         className="nav-cart-button"
                         onClick={() => handleOpenCart()}
                     >
-                        <i className="fa-solid fa-cart-shopping"></i>{" "}
+                        <i className="fa-solid fa-cart-shopping"></i>
+                        {itemCount > 0 && (
+                            <span className="cart-item-count">{itemCount}</span>
+                        )}
                     </button>
                 </ul>
             </nav>
