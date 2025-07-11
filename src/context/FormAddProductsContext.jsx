@@ -18,9 +18,9 @@ export const FormAddProductsProvider = ({ children }) => {
         const { name, value } = e.target;
 
         if (name === "price") {
-            setProduct({ ...product, [name]: parseFloat(value) || "" }); // Usamos "" para manejar input vacío si se borra
+            setProduct({ ...product, [name]: parseFloat(value) || "" }); 
         } else if (name === "stock") {
-            setProduct({ ...product, [name]: parseInt(value, 10) || "" }); // Usamos "" para manejar input vacío si se borra
+            setProduct({ ...product, [name]: parseInt(value, 10) || "" }); 
         } else {
             setProduct({ ...product, [name]: value });
         }
