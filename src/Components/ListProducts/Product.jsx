@@ -6,18 +6,19 @@ import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
-const Product = ({ product = [] }) => {
+const Product = ({ product = {} }) => {
 
     const {addToCart} = useContext(CartContext)
 
+    const isOutOfStock = product.stock <= 0;
+
+
     return (
-        <div className="tarjetaProducto">
-            
+        <div className={`tarjetaProducto ${isOutOfStock ? "agotado" : ""}`}>
             <div className="encabezado">
                 <h3>{product.name}</h3>
                 <img src={HeartEmpty} alt="corazon favorito" />
             </div>
-
             <div className="valoracion">
                 <img src={StarEmpty} alt="" />
                 <img src={StarEmpty} alt="" />
@@ -25,33 +26,46 @@ const Product = ({ product = [] }) => {
                 <img src={StarEmpty} alt="" />
                 <img src={StarEmpty} alt="" />
             </div>
-
             <div className="contenedorImagen">
-                <img src={product.image} alt="balon" />
+                <img src={product.image} alt={`Balon - ${product.name}`} />
             </div>
-
             <div className="contenedorPrecio">
-                <span>{product.price} $</span>
+                <span>
+                    {typeof product.price === "number"
+                        ? product.price.toFixed(2)
+                        : product.price}
+                    $
+                </span>
             </div>
 
             <div className="contenedorStock">
-                <span>Disponibles: {product.stock}</span>
+                <span>
+                    {isOutOfStock ? (
+                        <span style={{ color: "red", fontWeight: "bold" }}>
+                            Agotado
+                        </span>
+                    ) : (
+                        `Disponibles: ${product.stock}`
+                    )}
+                </span>
             </div>
 
             <div className="contenedorAgregar">
-                <button onClick={()=>addToCart(product)} >Agregar</button>
+                <button
+                    onClick={() => addToCart(product)}
+                    disabled={isOutOfStock}
+                    className={isOutOfStock ? "disabled-button" : ""}
+                >
+                    Agregar
+                </button>
             </div>
 
-            {/* <div className="contenedorAgregarCantidades">
-                <div>
-                    <button>-</button>
-                    <span>0</span>
-                    <button>+</button>
-                </div>
-            </div> */}
-
-            <div>
-                <Link to={`/products/${product.id}`}>Ver Mas</Link>
+            <div className="contenedorVerMas">
+                {isOutOfStock ? (
+                    <span className="disabled-link-button">Ver Mas</span>
+                ) : (
+                    <Link to={`/products/${product.id}`}>Ver Mas</Link>
+                )}
             </div>
         </div>
     );

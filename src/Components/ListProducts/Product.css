@@ -30,7 +30,7 @@
     font-weight: 600;
     margin: 0 0 2px 0;
     color: #333;
-    min-height: 2.6em; /* AJUSTE AQUÍ: Incrementado para asegurar espacio para 2 líneas */
+    min-height: 2.6em;
 }
 
 .encabezado img {
@@ -140,4 +140,46 @@
     color: #fff;
     min-width: 20px;
     text-align: center;
+}
+
+.tarjetaProducto.agotado {
+    opacity: 0.7;
+    border: 1px solid #ff0000;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+.contenedorAgregar .disabled-button {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.contenedorVerMas {
+    margin-top: 5px;
+}
+
+.contenedorVerMas a,
+.contenedorVerMas .disabled-link-button {
+    display: block;
+    text-align: center;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-size: 0.68em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border: 1px solid #007bff;
+    color: #007bff;
+}
+
+.contenedorVerMas a:hover {
+    background-color: #e6f2ff;
+}
+
+.contenedorVerMas .disabled-link-button {
+    background-color: #f0f0f0;
+    color: #888888;
+    cursor: not-allowed;
+    border-color: #cccccc;
+    pointer-events: none;
 }
