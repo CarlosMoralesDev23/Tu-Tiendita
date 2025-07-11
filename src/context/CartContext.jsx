@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { ProductContext } from "./ProductContext";
+import { AdminContext } from "./AdminContext";
 
 export const CartContext = createContext();
 
@@ -16,11 +17,13 @@ export const CartProvider = ({ children }) => {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
 
+    const {
+        products,
+        loading: loadingProducts,
+        error: productError,
+    } = useContext(ProductContext);
+    const { actualizarProducto } = useContext(AdminContext);
 
-
-    const { products, loadingProducts, productError} = useContext(ProductContext);
-
-    // Guardamos en el localStorage el carrito cada vez que cambia
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
@@ -63,7 +66,6 @@ export const CartProvider = ({ children }) => {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
         }
     };
-
 
     const emptyCart = () => {
         setCart([]);
@@ -121,6 +123,23 @@ export const CartProvider = ({ children }) => {
         setCart(cart.filter((item) => item.id !== productToRemove.id));
     };
 
+    const updateProductStockAfterPurchase = async () => {
+        for (const item of cart) {
+            const originalProduct = products.find((p) => p.id === item.id);
+
+            if (originalProduct) {
+                const newStock = originalProduct.stock - item.quantity;
+
+                const updatedProductData = {
+                    ...originalProduct,
+                    stock: newStock >= 0 ? newStock : 0,
+                };
+
+                await actualizarProducto(updatedProductData);
+            }
+        }
+    };
+
     const total = cart.reduce((suma, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity, 10) || 0;
@@ -131,9 +150,9 @@ export const CartProvider = ({ children }) => {
         <CartContext.Provider
             value={{
                 cart,
-                products, 
-                loader: loadingProducts, // Mapeamos 'loadingProducts' a 'loader'
-                error: productError, // Mapeamos 'productError' a 'error'
+                products,
+                loader: loadingProducts,
+                error: productError,
                 addToCart,
                 removeItemFromCart,
                 handleOpenCart,
@@ -143,6 +162,7 @@ export const CartProvider = ({ children }) => {
                 incrementQuantity,
                 decrementQuantity,
                 total,
+                updateProductStockAfterPurchase,
             }}
         >
             {children}

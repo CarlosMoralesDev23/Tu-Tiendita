@@ -1,27 +1,27 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import ImageTrash from "../../assets/Generals/ImgCart/Trash.png";
 import { CartContext } from "../../context/CartContext";
 
-
-const CartItem = ( ) => {
-
-    const {cart, decrementQuantity, incrementQuantity, removeItemFromCart} = useContext(CartContext)
+const CartItem = () => {
+    const { cart, decrementQuantity, incrementQuantity, removeItemFromCart } =
+        useContext(CartContext);
 
     return (
         <div className="cartItemsContainer">
-            {cart.length === 0 ? (<p>Tu Carrito esta vacio</p>) : (
+            {cart.length === 0 ? (
+                <p>Tu Carrito esta vacio</p>
+            ) : (
                 cart.map((item, index) => (
                     <div className="itemContainer" key={item.id || index}>
-
                         <div className="itemImage">
                             <img src={item.image} alt="" />
                         </div>
-                        
+
                         <div className="itemDetails">
                             <h3>{item.name}</h3>
                             <span className="price">
                                 Precio: $
-                                {(item.price).toFixed(2)}
+                                {(parseFloat(item.price) || 0).toFixed(2)}
                             </span>
                         </div>
 
@@ -38,22 +38,21 @@ const CartItem = ( ) => {
                                 </button>
                             </div>
                             <span className="available">
-                                Disponible:{" "}
-                                {item.stock}
+                                Disponible: {item.stock}
                             </span>
                         </div>
                         <div className="itemSubtotal">
-                            <h4 className="subTotal">
-                                Subtotal:
-                            </h4>
-                            <span>{(item.price*item.quantity).toFixed(2)} $</span>
+                            <h4 className="subTotal">Subtotal:</h4>
+                            <span>
+                                {(
+                                    parseFloat(item.price) * item.quantity || 0
+                                ).toFixed(2)}{" "}
+                                $
+                            </span>
                         </div>
                         <div className="deleteItem">
                             <button onClick={() => removeItemFromCart(item)}>
-                                <img
-                                    src={ImageTrash}
-                                    alt={`Eliminar`}
-                                />
+                                <img src={ImageTrash} alt={`Eliminar`} />
                             </button>
                         </div>
                     </div>

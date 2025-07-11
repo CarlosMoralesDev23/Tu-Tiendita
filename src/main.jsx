@@ -5,20 +5,20 @@ import App from "./App.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import { AdminProvider } from "./context/AdminContext.jsx";
-import { ProductProvider } from "./context/ProductContext"; 
+import { ProductProvider } from "./context/ProductContext";
 import { FormAddProductsProvider } from "./context/FormAddProductsContext.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <AuthProvider>
             <ProductProvider>
-                <CartProvider>
-                    <AdminProvider>
+                <AdminProvider>
+                    <CartProvider>
                         <FormAddProductsProvider>
                             <App />
                         </FormAddProductsProvider>
-                    </AdminProvider>
-                </CartProvider>
+                    </CartProvider>
+                </AdminProvider>
             </ProductProvider>
         </AuthProvider>
     </StrictMode>

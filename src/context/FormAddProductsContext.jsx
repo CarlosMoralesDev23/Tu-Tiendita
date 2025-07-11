@@ -16,7 +16,14 @@ export const FormAddProductsProvider = ({ children }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProduct({ ...product, [name]: value });
+
+        if (name === "price") {
+            setProduct({ ...product, [name]: parseFloat(value) || "" }); // Usamos "" para manejar input vacío si se borra
+        } else if (name === "stock") {
+            setProduct({ ...product, [name]: parseInt(value, 10) || "" }); // Usamos "" para manejar input vacío si se borra
+        } else {
+            setProduct({ ...product, [name]: value });
+        }
     };
 
     const validateForm = () => {
@@ -38,9 +45,11 @@ export const FormAddProductsProvider = ({ children }) => {
         }
 
         const stockNum = parseInt(product.stock, 10);
-        if (isNaN(stockNum) || stockNum < 1) {
+        if (isNaN(stockNum) || stockNum < 0) {
             newErrors.stock =
-                "El stock debe ser un número entero y mayor o igual a 1.";
+                "El stock debe ser un número mayor o igual a 0.";
+                //Con el fin de dejar agregar productos con stock 0,  si ingresan posterior a su creación.
+                
         }
 
         if (!product.image.trim() || product.image.length < 4) {

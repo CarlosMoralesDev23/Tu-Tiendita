@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import Swal from "sweetalert2"; // Importa SweetAlert2
+import Swal from "sweetalert2";
 
 import "../Cart/Cart.css";
 import CartItem from "./CartItem";
@@ -8,8 +8,13 @@ import ModalPay from "../Cart/ModalPay";
 import { CartContext } from "../../context/CartContext";
 
 const Cart = () => {
-    const { cart, isCartOpen, handleCloseCart, emptyCart } =
-        useContext(CartContext);
+    const {
+        cart,
+        isCartOpen,
+        handleCloseCart,
+        emptyCart,
+        updateProductStockAfterPurchase,
+    } = useContext(CartContext);
 
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
 
@@ -21,18 +26,18 @@ const Cart = () => {
         setIsPaymentModalOpen(false);
     };
 
-    const handleConfirmPayment = () => {
+    const handleConfirmPayment = async () => {
         console.log("Pago confirmado a través de SweetAlert2!");
 
-        // 1. Cerrar el modal de pago inmediatamente
         handleClosePaymentModal();
 
-        // 2. Mostrar SweetAlert2
+        await updateProductStockAfterPurchase();
+
         Swal.fire({
             icon: "success",
             title: "¡Pago exitoso!",
             text: "Gracias por tu compra.",
-            timer: 2000, // Duración en milisegundos (2 segundos)
+            timer: 2000,
             timerProgressBar: true,
             showConfirmButton: false,
             didOpen: (toast) => {
@@ -40,9 +45,8 @@ const Cart = () => {
                 toast.addEventListener("mouseleave", Swal.resumeTimer);
             },
         }).then(() => {
-            // 3. Esta función se ejecuta después de que SweetAlert2 se cierra
-            emptyCart(); // Vaciar el carrito
-            handleCloseCart(); // Cerrar el carrito lateral
+            emptyCart();
+            handleCloseCart();
         });
     };
 
