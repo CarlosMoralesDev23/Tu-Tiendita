@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import "../Estatics/Statics.css"
+import OpcionCategorias from "./OpcionCategorias";
+
+import "../Estatics/Statics.css";
 
 const Header = () => {
     const { handleOpenCart, isAuthenticated, userName, itemCount } =
         useContext(CartContext);
+
 
     return (
         <header className="header">
@@ -20,9 +23,11 @@ const Header = () => {
                     <li className="nav-item">
                         <Link to="/">Home</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to="/Categories">Categorias</Link>
-                    </li>
+
+
+                    <OpcionCategorias />
+
+
                     <li className="nav-item">
                         {isAuthenticated ? (
                             <Link to="/MyCount">{userName || "User"}</Link>
@@ -30,6 +35,8 @@ const Header = () => {
                             <Link to="/Login">Login</Link>
                         )}
                     </li>
+
+                    
                     <button
                         className="nav-cart-button"
                         onClick={() => handleOpenCart()}
