@@ -3,7 +3,7 @@ import "../Estatics/Statics.css";
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer id="footer" className="footer">
             <div className="footer-content">
                 <div className="footer-section about">
                     <h3 className="footer-title">Tu Tiendita Sport</h3>

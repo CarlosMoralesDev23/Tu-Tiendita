@@ -17,7 +17,6 @@ const Header = () => {
 
             <nav className="nav">
                 <ul className="nav-list">
-
                     <li className="nav-item">
                         <Link to="/">Home</Link>
                     </li>
@@ -25,9 +24,10 @@ const Header = () => {
                     <OpcionCategorias />
 
                     <li className="nav-item">
-                        <Link to="/MyCount">Contacto</Link>
+                        <a href="#footer" className="nav-link">
+                            Contacto
+                        </a>
                     </li>
-
 
                     <li className="nav-item">
                         {isAuthenticated ? (

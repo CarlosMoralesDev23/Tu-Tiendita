@@ -29,7 +29,6 @@ const Balls = () => {
         <div>
             <Header />
             <h1>Bienvenido a la sección de Balones</h1>
-            <p>Explora nuestra variedad de balones de fútbol, baloncesto y más</p>
             <div className="Balones">
                 <div className="contenedorTarjetaBalones">
                     <ListProducts products={theBalls} />

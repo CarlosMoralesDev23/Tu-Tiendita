@@ -16,7 +16,6 @@ const Shoes = () => {
         <div>
             <Header />
             <h1>Bienvenido a la sección de Zapatos</h1>
-            <p>Explora nuestra variedad de zapatos deportivos y casuales</p>
             <div className="Zapatos">
                 <div className="contenedorTarjetaZapatos">
                     <ListProducts products={theShoes} />

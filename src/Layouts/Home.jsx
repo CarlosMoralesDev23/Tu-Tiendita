@@ -38,8 +38,7 @@ const Home = () => {
                         <p>Tenemos impresionantes productos para ti!!!</p>
                         <div>
                             <p>
-                                Registrate y date una vuelta por la sección de
-                                ofertas
+                                Date una vuelta por la sección de Categorías
                             </p>
                             <img
                                 src={GuinoGuino}
