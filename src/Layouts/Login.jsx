@@ -90,10 +90,7 @@ const Login = () => {
 
 
                 //!SACAR EL noValidate en el form
-                //!SACAR EL noValidate en el form
-                //!SACAR EL noValidate en el form
-                //!SACAR EL noValidate en el form
-                //!SACAR EL noValidate en el form
+
 
                 <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
 
@@ -124,7 +121,7 @@ const Login = () => {
                 </form>
             </div>
 
-            <button onClick={()=>dontHaveAccount()}>No tengo cuenta</button>
+            <button onClick={()=>dontHaveAccount()}>No estoy registrado, ir al Home.</button>
 
         </div>
     );

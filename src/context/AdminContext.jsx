@@ -104,13 +104,7 @@ export const AdminProvider = ({ children }) => {
         return result;
     };
 
-    const getProductById = async (productId) => {
-        const result = await sendAdminRequest(
-            `${MOCK_API_URL}/${productId}`,
-            "GET"
-        );
-        return result;
-    };
+
 
     return (
         <AdminContext.Provider
@@ -125,7 +119,6 @@ export const AdminProvider = ({ children }) => {
                 agregarProducto,
                 eliminarProducto,
                 actualizarProducto,
-                getProductById, // Por si lo necesitas
             }}
         >
             {children}
