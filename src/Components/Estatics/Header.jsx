@@ -17,15 +17,16 @@ const Header = () => {
 
             <nav className="nav">
                 <ul className="nav-list">
-                    <li className="nav-item">
-                        <Link to="/MyCount">GPS</Link>
-                    </li>
+
                     <li className="nav-item">
                         <Link to="/">Home</Link>
                     </li>
 
-
                     <OpcionCategorias />
+
+                    <li className="nav-item">
+                        <Link to="/MyCount">Contacto</Link>
+                    </li>
 
 
                     <li className="nav-item">
@@ -36,7 +37,6 @@ const Header = () => {
                         )}
                     </li>
 
-                    
                     <button
                         className="nav-cart-button"
                         onClick={() => handleOpenCart()}
