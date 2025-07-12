@@ -10,7 +10,6 @@ const Header = () => {
     const { handleOpenCart, isAuthenticated, userName, itemCount } =
         useContext(CartContext);
 
-
     return (
         <header className="header">
             <h1 className="header-title">Tu Tiendita Sport</h1>

@@ -227,11 +227,11 @@ html {
 }
 
 @media (max-width: 992px) {
-    .Header {
+    .header {
         padding: 20px 30px;
         min-height: 80px;
     }
-    .Header-title {
+    .header-title {
         font-size: 2.8em;
         letter-spacing: 1.5px;
     }
@@ -245,11 +245,11 @@ html {
 }
 
 @media (max-width: 768px) {
-    .Header {
+    .header {
         padding: 18px 25px;
         min-height: 70px;
     }
-    .Header-title {
+    .header-title {
         font-size: 2.4em;
         letter-spacing: 1px;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -284,26 +284,26 @@ html {
 }
 
 @media (max-width: 576px) {
-    .Header {
+    .header {
         padding: 15px 20px;
         min-height: 60px;
     }
-    .Header-title {
+    .header-title {
         font-size: 1.8em;
         letter-spacing: 0.8px;
     }
 }
 
 @media (max-width: 480px) {
-    .Header {
+    .header {
         padding: 12px 15px;
         min-height: 50px;
     }
-    .Header-title {
+    .header-title {
         font-size: 1.4em;
         letter-spacing: 0.5px;
     }
-    .main-nav {
+    .nav {
         padding: 10px 0;
     }
     .nav-list {
@@ -321,7 +321,7 @@ html {
     .nav-cart-button::after {
         display: none;
     }
-    .main-footer {
+    .footer {
         padding: 30px 0;
     }
     .footer-section .footer-title {
