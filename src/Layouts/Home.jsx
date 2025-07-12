@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 
+// Importa Header y Footer aquí si quieres que solo aparezcan en Home
 import Header from "../Components/Estatics/Header";
 import Footer from "../Components/Estatics/Footer";
+
 import GuinoGuino from "../assets/Generals/ImgHome/guinoguino.jpg";
-import Balls from "../Components/Categorias/Balls.jsx";
-import TShirts from "../Components/Categorias/TShirts";
-import Shoes from "../Components/Categorias/Shoes";
+import ListProducts from "../Components/ListProducts/ListProducts";
 
 import "../Styles/LayoutsCSS/Home.css";
 
@@ -15,6 +15,13 @@ import NotFound from "../Utils/NotFound.jsx";
 
 const Home = () => {
     const { products, loading, error } = useContext(ProductContext);
+
+    let productsToShow = [];
+    if (products && products.length > 0) {
+        const shuffledProducts = [...products];
+        shuffledProducts.sort(() => Math.random() - 0.5);
+        productsToShow = shuffledProducts.slice(0, 10);
+    }
 
     return (
         <div>
@@ -42,9 +49,13 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <Balls products={products} />
-                    <TShirts products={products} />
-                    <Shoes products={products} />
+                    <section className="featured-products">
+                        {productsToShow.length > 0 ? (
+                            <ListProducts products={productsToShow} />
+                        ) : (
+                            <p>No se encontraron productos destacados.</p>
+                        )}
+                    </section>
                 </main>
             )}
 

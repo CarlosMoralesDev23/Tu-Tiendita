@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import ListProducts from "../ListProducts/ListProducts";
 import { ProductContext } from "../../context/ProductContext";
-
+import Header from "../Estatics/Header";
+import Footer from "../Estatics/Footer";
 
 const TShirts = () => {
+
+    <Header />
+
     const { products } = useContext(ProductContext);
     const theTShirts = products.filter((product) => product.type === "tshirt");
 
@@ -13,12 +17,14 @@ const TShirts = () => {
 
     return (
         <div>
+            <Header />
+            <h1>Bienvenido a la sección de Remeras</h1>
             <div className="Remeras">
-                <h2>Remeras</h2>
                 <div className="contenedorTarjetaRemeras">
                     <ListProducts products={theTShirts} />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

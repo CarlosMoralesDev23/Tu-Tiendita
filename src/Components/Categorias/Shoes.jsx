@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-
 import ListProducts from "../../Components/ListProducts/ListProducts";
 import { ProductContext } from "../../context/ProductContext";
-
+import Header from "../Estatics/Header";
+import Footer from "../Estatics/Footer";
 
 const Shoes = () => {
     const { products } = useContext(ProductContext);
@@ -14,12 +14,15 @@ const Shoes = () => {
 
     return (
         <div>
+            <Header />
+            <h1>Bienvenido a la sección de Zapatos</h1>
+            <p>Explora nuestra variedad de zapatos deportivos y casuales</p>
             <div className="Zapatos">
-                <h2>Zapatos</h2>
                 <div className="contenedorTarjetaZapatos">
                     <ListProducts products={theShoes} />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
