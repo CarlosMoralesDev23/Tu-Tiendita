@@ -10,30 +10,30 @@ const FormAddProductsIdPriceStock = () => {
     return (
         <div className="id-price-stock-group">
             <div>
-                <label htmlFor="productPrice">Precio:</label>
+                <label htmlFor="product-price">Precio:</label>
                 <input
                     type="number"
                     name="price"
-                    id="productPrice"
+                    id="product-price"
                     value={product.price}
                     onChange={handleChange}
                     required
                     min="0"
                 />
-                {errors.price && <p style={{ color: "red" }}>{errors.price}</p>}
+                {errors.price && <p>{errors.price}</p>}
             </div>
             <div>
-                <label htmlFor="productStock">Stock:</label>
+                <label htmlFor="product-stock">Stock:</label>
                 <input
                     type="number"
                     name="stock"
-                    id="productStock"
+                    id="product-stock"
                     value={product.stock}
                     onChange={handleChange}
                     required
                     min="1"
                 />
-                {errors.stock && <p style={{ color: "red" }}>{errors.stock}</p>}
+                {errors.stock && <p>{errors.stock}</p>}
             </div>
         </div>
     );

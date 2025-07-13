@@ -12,12 +12,23 @@ import { AdminContext } from "../../context/AdminContext.jsx";
 const Admin = () => {
     const { products, loading, error, fetchAllProducts } =
         useContext(ProductContext);
-    const { setOpenForm, openForm, adminMessage, adminLoading, adminError } =
-        useContext(AdminContext);
+    const {
+        setOpenForm,
+        openForm,
+        adminMessage,
+        adminLoading,
+        adminError,
+        setSelectedProductToEdit,
+    } = useContext(AdminContext);
 
     useEffect(() => {
         fetchAllProducts();
     }, [fetchAllProducts]);
+
+    const handleAddProductClick = () => {
+        setSelectedProductToEdit(null);
+        setOpenForm(true);
+    };
 
     return (
         <div className="container">
@@ -44,11 +55,17 @@ const Admin = () => {
                     <AdminNav />
                     <button
                         className="add-product-btn"
-                        onClick={() => setOpenForm(true)}
+                        onClick={handleAddProductClick}
                     >
                         Agregar producto nuevo
                     </button>
                     <AdminProducts products={products} />
+                    <button
+                        className="add-product-btn"
+                        onClick={handleAddProductClick}
+                    >
+                        Agregar producto nuevo
+                    </button>
                 </>
             )}
 

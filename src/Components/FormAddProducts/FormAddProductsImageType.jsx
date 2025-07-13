@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "../FormAddProducts/FormAddProducts.css";
 import { FormAddProductsContext } from "../../context/FormAddProductsContext";
 
@@ -10,23 +10,23 @@ const FormAddProductsImageType = () => {
     return (
         <>
             <div className="full-width-field">
-                <label htmlFor="productImage">Imagen:</label>
+                <label htmlFor="product-image">Imagen:</label>
                 <input
                     type="text"
                     name="image"
-                    id="productImage"
+                    id="product-image"
                     value={product.image}
                     onChange={handleChange}
                     required
                 />
-                {errors.image && <p style={{ color: "red" }}>{errors.image}</p>}
+                {errors.image && <p>{errors.image}</p>}
             </div>
 
             <div className="full-width-field">
-                <label htmlFor="productType">Tipo:</label>
+                <label htmlFor="product-type">Tipo:</label>
                 <select
                     name="type"
-                    id="productType"
+                    id="product-type"
                     value={product.type}
                     onChange={handleChange}
                     required
@@ -36,7 +36,7 @@ const FormAddProductsImageType = () => {
                     <option value="tshirt">T-Shirt</option>
                     <option value="shoes">Shoes</option>
                 </select>
-                {errors.type && <p style={{ color: "red" }}>{errors.type}</p>}
+                {errors.type && <p>{errors.type}</p>}
             </div>
         </>
     );

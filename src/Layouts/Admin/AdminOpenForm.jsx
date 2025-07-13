@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
 import FormAddProducts from "../../Components/FormAddProducts/FormAddProducts.jsx";
 
-import { AdminContext } from "../../context/AdminContext.jsx"; 
-import { FormAddProductsProvider } from "../../context/FormAddProductsContext.jsx"; 
+import { AdminContext } from "../../context/AdminContext.jsx";
+import { FormAddProductsProvider } from "../../context/FormAddProductsContext.jsx";
 
-import "./AdminCSS/AdminOpenForm.css"
+import "./AdminCSS/AdminOpenForm.css";
 
 const AdminOpenForm = () => {
-    const { setOpenForm, agregarProducto } = useContext(AdminContext);
+    const { setOpenForm, agregarProducto, setSelectedProductToEdit } =
+        useContext(AdminContext);
+
+    const handleCloseForm = () => {
+        setSelectedProductToEdit(null);
+        setOpenForm(false);
+    };
 
     return (
         <div className={`form-sidebar-container ${true ? "open" : ""}`}>
@@ -15,10 +21,7 @@ const AdminOpenForm = () => {
                 <FormAddProducts onAgregar={agregarProducto} />
             </FormAddProductsProvider>
 
-            <button
-                onClick={() => setOpenForm(false)}
-                style={{ marginTop: "10px" }}
-            >
+            <button onClick={handleCloseForm} style={{ marginTop: "10px" }}>
                 Cerrar Formulario
             </button>
         </div>
