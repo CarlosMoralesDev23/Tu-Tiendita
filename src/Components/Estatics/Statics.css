@@ -28,16 +28,16 @@ html {
     font-weight: 900;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    background: linear-gradient(
-        90deg,
-        #00bfff 0%,
-        #ffffff 50%,
-        #00bfff 100%
-    );
+    background: linear-gradient(90deg, #00bfff 0%, #ffffff 50%, #00bfff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 .nav {
