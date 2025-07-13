@@ -1,9 +1,4 @@
 #root {
-  padding: 0.5rem;
-  text-align: center;
+  padding: 0.75rem; /* Deja espacio entre el contenido de la pagina y sus bordes */
+  text-align: center; /* Todo texto ira al centro a menos que se indique lo contrario */
 }
-
-
-
-
-
