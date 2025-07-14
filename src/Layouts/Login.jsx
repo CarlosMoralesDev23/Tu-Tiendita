@@ -10,46 +10,32 @@ const Login = () => {
     const [error, setError] = useState({});
     const navigate = useNavigate();
 
-
-    
-    const toDoLogin = async (e) => {
-
-        e.preventDefault();
-        //no recarga la pagina y permite hacer validaciones
-
+    const toDoValidateFormFields = () => {
         let validationErrors = {};
+        if (!email) validationErrors.email = "Email es requerido";
+        if (!password) validationErrors.password = "La contraseña es requerida";
 
-        if (!email)
-            validationErrors.email = "Email es requerido";
-        if (!password)
-            validationErrors.password = "La contraseña es requerida";
+        setError(validationErrors);
+        // Retorna true si no hay errores, false si hay
+        return Object.keys(validationErrors).length === 0;
+    };
 
-        if (Object.keys(validationErrors).length > 0) {
-            //Object.keys(validationErrors): retorna un [] con todas las claves (nombres de propiedades),
-            //Entonces si algun campo se envio vacío...
-            setError(validationErrors);
-            return;
-        }
-
-        //*Si los campos estan llenos ejecutamos los siguiente:
-
-        setError({});
-        //limpia setError porque ya los campos no estan vacíos.
-
-
-        // ********** TEMPORAL: BYPASS PARA ENTRAR RÁPIDO EN DESARROLLO **********
+    const toDoBypass = () => {
         if (email === "j" && password === "j") {
             loginUser("Dev Admin", "admin"); // O cualquier nombre que quieras ver
             navigate("/admin");
-            return; // Detener la ejecución aquí
+            return true; // Indica que el bypass se usó y se debe detener la ejecución
         }
 
         if (email === "k" && password === "k") {
             loginUser("Dev cliente", "client"); // O cualquier nombre que quieras ver
             navigate("/");
-            return; // Detener la ejecución aquí
+            return true; // Indica que el bypass se usó y se debe detener la ejecución
         }
+        return false; // Indica que el bypass no se aplicó
+    };
 
+    const toDoAuthentication = async () => {
         try {
             const res = await fetch("/data/user.json");
             //Pide el archivo user.json.
@@ -64,14 +50,15 @@ const Login = () => {
 
             const foundUser = users.find(
                 (user) => user.email === email && user.password === password
-            );  // Busca un usuario que coincida con el email y la contraseña.
+            ); // Busca un usuario que coincida con el email y la contraseña.
 
             if (!foundUser) {
                 setError({ email: "Credenciales inválidas" });
-                // Si los datos no son validos, setear el error en el estado.
             } else {
                 loginUser(foundUser.name, foundUser.role);
-                //* Si los datos son validos, """""""loginUser"""""".
+                //* -------------- Si los datos son validos, """""""loginUser"""""".------------------------------
+                //* -------------- Si los datos son validos, """""""loginUser"""""".------------------------------
+                //* -------------- Si los datos son validos, """""""loginUser"""""".------------------------------
 
                 if (foundUser.role === "admin") {
                     navigate("/admin");
@@ -87,6 +74,28 @@ const Login = () => {
         }
     };
 
+    const toDoLogin = async (e) => {
+        e.preventDefault();
+        //no recarga la pagina y permite hacer validaciones
+
+        setError({}); // Limpiar errores previos
+
+        //*Si los campos estan vacios ejecutamos lo siguiente:
+        if (!toDoValidateFormFields()) {
+            return; // Si la validación falla, detener la ejecución.
+        }
+
+        //*Si los campos estan llenos ejecutamos los siguiente:
+        //limpia setError porque ya los campos no estan vacíos.
+
+        // ********** TEMPORAL: BYPASS PARA ENTRAR RÁPIDO EN DESARROLLO **********
+        if (toDoBypass()) {
+            return; // Si el bypass se ejecutó, detener la función.
+        }
+
+        await toDoAuthentication(); // Ejecutar la lógica de autenticación real
+    };
+
     const dontHaveAccount = () => {
         navigate("/"); // Redirige a la ruta principal (Home), pero sin autenticarte.
     };
@@ -94,11 +103,10 @@ const Login = () => {
     return (
         <div>
             <div className="login-container">
-                //!SACAR EL noValidate en el form
+                {/* !SACAR EL noValidate en el form */}
                 <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
                 <form className="login-form" onSubmit={toDoLogin} noValidate>
                     <h2>Iniciar sesión</h2>
-
                     <input
                         type="email"
                         placeholder="Email"
@@ -107,7 +115,6 @@ const Login = () => {
                         autoComplete="email"
                     />
                     <div className="error">{error.email || " "}</div>
-
                     <input
                         type="password"
                         placeholder="Contraseña"
@@ -116,11 +123,9 @@ const Login = () => {
                         autoComplete="current-password"
                     />
                     <div className="error">{error.password || " "}</div>
-
                     <button type="submit">Entrar</button>
                 </form>
             </div>
-
             <button onClick={() => dontHaveAccount()}>
                 No estoy registrado, ir al Home.
             </button>
