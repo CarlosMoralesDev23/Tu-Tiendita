@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/LayoutsCSS/Login.css";
 
 const Login = () => {
-    const { setIsAuthenticated, loginUser } = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
@@ -37,8 +37,7 @@ const Login = () => {
 
         // ********** TEMPORAL: BYPASS PARA ENTRAR RÁPIDO EN DESARROLLO **********
         if (email === "j" && password === "j") {
-            loginUser("Dev Admin"); // O cualquier nombre que quieras ver
-            setIsAuthenticated(true); // Asegurarse de que esté autenticado
+            loginUser("Dev Admin", "admin"); // O cualquier nombre que quieras ver
             navigate("/admin");
             return; // Detener la ejecución aquí
         }
@@ -63,10 +62,9 @@ const Login = () => {
             if (!foundUser) {
                 setError({ email: "Credenciales inválidas" });
             } else {
-                loginUser(foundUser.name);
+                loginUser(foundUser.name, foundUser.role);
 
                 if (foundUser.role === "admin") {
-                    setIsAuthenticated(true);
                     navigate("/admin");
                 } else {
                     navigate("/");
@@ -81,21 +79,14 @@ const Login = () => {
     };
 
     const dontHaveAccount = () => {
-        navigate("/"); // Redirige a la ruta principal (Home), pero sin hacer login, sin autenticarte, sin ingresar a tu cuenta.    
+        navigate("/"); // Redirige a la ruta principal (Home), pero sin hacer login, sin autenticarte, sin ingresar a tu cuenta.
     };
 
     return (
         <div>
             <div className="login-container">
-
-
                 //!SACAR EL noValidate en el form
-
-
                 <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
-
-
-
                 <form className="login-form" onSubmit={handleSubmit} noValidate>
                     <h2>Iniciar sesión</h2>
 
@@ -121,8 +112,9 @@ const Login = () => {
                 </form>
             </div>
 
-            <button onClick={()=>dontHaveAccount()}>No estoy registrado, ir al Home.</button>
-
+            <button onClick={() => dontHaveAccount()}>
+                No estoy registrado, ir al Home.
+            </button>
         </div>
     );
 };
