@@ -126,6 +126,13 @@ h1 {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
+.username-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
 .footer {
     background-color: #0d1b2a;
     color: #ffffff;

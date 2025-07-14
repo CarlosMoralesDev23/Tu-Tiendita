@@ -8,8 +8,7 @@ import OpcionCategorias from "./OpcionCategorias";
 import "../Estatics/Statics.css";
 
 const Header = () => {
-    const { handleOpenCart, itemCount } =
-        useContext(CartContext);
+    const { handleOpenCart, itemCount } = useContext(CartContext);
 
     const { logoutUser, isAuthenticated, userName } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -32,14 +31,6 @@ const Header = () => {
                         </a>
                     </li>
 
-                    <li className="nav-item">
-                        {isAuthenticated ? (
-                            <Link to="/MyCount">{userName || "User"}</Link>
-                        ) : (
-                            <Link to="/Login">Login</Link>
-                        )}
-                    </li>
-
                     <button
                         className="nav-cart-button"
                         onClick={() => handleOpenCart()}
@@ -50,12 +41,24 @@ const Header = () => {
                         )}
                     </button>
 
+                    <li className="nav-item  username-logout">
+                        {isAuthenticated ? (
+                            <>
+                                <Link to="/MyCount">{userName || "User"}</Link>
+                                <button
+                                    className="admin-logout"
+                                    onClick={logoutUser}
+                                >
+                                    <Link to="/">
+                                        <i className="fa-solid fa-right-from-bracket"></i>
+                                    </Link>
+                                </button>
+                            </>
+                        ) : (
+                            <Link to="/Login">Login</Link>
+                        )}
+                    </li>
 
-                    <button className="admin-logout" onClick={logoutUser}>
-                        <Link to="/login">
-                            <i className="fa-solid fa-right-from-bracket"></i>
-                        </Link>
-                    </button>
                 </ul>
             </nav>
         </header>
