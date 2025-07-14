@@ -10,18 +10,19 @@ const Login = () => {
     const [error, setError] = useState({});
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
 
-        //*Si loscampos estan vacios ejecutamos lo siguiente:
+    
+    const toDoLogin = async (e) => {
+
+        e.preventDefault();
+        //no recarga la pagina y permite hacer validaciones
 
         let validationErrors = {};
 
         if (!email)
-            validationErrors.email = "Email es requerido, no puede estar vacío";
+            validationErrors.email = "Email es requerido";
         if (!password)
-            validationErrors.password =
-                "La contraseña es requerida, no puede estar vacía";
+            validationErrors.password = "La contraseña es requerida";
 
         if (Object.keys(validationErrors).length > 0) {
             //Object.keys(validationErrors): retorna un [] con todas las claves (nombres de propiedades),
@@ -33,7 +34,8 @@ const Login = () => {
         //*Si los campos estan llenos ejecutamos los siguiente:
 
         setError({});
-        //limpia error porque ya los campos no estan vacíos.
+        //limpia setError porque ya los campos no estan vacíos.
+
 
         // ********** TEMPORAL: BYPASS PARA ENTRAR RÁPIDO EN DESARROLLO **********
         if (email === "j" && password === "j") {
@@ -44,25 +46,26 @@ const Login = () => {
 
         try {
             const res = await fetch("/data/user.json");
+            //Pide el archivo user.json.
 
             if (!res.ok) throw new Error("No llego la respuesta");
-            // res.ok   Es una propiedad booleana del objeto 'Response'. Es `true` si la respuesta HTTP
-            //tiene un código de estado en el rango 200-299 (éxito), y `false` en otro caso (ej. 404 Not Found, 500 Server Error).
-
-            // Si la respuesta no fue exitosa (`!res.ok`), lanzamos un nuevo objeto 'Error'.
-            // Cuando se lanza un error aquí, la ejecución salta inmediatamente al bloque `catch`.
+            // res.ok Es una propiedad booleana del objeto 'Response'. true si la respuesta HTTP es del rango 200-299.
+            // Si no fue true, 'Error'. En consola.
+            // y va inmediatamente al bloque `catch`.
 
             const users = await res.json();
-            //Se convierte en un array de objetos
+            //El JSON se convierte en un array de objetos
 
             const foundUser = users.find(
                 (user) => user.email === email && user.password === password
-            );
+            );  // Busca un usuario que coincida con el email y la contraseña.
 
             if (!foundUser) {
                 setError({ email: "Credenciales inválidas" });
+                // Si los datos no son validos, setear el error en el estado.
             } else {
                 loginUser(foundUser.name, foundUser.role);
+                //* Si los datos son validos, """""""loginUser"""""".
 
                 if (foundUser.role === "admin") {
                     navigate("/admin");
@@ -71,15 +74,15 @@ const Login = () => {
                 }
             }
         } catch (error) {
-            console.log("Error al obtener datos del json: ", error);
+            console.log("No se obtuvo el JSON: ", error);
             setError({
-                email: "Algo salió mal. Por favor, intentalo más tarde",
+                email: "Problema al cargar datos. Por favor, intenta de nuevo más tarde.",
             });
         }
     };
 
     const dontHaveAccount = () => {
-        navigate("/"); // Redirige a la ruta principal (Home), pero sin hacer login, sin autenticarte, sin ingresar a tu cuenta.
+        navigate("/"); // Redirige a la ruta principal (Home), pero sin autenticarte.
     };
 
     return (
@@ -87,7 +90,7 @@ const Login = () => {
             <div className="login-container">
                 //!SACAR EL noValidate en el form
                 <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
-                <form className="login-form" onSubmit={handleSubmit} noValidate>
+                <form className="login-form" onSubmit={toDoLogin} noValidate>
                     <h2>Iniciar sesión</h2>
 
                     <input
