@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 import OpcionCategorias from "./OpcionCategorias";
@@ -7,8 +8,11 @@ import OpcionCategorias from "./OpcionCategorias";
 import "../Estatics/Statics.css";
 
 const Header = () => {
-    const { handleOpenCart, isAuthenticated, userName, itemCount } =
+    const { handleOpenCart, itemCount } =
         useContext(CartContext);
+
+    const { logoutUser, isAuthenticated, userName } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     return (
         <header className="header">
@@ -44,6 +48,13 @@ const Header = () => {
                         {itemCount > 0 && (
                             <span className="cart-item-count">{itemCount}</span>
                         )}
+                    </button>
+
+
+                    <button className="admin-logout" onClick={logoutUser}>
+                        <Link to="/login">
+                            <i className="fa-solid fa-right-from-bracket"></i>
+                        </Link>
                     </button>
                 </ul>
             </nav>

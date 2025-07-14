@@ -44,6 +44,12 @@ const Login = () => {
             return; // Detener la ejecución aquí
         }
 
+        if (email === "k" && password === "k") {
+            loginUser("Dev cliente", "client"); // O cualquier nombre que quieras ver
+            navigate("/");
+            return; // Detener la ejecución aquí
+        }
+
         try {
             const res = await fetch("/data/user.json");
             //Pide el archivo user.json.
