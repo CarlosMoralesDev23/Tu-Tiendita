@@ -8,7 +8,7 @@ import OpcionCategorias from "./OpcionCategorias";
 import "../Estatics/Statics.css";
 
 const Header = () => {
-    const { handleOpenCart, itemCount } = useContext(CartContext);
+    const { toDoOpenCart, itemCount } = useContext(CartContext);
 
     const { logoutUser, isAuthenticated, userName } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Header = () => {
 
                     <button
                         className="nav-cart-button"
-                        onClick={() => handleOpenCart()}
+                        onClick={() => toDoOpenCart()}
                     >
                         <i className="fa-solid fa-cart-shopping"></i>
                         {itemCount > 0 && (

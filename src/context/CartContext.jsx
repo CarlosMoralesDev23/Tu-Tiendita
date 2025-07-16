@@ -5,31 +5,41 @@ import { AdminContext } from "./AdminContext";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState(() => {
-        const storedCart = localStorage.getItem("cart");
-        try {
-            return storedCart ? JSON.parse(storedCart) : [];
-        } catch (e) {
-            console.error("Error al parsear el carrito de localStorage:", e);
-            return [];
-        }
-    });
-
-    const [isCartOpen, setIsCartOpen] = useState(false);
 
     const {
         products,
         loading: loadingProducts,
         error: productError,
     } = useContext(ProductContext);
+
     const { actualizarProducto } = useContext(AdminContext);
 
+
+    //*Traer el carrito del LS  o empezar vacio. 
+    const [cart, setCart] = useState(() => {
+        const CartFromLocalStorage = localStorage.getItem("cart");
+        try {
+            return CartFromLocalStorage ? JSON.parse(CartFromLocalStorage) : [];
+        } catch (e) {
+            console.error("Error al parsear el carrito de localStorage:", e);
+            return [];
+        }
+    });
+
+    //*Estado para mostrar el carrito
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    //*Si agregamos productos al carrito se guarda en el LS
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    const handleOpenCart = () => setIsCartOpen(true);
-    const handleCloseCart = () => setIsCartOpen(false);
+
+    //*Funciones para abrir y cerrar el carrito
+    const toDoOpenCart = () => setIsCartOpen(true);
+    const toDoCloseCart = () => setIsCartOpen(false);
+
+
 
     const addToCart = (productToAdd) => {
         if (loadingProducts || productError) {
@@ -40,13 +50,21 @@ export const CartProvider = ({ children }) => {
             return;
         }
 
-        const isProductInCart = cart.find(
+        //*Lo busca en cart
+        const isThisProductInCart = cart.find(
             (item) => item.id === productToAdd.id
         );
 
-        if (isProductInCart) {
-            const productData = products.find((p) => p.id === productToAdd.id);
-            if (productData && isProductInCart.quantity < productData.stock) {
+        if (isThisProductInCart) {
+
+            //*Lo busca en products
+            const productInfo = products.find((product) => product.id === productToAdd.id);
+
+
+            //*Si el producto si esta en la base de datos y esta en el cart, y la cantidad en cart es menor a la base de dato...
+            if (productInfo && isThisProductInCart.quantity < productInfo.stock) {
+
+                //*Voy a setear el producto al cart y subir su cantidad en +1
                 setCart(
                     cart.map((item) =>
                         item.id === productToAdd.id
@@ -54,34 +72,50 @@ export const CartProvider = ({ children }) => {
                             : item
                     )
                 );
+
+            //*Pero si en cambio si DB y la cantidades igual en cart y DB...
             } else {
                 console.log(
-                    `Ya no hay más ${productToAdd.name} disponibles (stock: ${
-                        productData ? productData.stock : "N/A"
-                    })`
+                    `Ya no hay más ${productToAdd.name} disponibles (stock: ${productInfo ? productInfo.stock : "N/A"})`
                 );
                 alert(`Ya no hay más ${productToAdd.name} disponibles`);
             }
+
+
+        //*Si no estaba en el carrito...
         } else {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
         }
     };
 
+
     const emptyCart = () => {
         setCart([]);
     };
 
+
+
     const incrementQuantity = (productToIncrement) => {
+        //*En este punto ya el producto esta en el carrito
+
+        //*Acá queremos es obtener basicamente su cantidad, en el carrito, el resto es igual.
         const itemInCart = cart.find(
             (item) => item.id === productToIncrement.id
         );
 
+        //*Si se pudo obtener los datos del item...
         if (itemInCart) {
-            const productData = products.find(
+
+            //*Sacar la info del producto de DB
+            const productInfo = products.find(
                 (p) => p.id === productToIncrement.id
             );
-            if (productData && itemInCart.quantity < productData.stock) {
+
+            //* Si DB y cantidad menor a DB...
+            if (productInfo && itemInCart.quantity < productInfo.stock) {
                 setCart(
+
+                    //*incrementar cantidad en +1
                     cart.map((item) =>
                         item.id === productToIncrement.id
                             ? { ...item, quantity: item.quantity + 1 }
@@ -91,7 +125,7 @@ export const CartProvider = ({ children }) => {
             } else {
                 console.log(
                     `Stock máximo alcanzado para ${itemInCart.name} (stock: ${
-                        productData ? productData.stock : "N/A"
+                        productInfo ? productInfo.stock : "N/A"
                     })`
                 );
                 alert(`No hay más stock disponible para ${itemInCart.name}.`);
@@ -99,15 +133,25 @@ export const CartProvider = ({ children }) => {
         }
     };
 
+
+
     const decrementQuantity = (productToDecrement) => {
+        //*En este punto ya el producto esta en el carrito
+
+        //*Acá queremos es obtener basicamente su cantidad, en el carrito, el resto es igual.
         const itemInCart = cart.find(
             (item) => item.id === productToDecrement.id
         );
 
+        //*Si se pudo obtener los datos del item...
         if (itemInCart) {
+
+            //*Si la cantidad en cart  es 1, remover el item
             if (itemInCart.quantity === 1) {
                 removeItemFromCart(productToDecrement);
             } else {
+
+                //*si es mayor a 1, disminuir en -1
                 setCart(
                     cart.map((item) =>
                         item.id === productToDecrement.id
@@ -119,33 +163,53 @@ export const CartProvider = ({ children }) => {
         }
     };
 
+
     const removeItemFromCart = (productToRemove) => {
+        //*Filtrar y regresar todos menos el que tenga ese id.
         setCart(cart.filter((item) => item.id !== productToRemove.id));
     };
 
-    const updateProductStockAfterPurchase = async () => {
+
+    //*Cambiar el stock luego de la compra
+    const toDoChangeStockAfterPurchase = async () => {
+
+        //* se ejecuta despues de comprar, e itera cada producto en cart
         for (const item of cart) {
+
+            //* guardemos la info de cada producto, uno a la vez.
             const originalProduct = products.find((p) => p.id === item.id);
 
             if (originalProduct) {
+                //* al producto en DB,  restemosle la cantidad del mismo en el cart
                 const newStock = originalProduct.stock - item.quantity;
 
+                //*actualizar la info del producto segun el stock disponible ahora
                 const updatedProductData = {
                     ...originalProduct,
                     stock: newStock >= 0 ? newStock : 0,
                 };
 
+                //* Esta función se importa del AdminContext y envia... url, petición put, datos
                 await actualizarProducto(updatedProductData);
             }
         }
     };
 
+
+
+
+
+    //! Acá hay una vulnerabilidad si se setean como 0,  los productos saldrian gratis. 
     const total = cart.reduce((suma, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity, 10) || 0;
         return suma + price * quantity;
     }, 0);
 
+
+
+
+    //*Contador del carrito
     const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
 
 
@@ -158,14 +222,14 @@ export const CartProvider = ({ children }) => {
                 error: productError,
                 addToCart,
                 removeItemFromCart,
-                handleOpenCart,
-                handleCloseCart,
+                toDoOpenCart,
+                toDoCloseCart,
                 isCartOpen,
                 emptyCart,
                 incrementQuantity,
                 decrementQuantity,
                 total,
-                updateProductStockAfterPurchase,
+                toDoChangeStockAfterPurchase,
                 itemCount,
             }}
         >

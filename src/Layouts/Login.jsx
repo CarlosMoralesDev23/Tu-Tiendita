@@ -22,17 +22,17 @@ const Login = () => {
 
     const toDoBypass = () => {
         if (email === "j" && password === "j") {
-            loginUser("Dev Admin", "admin"); // O cualquier nombre que quieras ver
+            loginUser("Dev Admin", "admin"); 
             navigate("/admin");
-            return true; // Indica que el bypass se usó y se debe detener la ejecución
+            return true;
         }
 
         if (email === "k" && password === "k") {
-            loginUser("Dev cliente", "client"); // O cualquier nombre que quieras ver
+            loginUser("Dev cliente", "client");
             navigate("/");
-            return true; // Indica que el bypass se usó y se debe detener la ejecución
+            return true;
         }
-        return false; // Indica que el bypass no se aplicó
+        return false;
     };
 
     const toDoAuthentication = async () => {
@@ -84,9 +84,6 @@ const Login = () => {
         if (!toDoValidateFormFields()) {
             return; // Si la validación falla, detener la ejecución.
         }
-
-        //*Si los campos estan llenos ejecutamos los siguiente:
-        //limpia setError porque ya los campos no estan vacíos.
 
         // ********** TEMPORAL: BYPASS PARA ENTRAR RÁPIDO EN DESARROLLO **********
         if (toDoBypass()) {

@@ -96,6 +96,7 @@ export const AdminProvider = ({ children }) => {
     };
 
     const actualizarProducto = async (productoActualizado) => {
+        //*paso  url, petición, datos
         const result = await sendAdminRequest(
             `${MOCK_API_URL}/${productoActualizado.id}`,
             "PUT",

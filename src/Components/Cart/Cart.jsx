@@ -11,9 +11,9 @@ const Cart = () => {
     const {
         cart,
         isCartOpen,
-        handleCloseCart,
+        toDoCloseCart,
         emptyCart,
-        updateProductStockAfterPurchase,
+        toDoChangeStockAfterPurchase,
     } = useContext(CartContext);
 
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
@@ -31,7 +31,7 @@ const Cart = () => {
 
         handleClosePaymentModal();
 
-        await updateProductStockAfterPurchase();
+        await toDoChangeStockAfterPurchase();
 
         Swal.fire({
             icon: "success",
@@ -46,7 +46,7 @@ const Cart = () => {
             },
         }).then(() => {
             emptyCart();
-            handleCloseCart();
+            toDoCloseCart();
         });
     };
 
@@ -59,7 +59,7 @@ const Cart = () => {
         <div className={cartClassName}>
             <div className="cartHeader">
                 <h2>Carrito de compras</h2>
-                <button className="closeButton" onClick={handleCloseCart}>
+                <button className="closeButton" onClick={toDoCloseCart}>
                     <i
                         className="fa-solid fa-right-from-bracket"
                         style={{ backgroundColor: "black" }}
