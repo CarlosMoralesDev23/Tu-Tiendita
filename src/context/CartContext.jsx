@@ -171,7 +171,7 @@ export const CartProvider = ({ children }) => {
 
 
     //*Cambiar el stock luego de la compra
-    const toDoChangeStockAfterPurchase = async () => {
+    const ChangeStockAfterPurchase = async () => {
 
         //* se ejecuta despues de comprar, e itera cada producto en cart
         for (const item of cart) {
@@ -229,7 +229,7 @@ export const CartProvider = ({ children }) => {
                 incrementQuantity,
                 decrementQuantity,
                 total,
-                toDoChangeStockAfterPurchase,
+                ChangeStockAfterPurchase,
                 itemCount,
             }}
         >

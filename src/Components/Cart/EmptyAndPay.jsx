@@ -3,7 +3,7 @@ import VaciarCarrito from "../../assets/Generals/ImgCart/vaciarCarrito.png";
 import { CartContext } from "../../context/CartContext";
 
 const EmptyAndPay = ({
-    handleOpenPaymentModal,
+    OpenPayModal,
 }) => {
     const {emptyCart, total} = useContext(CartContext);
 
@@ -15,7 +15,7 @@ const EmptyAndPay = ({
             <div className="cartActions">
                 <button
                     className="checkoutButton"
-                    onClick={handleOpenPaymentModal}
+                    onClick={OpenPayModal}
                 >
                     Pagar
                 </button>

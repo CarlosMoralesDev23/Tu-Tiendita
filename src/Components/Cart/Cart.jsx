@@ -13,31 +13,32 @@ const Cart = () => {
         isCartOpen,
         toDoCloseCart,
         emptyCart,
-        toDoChangeStockAfterPurchase,
+        ChangeStockAfterPurchase,
     } = useContext(CartContext);
 
-    const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+    //*Modal de pagar
+    const [isPayModalOpen, setIsPayModalOpen] = useState(false);
 
-    const handleOpenPaymentModal = () => {
-        setIsPaymentModalOpen(true);
+    const OpenPayModal = () => {
+        setIsPayModalOpen(true);
     };
 
-    const handleClosePaymentModal = () => {
-        setIsPaymentModalOpen(false);
+    const ClosePayModal = () => {
+        setIsPayModalOpen(false);
     };
 
-    const handleConfirmPayment = async () => {
-        console.log("Pago confirmado a través de SweetAlert2!");
+    const ConfirmPay = async () => {
+        console.log("Pago confirmado!");
 
-        handleClosePaymentModal();
+        ClosePayModal();
 
-        await toDoChangeStockAfterPurchase();
+        await ChangeStockAfterPurchase();
 
         Swal.fire({
             icon: "success",
             title: "¡Pago exitoso!",
             text: "Gracias por tu compra.",
-            timer: 2000,
+            timer: 1250,
             timerProgressBar: true,
             showConfirmButton: false,
             didOpen: (toast) => {
@@ -59,24 +60,27 @@ const Cart = () => {
         <div className={cartClassName}>
             <div className="cartHeader">
                 <h2>Carrito de compras</h2>
+
+
                 <button className="closeButton" onClick={toDoCloseCart}>
                     <i
                         className="fa-solid fa-right-from-bracket"
-                        style={{ backgroundColor: "black" }}
                     ></i>
                 </button>
+
+
             </div>
 
             <CartItem />
 
             {cart.length > 0 && (
-                <EmptyAndPay handleOpenPaymentModal={handleOpenPaymentModal} />
+                <EmptyAndPay OpenPayModal={OpenPayModal} />
             )}
 
             <ModalPay
-                isPaymentModalOpen={isPaymentModalOpen}
-                handleClosePaymentModal={handleClosePaymentModal}
-                handleConfirmPayment={handleConfirmPayment}
+                isPayModalOpen={isPayModalOpen}
+                ClosePayModal={ClosePayModal}
+                ConfirmPay={ConfirmPay}
             />
         </div>
     );

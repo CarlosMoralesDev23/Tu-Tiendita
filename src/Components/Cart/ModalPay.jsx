@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { CartContext } from "../../context/CartContext";
 
 
-const ModalPay = ({isPaymentModalOpen, handleClosePaymentModal, handleConfirmPayment}) => {
+const ModalPay = ({isPayModalOpen, ClosePayModal, ConfirmPay}) => {
 
     const {total} = useContext(CartContext)
     
@@ -29,8 +29,8 @@ const ModalPay = ({isPaymentModalOpen, handleClosePaymentModal, handleConfirmPay
     
     return (
         <Modal
-            open={isPaymentModalOpen}
-            onClose={handleClosePaymentModal} // Se llama al presionar Escape o hacer clic en el fondo
+            open={isPayModalOpen}
+            onClose={ClosePayModal} // Se llama al presionar Escape o hacer clic en el fondo
             aria-labelledby="payment-modal-title"
             aria-describedby="payment-modal-description"
         >
@@ -60,14 +60,14 @@ const ModalPay = ({isPaymentModalOpen, handleClosePaymentModal, handleConfirmPay
                     <Button
                         variant="contained"
                         color="success"
-                        onClick={handleConfirmPayment}
+                        onClick={ConfirmPay}
                     >
                         Sí, Pagar
                     </Button>
                     <Button
                         variant="outlined"
                         color="error"
-                        onClick={handleClosePaymentModal}
+                        onClick={ClosePayModal}
                     >
                         Cancelar
                     </Button>
