@@ -3,7 +3,8 @@ import Swal from "sweetalert2";
 
 import "../Cart/Cart.css";
 import CartItem from "./CartItem";
-import EmptyAndPay from "../Cart/EmptyAndPay";
+import Pay from "../Cart/Pay";
+import Empty from "../Cart/Empty";
 import ModalPay from "../Cart/ModalPay";
 import { CartContext } from "../../context/CartContext";
 
@@ -61,20 +62,18 @@ const Cart = () => {
             <div className="cartHeader">
                 <h2>Carrito de compras</h2>
 
-
                 <button className="closeButton" onClick={toDoCloseCart}>
-                    <i
-                        className="fa-solid fa-right-from-bracket"
-                    ></i>
+                    <i className="fa-solid fa-right-from-bracket"></i>
                 </button>
-
-
             </div>
 
             <CartItem />
 
             {cart.length > 0 && (
-                <EmptyAndPay OpenPayModal={OpenPayModal} />
+                <>
+                    <Pay OpenPayModal={OpenPayModal} />
+                    <Empty />
+                </>
             )}
 
             <ModalPay
