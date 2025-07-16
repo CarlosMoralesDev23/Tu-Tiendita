@@ -9,12 +9,12 @@ const CartItem = () => {
     return (
         <div className="cartItemsContainer">
             {cart.length === 0 ? (
-                <p>Tu Carrito esta vacio</p>
+                <p style={{"fontSize" : "20px"}}>Tu Carrito esta vacio</p>
             ) : (
                 cart.map((item, index) => (
                     <div className="itemContainer" key={item.id || index}>
                         <div className="itemImage">
-                            <img src={item.image} alt="" />
+                            <img src={item.image} alt={item.name} />
                         </div>
 
                         <div className="itemDetails">
