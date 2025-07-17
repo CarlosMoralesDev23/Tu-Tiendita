@@ -1,5 +1,5 @@
 import React from "react";
-import "./StarRating.css";
+import "../Utils/Starts.css";
 
 const Stars = ({ rating = 0, maxRating = 5 }) => {
     const stars = [];

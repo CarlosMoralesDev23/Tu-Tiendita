@@ -1,17 +1,15 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./Product.css";
 import HeartEmpty from "../../assets/Generals/ImgCardProduct/HeartEmpty.svg";
-import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
-
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import Stars from "../../Utils/Stars.JSX";
+
 
 const Product = ({ product = {} }) => {
-
-    const {addToCart} = useContext(CartContext)
+    const { addToCart } = useContext(CartContext);
 
     const isOutOfStock = product.stock <= 0;
-
 
     return (
         <div className={`tarjetaProducto ${isOutOfStock ? "agotado" : ""}`}>
@@ -20,11 +18,7 @@ const Product = ({ product = {} }) => {
                 <img src={HeartEmpty} alt="corazon favorito" />
             </div>
             <div className="valoracion">
-                <img src={StarEmpty} alt="" />
-                <img src={StarEmpty} alt="" />
-                <img src={StarEmpty} alt="" />
-                <img src={StarEmpty} alt="" />
-                <img src={StarEmpty} alt="" />
+                <Stars rating={product.rating} />
             </div>
             <div className="contenedorImagen">
                 <img src={product.image} alt={`Balon - ${product.name}`} />

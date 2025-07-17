@@ -6,9 +6,8 @@ import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
 import Loader from "../../Utils/Loader/Loader";
 import NotFound from "../../Utils/NotFound";
-import StarEmpty from "../../assets/Generals/ImgCardProduct/StarEmpty.svg";
-
 import "./DetailsProducts.css";
+import Stars from "../../Utils/Stars.JSX";
 
 const DetailsProducts = () => {
     const { id } = useParams();
@@ -77,11 +76,7 @@ const DetailsProducts = () => {
 
                 <div className="product-info-section">
                     <div className="product-rating">
-                        <img src={StarEmpty} alt="estrella vacia" />
-                        <img src={StarEmpty} alt="estrella vacia" />
-                        <img src={StarEmpty} alt="estrella vacia" />
-                        <img src={StarEmpty} alt="estrella vacia" />
-                        <img src={StarEmpty} alt="estrella vacia" />
+                        <Stars rating={product.rating}/>
                     </div>
 
                     <div className="product-price">
