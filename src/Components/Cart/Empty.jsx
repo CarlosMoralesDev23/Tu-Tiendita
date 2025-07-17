@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import VaciarCarrito from "../../assets/Generals/ImgCart/vaciarCarrito.png";
 import { CartContext } from "../../context/CartContext";
 
-const Empty = ({ OpenPayModal }) => {
+const Empty = () => {
     const { emptyCart} = useContext(CartContext);
 
     return (
