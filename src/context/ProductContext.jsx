@@ -23,7 +23,17 @@ export const ProductProvider = ({ children }) => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const data = await response.json();
+            let data = await response.json();
+
+            // MODIFICACIÓN/ADICIÓN: Asignar rating aleatorio entre 3 y 5
+            data = data.map((product) => {
+                const randomRating =
+                    Math.floor(Math.random() * (5 - 3 + 1)) + 3;
+                return {
+                    ...product,
+                    rating: product.rating || randomRating,
+                };
+            });
             setProducts(data);
         } catch (fetchError) {
             console.error("Error fetching products:", fetchError);
@@ -37,7 +47,7 @@ export const ProductProvider = ({ children }) => {
             if (remainingLoadTime > 0) {
                 setTimeout(() => {
                     setLoading(false);
-                }, remainingLoadTime); // Use remainingLoadTime here
+                }, remainingLoadTime);
             } else {
                 setLoading(false);
             }
