@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect, useCallback } from "react";
 export const ProductContext = createContext();
 
 const MOCK_API_URL =
-    "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/product";
+    "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/products";
 
 const minLoaderTime = 1000;
 

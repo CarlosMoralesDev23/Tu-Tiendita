@@ -21,13 +21,7 @@ const TShirts = () => {
             <div>
                 <Header />
                 <h1>Bienvenido a la sección de Remeras</h1>
-                <p
-                    style={{
-                        color: "red",
-                        textAlign: "center",
-                        fontSize: "18px",
-                    }}
-                >
+                <p style={{ color: "red", textAlign: "center" }}>
                     Error al cargar remeras: {error.message}
                 </p>
                 <NotFound />

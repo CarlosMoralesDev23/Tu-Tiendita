@@ -21,7 +21,7 @@ const Balls = () => {
                 <Header />
                 <h1>Bienvenido a la sección de Balones</h1>
                 <p style={{ color: "red", textAlign: "center", fontSize: "18px" }}>
-                    Error al cargar balones: {error.message}
+                    Error al cargar balones.
                 </p>
                 <NotFound />
                 <Footer />
