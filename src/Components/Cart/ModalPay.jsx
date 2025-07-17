@@ -6,9 +6,10 @@ import Button from "@mui/material/Button";
 import { CartContext } from "../../context/CartContext";
 
 
-const ModalPay = ({isPayModalOpen, ClosePayModal, ConfirmPay}) => {
+const ModalPay = () => {
 
-    const {total} = useContext(CartContext)
+    const { total, isPayModalOpen, ClosePayModal, ConfirmPay } =
+        useContext(CartContext);
     
     const styleModalBox = {
         color: "black",

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-const Pay = ({ OpenPayModal }) => {
-    const { total } = useContext(CartContext);
+const Pay = () => {
+    const { total, OpenPayModal } = useContext(CartContext);
 
     return (
         <>

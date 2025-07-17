@@ -213,6 +213,45 @@ export const CartProvider = ({ children }) => {
     const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
 
 
+
+
+    //* Funciones del Modal Pay
+        //*Modal de pagar
+        const [isPayModalOpen, setIsPayModalOpen] = useState(false);
+    
+        const OpenPayModal = () => {
+            setIsPayModalOpen(true);
+        };
+    
+        const ClosePayModal = () => {
+            setIsPayModalOpen(false);
+        };
+    
+        const ConfirmPay = async () => {
+            console.log("Pago confirmado!");
+    
+            ClosePayModal();
+    
+            await ChangeStockAfterPurchase();
+    
+            Swal.fire({
+                icon: "success",
+                title: "¡Pago exitoso!",
+                text: "Gracias por tu compra.",
+                timer: 1250,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            }).then(() => {
+                emptyCart();
+                toDoCloseCart();
+            });
+        };
+
+
     return (
         <CartContext.Provider
             value={{
@@ -231,6 +270,10 @@ export const CartProvider = ({ children }) => {
                 total,
                 ChangeStockAfterPurchase,
                 itemCount,
+                isPayModalOpen,
+                OpenPayModal,
+                ClosePayModal,
+                ConfirmPay,
             }}
         >
             {children}

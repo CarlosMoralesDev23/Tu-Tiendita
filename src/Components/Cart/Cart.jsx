@@ -7,50 +7,14 @@ import Pay from "../Cart/Pay";
 import Empty from "../Cart/Empty";
 import ModalPay from "../Cart/ModalPay";
 import { CartContext } from "../../context/CartContext";
+import CloseCart from "./CloseCart";
 
 const Cart = () => {
     const {
         cart,
         isCartOpen,
         toDoCloseCart,
-        emptyCart,
-        ChangeStockAfterPurchase,
     } = useContext(CartContext);
-
-    //*Modal de pagar
-    const [isPayModalOpen, setIsPayModalOpen] = useState(false);
-
-    const OpenPayModal = () => {
-        setIsPayModalOpen(true);
-    };
-
-    const ClosePayModal = () => {
-        setIsPayModalOpen(false);
-    };
-
-    const ConfirmPay = async () => {
-        console.log("Pago confirmado!");
-
-        ClosePayModal();
-
-        await ChangeStockAfterPurchase();
-
-        Swal.fire({
-            icon: "success",
-            title: "¡Pago exitoso!",
-            text: "Gracias por tu compra.",
-            timer: 1250,
-            timerProgressBar: true,
-            showConfirmButton: false,
-            didOpen: (toast) => {
-                toast.addEventListener("mouseenter", Swal.stopTimer);
-                toast.addEventListener("mouseleave", Swal.resumeTimer);
-            },
-        }).then(() => {
-            emptyCart();
-            toDoCloseCart();
-        });
-    };
 
     let cartClassName = "cartContainer";
     if (isCartOpen) {
@@ -62,25 +26,19 @@ const Cart = () => {
             <div className="cartHeader">
                 <h2>Carrito de compras</h2>
 
-                <button className="closeButton" onClick={toDoCloseCart}>
-                    <i className="fa-solid fa-right-from-bracket"></i>
-                </button>
+                <CloseCart/>
             </div>
 
             <CartItem />
 
             {cart.length > 0 && (
                 <>
-                    <Pay OpenPayModal={OpenPayModal} />
+                    <Pay/>
                     <Empty />
                 </>
             )}
 
-            <ModalPay
-                isPayModalOpen={isPayModalOpen}
-                ClosePayModal={ClosePayModal}
-                ConfirmPay={ConfirmPay}
-            />
+            <ModalPay/>
         </div>
     );
 };
