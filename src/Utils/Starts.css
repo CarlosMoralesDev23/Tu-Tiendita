@@ -1,17 +1,17 @@
 .star-rating-container {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 1px;
 }
 
 .star-icon {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .star-full {
-    color: #FFD43B; /* Color dorado */
+    color: #FFD43B;
 }
 
 .star-empty {
-    color: #a0a0a0; /* Color gris para estrellas vacías */
+    color: #a0a0a0; 
 }

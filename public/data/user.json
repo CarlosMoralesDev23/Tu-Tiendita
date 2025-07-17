@@ -6,14 +6,26 @@
         "name": "Adminsitrador"
     },
     {
-        "email": "carlitos@ex.com",
+        "email": "carlitos@tiendita.com",
         "password": "carlitos123",
         "role": "client",
         "name": "Carlitos"
     },
     {
-        "email": "sofia@ex.com",
+        "email": "sofia@tiendita.com",
         "password": "sofia123",
+        "role": "client",
+        "name": "Sofia"
+    },
+    {
+        "email": "emiliano@tiendita.com",
+        "password": "emiliano123",
+        "role": "client",
+        "name": "Sofia"
+    },
+    {
+        "email": "emilianoAdmin@tiendita.com",
+        "password": "emilianoAdmin123",
         "role": "client",
         "name": "Sofia"
     }

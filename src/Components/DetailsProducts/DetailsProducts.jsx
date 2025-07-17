@@ -7,7 +7,8 @@ import { ProductContext } from "../../context/ProductContext";
 import Loader from "../../Utils/Loader/Loader";
 import NotFound from "../../Utils/NotFound";
 import "./DetailsProducts.css";
-import Stars from "../../Utils/Stars.JSX";
+import Stars from "../../Utils/Stars";
+import Product from "../ListProducts/Product";
 
 const DetailsProducts = () => {
     const { id } = useParams();
@@ -58,12 +59,18 @@ const DetailsProducts = () => {
         );
     }
 
+    const relatedProducts = products.filter(
+        (p) => p.type === product.type && p.id !== product.id
+    );
+
+    const productsToShow = relatedProducts
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5);
+
     return (
         <div>
             <Header />
-            <h1 className="detail-product-title">
-                {product.name}
-            </h1>
+            <h1 className="detail-product-title">{product.name}</h1>
 
             <div className="product-detail-container">
                 <div className="product-image-section">
@@ -76,7 +83,7 @@ const DetailsProducts = () => {
 
                 <div className="product-info-section">
                     <div className="product-rating">
-                        <Stars rating={product.rating}/>
+                        <Stars rating={product.rating} />
                     </div>
 
                     <div className="product-price">
@@ -108,6 +115,22 @@ const DetailsProducts = () => {
                     </div>
                 </div>
             </div>
+
+            <section className="related-products-section">
+                {productsToShow.length > 0 ? (
+                    <div className="related-products-grid">
+                        {productsToShow.map((relatedProd) => (
+                            <Product
+                                key={relatedProd.id}
+                                product={relatedProd}
+                                addToCart={addToCart}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <p>No hay productos relacionados de este tipo.</p>
+                )}
+            </section>
 
             <Footer />
         </div>
