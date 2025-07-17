@@ -3,7 +3,9 @@ import React, { createContext, useState, useEffect, useCallback } from "react";
 export const ProductContext = createContext();
 
 const MOCK_API_URL =
-    "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/products";
+    "https://68293f096075e87073a609b7.mockapi.io/productos-ecommerce/product";
+
+const minLoaderTime = 1000;
 
 export const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
@@ -13,6 +15,8 @@ export const ProductProvider = ({ children }) => {
     const fetchAllProducts = useCallback(async () => {
         setLoading(true);
         setError(null);
+
+        const loadStartTime = Date.now();
 
         try {
             const response = await fetch(MOCK_API_URL);
@@ -25,7 +29,18 @@ export const ProductProvider = ({ children }) => {
             console.error("Error fetching products:", fetchError);
             setError(fetchError.message);
         } finally {
-            setLoading(false);
+            const loadEndTime = Date.now();
+            const loadTime = loadEndTime - loadStartTime;
+
+            const remainingLoadTime = minLoaderTime - loadTime;
+
+            if (remainingLoadTime > 0) {
+                setTimeout(() => {
+                    setLoading(false);
+                }, remainingLoadTime); // Use remainingLoadTime here
+            } else {
+                setLoading(false);
+            }
         }
     }, []);
 
