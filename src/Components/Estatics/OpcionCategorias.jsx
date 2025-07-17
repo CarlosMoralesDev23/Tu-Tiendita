@@ -11,6 +11,7 @@ const OpcionCategorias = () => {
         { name: "Balones", path: "/category/balones" },
         { name: "Zapatos", path: "/category/zapatos" },
         { name: "Remeras", path: "/category/remeras" },
+        { name: "Medias", path: "/category/socks" },
     ];
 
     const toggleDropdown = () => {

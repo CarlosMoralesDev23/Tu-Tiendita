@@ -35,6 +35,7 @@ const FormAddProductsImageType = () => {
                     <option value="ball">Ball</option>
                     <option value="tshirt">T-Shirt</option>
                     <option value="shoes">Shoes</option>
+                    <option value="shoes">Socks</option>
                 </select>
                 {errors.type && <p>{errors.type}</p>}
             </div>

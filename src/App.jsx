@@ -8,6 +8,7 @@ import Admin from "./Layouts/Admin/Admin.jsx";
 import Balls from "./Components/Categorias/Balls.jsx"; 
 import Shoes from "./Components/Categorias/Shoes.jsx"; 
 import TShirts from "./Components/Categorias/TShirts.jsx"; 
+import Socks from "./Components/Categorias/Socks.jsx"; 
 
 import DetailsProducts from "./Components/DetailsProducts/DetailsProducts.jsx";
 import NF404 from "./Utils/NotFound.jsx";
@@ -30,6 +31,7 @@ function App() {
 
                     <Route path="/category/balones" element={<Balls />}></Route>
                     <Route path="/category/zapatos" element={<Shoes />}></Route>
+                    <Route path="/category/socks" element={<Socks />}></Route>
 
                     <Route
                         path="/category/remeras"
