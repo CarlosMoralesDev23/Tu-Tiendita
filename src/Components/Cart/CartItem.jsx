@@ -7,24 +7,23 @@ import ItemQuantityControls from "./CartItem/ItemQuantityControls";
 import ItemsSubtotal from "./CartItem/ItemsSubtotal";
 
 const CartItem = () => {
-    const { cart, decrementQuantity, incrementQuantity, removeItemFromCart } =
+    const { cart, removeItemFromCart } =
         useContext(CartContext);
 
     return (
         <div className="cartItemsContainer">
             {cart.length === 0 ? (
-                <p style={{"fontSize" : "20px"}}>Tu Carrito esta vacio</p>
+                <p style={{ fontSize: "20px" }}>Tu Carrito esta vacio</p>
             ) : (
                 cart.map((item, index) => (
                     <div className="itemContainer" key={item.id || index}>
+                        <ItemImage item={item} />
 
-                        <ItemImage itemImage={item.image} itemName={item.name} />
-
-                        <ItemDetails itemName={item.name} itemPrice = {item.price} />
+                        <ItemDetails item={item} />
 
                         <ItemQuantityControls item={item} />
 
-                        <ItemsSubtotal itemPrice={item.price} itemQuantity={item.quantity}/>
+                        <ItemsSubtotal item={item} />
 
                         <div className="deleteItem">
                             <button onClick={() => removeItemFromCart(item)}>

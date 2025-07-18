@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import Swal from "sweetalert2";
+import React, { useContext } from "react";
 
 import "../Cart/Cart.css";
 import CartItem from "./CartItem";
@@ -13,7 +12,6 @@ const Cart = () => {
     const {
         cart,
         isCartOpen,
-        toDoCloseCart,
     } = useContext(CartContext);
 
     let cartClassName = "cartContainer";
