@@ -2,13 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./AdminCSS/AdminNav.css";
 
-
-
 import { AuthContext } from "../../context/AuthContext.jsx";
 
-
 const AdminNav = () => {
-        const { logoutUser } = useContext(AuthContext)
+    const { logoutUser } = useContext(AuthContext);
 
     return (
         <nav className="admin-nav">
@@ -16,7 +13,6 @@ const AdminNav = () => {
                 <li>
                     <h2>Administrador</h2>
                 </li>
-
 
                 <li>
                     <button className="admin-logout" onClick={logoutUser}>

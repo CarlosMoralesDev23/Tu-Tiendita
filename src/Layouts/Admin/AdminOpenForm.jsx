@@ -18,7 +18,7 @@ const AdminOpenForm = () => {
     return (
         <div className={`form-sidebar-container ${true ? "open" : ""}`}>
             <FormAddProductsProvider>
-                <FormAddProducts onAgregar={agregarProducto} />
+                <FormAddProducts/>
             </FormAddProductsProvider>
 
             <button onClick={handleCloseForm} style={{ marginTop: "10px" }}>
