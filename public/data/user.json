@@ -21,12 +21,12 @@
         "email": "emiliano@tiendita.com",
         "password": "emiliano123",
         "role": "client",
-        "name": "Sofia"
+        "name": "Emiliano"
     },
     {
         "email": "emilianoAdmin@tiendita.com",
         "password": "emilianoAdmin123",
         "role": "client",
-        "name": "Sofia"
+        "name": "Emiliano"
     }
 ]
