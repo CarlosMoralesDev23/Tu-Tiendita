@@ -1,5 +1,5 @@
 import React from "react";
-import "../Estatics/Statics.css";
+import "../EstaticsCSS/Statics.css";
 
 const Footer = () => {
     return (

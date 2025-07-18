@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "../Estatics/OpcionCategorias.css";
+import "../../EstaticsCSS/OpcionCategorias.css";
 
-const OpcionCategorias = () => {
+const OptionCategories = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -54,4 +54,4 @@ const OpcionCategorias = () => {
     );
 };
 
-export default OpcionCategorias;
+export default OptionCategories;

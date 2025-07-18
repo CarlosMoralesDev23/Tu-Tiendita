@@ -1,24 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import "../FormAddProducts/FormAddProducts.css";
 import { FormAddProductsContext } from "../../context/FormAddProductsContext";
-import FormAddProductsIdPriceStock from "./FormAddProductsIdPriceStock";
 import FormAddProductsNameDescription from "./FormAddProductsNameDescription";
-import FormAddProductsImageType from "./FormAddProductsImageType";
 import { AdminContext } from "../../context/AdminContext";
-
-const generateRandomString = (length = 8) => {
-    return Math.random()
-        .toString(36)
-        .substring(2, 2 + length);
-};
+import FieldPrice from "./FieldPrice";
+import FieldStock from "./FieldStock";
+import FieldImage from "./FieldImage";
+import FieldType from "./FieldType";
+import FieldName from "./FieldName";
+import FieldDescription from "./FieldDescription";
 
 const FormAddProducts = () => {
     const {
         product,
         setProduct,
-        errors,
         setErrors,
-        handleChange,
         validateForm,
     } = useContext(FormAddProductsContext);
 
@@ -57,9 +53,7 @@ const FormAddProducts = () => {
         if (selectedProductToEdit) {
             actualizarProducto(product);
         } else {
-            const newId = `${product.type}-${generateRandomString()}`;
-            const productWithId = { ...product, id: newId };
-            agregarProducto(productWithId);
+            agregarProducto(product);
         }
 
         setProduct({
@@ -87,9 +81,18 @@ const FormAddProducts = () => {
         <form onSubmit={handleSubmit}>
             <h2>{formTitle}</h2>
             <div className="form-grid">
-                <FormAddProductsIdPriceStock />
-                <FormAddProductsNameDescription />
-                <FormAddProductsImageType />
+
+                <div className="id-price-stock-group">
+                    <FieldPrice/>
+                    <FieldStock/>
+                </div>
+
+                <FieldName/>
+                <FieldDescription/>
+
+                <FieldImage/>
+                <FieldType/>
+
             </div>
             <button type="submit">{buttonText}</button>
         </form>

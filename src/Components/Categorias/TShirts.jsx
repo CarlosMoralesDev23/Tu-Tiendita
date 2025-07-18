@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import ListProducts from "../ListProducts/ListProducts";
 import { ProductContext } from "../../context/ProductContext";
-import Header from "../Estatics/Header";
-import Footer from "../Estatics/Footer";
+import Header from "../Estatics/Header/Header";
+import Footer from "../Estatics/Footer/Footer";
 import Loader from "../../Utils/Loader/Loader";
 import NotFound from "../../Utils/NotFound"; // Asumo que también necesitas NotFound aquí
 
