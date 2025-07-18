@@ -9,22 +9,12 @@ const AdminProductsEditDelet = ({ product }) => {
         useContext(AdminContext);
 
     const handleEditClick = () => {
-        setSelectedProductToEdit(product); 
-        setOpenForm(true); 
+        setSelectedProductToEdit(product);
+        setOpenForm(true);
     };
 
     const handleDeleteClick = () => {
-        if (
-            window.confirm(
-                `¿Estás seguro de que quieres eliminar "${
-                    product.name || product.nombre
-                }"?`
-            )
-        ) {
-            eliminarProducto(product.id); 
-        }
-        
-
+        eliminarProducto(product.id, product.name || product.nombre);
     };
 
     return (
