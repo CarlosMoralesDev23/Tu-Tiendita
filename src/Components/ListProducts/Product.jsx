@@ -21,7 +21,7 @@ const Product = ({ product = {} }) => {
                 <Stars rating={product.rating} />
             </div>
             <div className="contenedorImagen">
-                <img src={product.image} alt={`Balon - ${product.name}`} />
+                <img src={product.image} alt={product.name} />
             </div>
             <div className="contenedorPrecio">
                 <span>
