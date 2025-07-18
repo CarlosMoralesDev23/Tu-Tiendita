@@ -9,11 +9,7 @@ import NotFound from "../../Utils/NotFound";
 const Balls = () => {
     const { products, loading, error } = useContext(ProductContext);
 
-    const theBalls = products
-        ? products.filter(
-              (product) => product.type && product.type.toLowerCase() === "ball"
-          )
-        : [];
+    const theBalls = products ? (products.filter((product) => product.type && product.type.toLowerCase()==="ball")) : []
 
     if (error) {
         return (

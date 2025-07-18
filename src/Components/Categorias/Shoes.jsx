@@ -9,7 +9,7 @@ import NotFound from "../../Utils/NotFound"; // Asumo que también necesitas Not
 const Shoes = () => {
     const { products, loading, error } = useContext(ProductContext);
 
-    const theShoes = products ? products.filter((product) => product.type && product.type.toLowerCase() === "shoes" ) : [];
+    const theShoes = products ? ( products.filter((product) => product.type && product.type.toLowerCase() === "shoes") ) : []
 
     if (error) {
         return (

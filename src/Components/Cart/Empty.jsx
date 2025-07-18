@@ -3,7 +3,7 @@ import VaciarCarrito from "../../assets/Generals/ImgCart/vaciarCarrito.png";
 import { CartContext } from "../../context/CartContext";
 
 const Empty = () => {
-    const { emptyCart} = useContext(CartContext);
+    const { emptyCart } = useContext(CartContext);
 
     return (
         <div className="vaciarCarrito">

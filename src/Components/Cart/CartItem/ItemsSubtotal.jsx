@@ -1,11 +1,11 @@
 import React from "react";
 
-const ItemsSubtotal = ({itemPrice, itemQuantity}) => {
+const ItemsSubtotal = ({item}) => {
     return (
         <div className="itemSubtotal">
             <h4 className="subTotal">Subtotal:</h4>
             <span>
-                {(parseFloat(itemPrice) * itemQuantity || 0).toFixed(2)} $
+                {(parseFloat(item.price) * item.quantity || 0).toFixed(2)} $
             </span>
         </div>
     );

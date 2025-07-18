@@ -15,6 +15,8 @@ const Cart = () => {
     } = useContext(CartContext);
 
     let cartClassName = "cartContainer";
+
+    
     if (isCartOpen) {
         cartClassName += " open";
     }
