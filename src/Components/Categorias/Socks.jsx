@@ -9,18 +9,20 @@ import NotFound from "../../Utils/NotFound";
 const Socks = () => {
     const { products, loading, error } = useContext(ProductContext);
 
-    const theSocks = products
-        ? products.filter(
-              (product) => product.type && product.type.toLowerCase() === "socks"
-          )
-        : [];
+    const theSocks = products? (products.filter((product) => product.type && product.type.toLowerCase() === "socks" )) : [];
 
     if (error) {
         return (
             <div>
                 <Header />
                 <h1>Bienvenido a la sección de medias</h1>
-                <p style={{ color: "red", textAlign: "center", fontSize: "18px" }}>
+                <p
+                    style={{
+                        color: "red",
+                        textAlign: "center",
+                        fontSize: "18px",
+                    }}
+                >
                     Error al cargar medias.
                 </p>
                 <NotFound />

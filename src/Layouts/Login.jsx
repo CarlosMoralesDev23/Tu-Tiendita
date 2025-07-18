@@ -100,7 +100,6 @@ const Login = () => {
     return (
         <div>
             <div className="login-container">
-                <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
                 <form className="login-form" onSubmit={toDoLogin} noValidate>
                     <h2>Iniciar sesión</h2>
 

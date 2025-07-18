@@ -1,9 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { ProductContext } from "./ProductContext";
 import { AdminContext } from "./AdminContext";
-
-import Swal from "sweetalert2"; // Asegúrate de que esta línea esté presente
-
+import Swal from "sweetalert2";
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -15,7 +13,6 @@ export const CartProvider = ({ children }) => {
 
     const { actualizarProducto } = useContext(AdminContext);
 
-    //*Traer el carrito del LS  o empezar vacio.
     const [cart, setCart] = useState(() => {
         const CartFromLocalStorage = localStorage.getItem("cart");
         try {
@@ -26,15 +23,12 @@ export const CartProvider = ({ children }) => {
         }
     });
 
-    //*Estado para mostrar el carrito
     const [isCartOpen, setIsCartOpen] = useState(false);
 
-    //*Si agregamos productos al carrito se guarda en el LS
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    //*Funciones para abrir y cerrar el carrito
     const toDoOpenCart = () => setIsCartOpen(true);
     const toDoCloseCart = () => setIsCartOpen(false);
 
@@ -143,21 +137,16 @@ export const CartProvider = ({ children }) => {
     };
 
     const incrementQuantity = (productToIncrement) => {
-        //*En este punto ya el producto esta en el carrito
-
-        //*Acá queremos es obtener basicamente su cantidad, en el carrito, el resto es igual.
         const itemInCart = cart.find(
             (item) => item.id === productToIncrement.id
         );
 
-        //*Si se pudo obtener los datos del item...
         if (itemInCart) {
             //*Sacar la info del producto de DB
             const productInfo = products.find(
                 (p) => p.id === productToIncrement.id
             );
 
-            //* Si DB y cantidad menor a DB...
             if (productInfo && itemInCart.quantity < productInfo.stock) {
                 setCart(
                     //*incrementar cantidad en +1
@@ -197,20 +186,15 @@ export const CartProvider = ({ children }) => {
     };
 
     const decrementQuantity = (productToDecrement) => {
-        //*En este punto ya el producto esta en el carrito
 
-        //*Acá queremos es obtener basicamente su cantidad, en el carrito, el resto es igual.
         const itemInCart = cart.find(
             (item) => item.id === productToDecrement.id
         );
 
-        //*Si se pudo obtener los datos del item...
         if (itemInCart) {
-            //*Si la cantidad en cart  es 1, remover el item
             if (itemInCart.quantity === 1) {
                 removeItemFromCart(productToDecrement);
             } else {
-                //*si es mayor a 1, disminuir en -1
                 setCart(
                     cart.map((item) =>
                         item.id === productToDecrement.id
@@ -232,7 +216,6 @@ export const CartProvider = ({ children }) => {
     };
 
     const removeItemFromCart = (productToRemove) => {
-        //*Filtrar y regresar todos menos el que tenga ese id.
         setCart(cart.filter((item) => item.id !== productToRemove.id));
         Swal.fire({
             icon: "info",
@@ -245,7 +228,6 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    //*Cambiar el stock luego de la compra
     const ChangeStockAfterPurchase = async () => {
         //* se ejecuta despues de comprar, e itera cada producto en cart
         for (const item of cart) {
@@ -268,18 +250,16 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    //! Acá hay una vulnerabilidad si se setean como 0,  los productos saldrian gratis.
+    //! Acá hay una vulnerabilidad si se setean como precio 0,  los productos saldrian gratis.
     const total = cart.reduce((suma, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity, 10) || 0;
         return suma + price * quantity;
     }, 0);
 
-    //*Contador del carrito
     const itemCount = cart.reduce((count, item) => count + item.quantity, 0);
 
     //* Funciones del Modal Pay
-    //*Modal de pagar
     const [isPayModalOpen, setIsPayModalOpen] = useState(false);
 
     const OpenPayModal = () => {

@@ -6,7 +6,7 @@ const AdminNotFound = () => {
     return (
         <>
             <p className="admin-not-found-message">
-                Error al cargar los productos. Por favor, verifica la consola.
+                Error al cargar los productos.
             </p>
             <NotFound />
         </>

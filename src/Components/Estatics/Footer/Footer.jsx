@@ -8,16 +8,14 @@ const Footer = () => {
                 <div className="footer-section about">
                     <h3 className="footer-title">Tu Tiendita Sport</h3>
                     <p>
-                        Tu destino ideal para equipamiento y ropa deportiva de
-                        alta calidad. ¡Vive el deporte al máximo!
+                        Aqui encontraras una variedad de productos ideales para practicar tus deportes favoritos y de alta calidad. ¡Vive el deporte al máximo!
                     </p>
                     <div className="contact-info">
                         <span>
-                            <i className="fas fa-map-marker-alt"></i> Av.
-                            Siempre Viva 742, Buenos Aires
+                            <i className="fas fa-map-marker-alt"></i> Riglos 149, CABA.
                         </span>
                         <span>
-                            <i className="fas fa-phone"></i> +54 9 11 1234-5678
+                            <i className="fas fa-phone"></i> +54 9 11 22519382
                         </span>
                         <span>
                             <i className="fas fa-envelope"></i>{" "}

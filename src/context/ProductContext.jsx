@@ -25,7 +25,8 @@ export const ProductProvider = ({ children }) => {
             }
             let data = await response.json();
 
-            // MODIFICACIÓN/ADICIÓN: Asignar rating aleatorio entre 3 y 5
+            //* Valoración para las estrellitas de los productos.
+            //*En proxima versión se guardara como propiedad del producto
             data = data.map((product) => {
                 const randomRating =
                     Math.floor(Math.random() * (5 - 3 + 1)) + 3;

@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
-import { useParams, Link } from "react-router-dom";
-import Header from "../Estatics/Header/Header";
-import Footer from "../Estatics/Footer/Footer";
+
 import { CartContext } from "../../context/CartContext";
 import { ProductContext } from "../../context/ProductContext";
+import { useParams, Link } from "react-router-dom";
+
+import "./DetailsProducts.css";
+
+import Header from "../Estatics/Header/Header";
+import Footer from "../Estatics/Footer/Footer";
 import Loader from "../../Utils/Loader/Loader";
 import NotFound from "../../Utils/NotFound";
-import "./DetailsProducts.css";
 import Stars from "../../Utils/Stars";
 import Product from "../ListProducts/Product";
 

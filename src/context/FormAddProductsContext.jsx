@@ -48,7 +48,8 @@ export const FormAddProductsProvider = ({ children }) => {
         if (isNaN(stockNum) || stockNum < 0) {
             newErrors.stock =
                 "El stock debe ser un número mayor o igual a 0.";
-                //Con el fin de dejar agregar productos con stock 0,  si ingresan posterior a su creación.
+                //*Con el fin de dejar agregar productos con stock 0,  si ingresan posterior a su creación.
+                //*En su proxima versión tendria una categoria disponible o no disponible. Diferente al agotado. 
                 
         }
 

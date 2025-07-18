@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const AdminProductsEditDelet = ({ product }) => {
-    // Recibe el producto como prop
     const { eliminarProducto, setSelectedProductToEdit, setOpenForm } =
         useContext(AdminContext);
 

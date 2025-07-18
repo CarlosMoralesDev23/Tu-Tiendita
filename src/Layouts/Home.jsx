@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 
-// Importa Header y Footer aquí si quieres que solo aparezcan en Home
 import Header from "../Components/Estatics/Header/Header.jsx";
 import Footer from "../Components/Estatics/Footer/Footer.jsx";
 

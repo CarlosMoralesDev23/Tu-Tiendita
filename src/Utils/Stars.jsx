@@ -3,6 +3,7 @@ import "../Utils/Starts.css";
 
 const Stars = ({ rating = 0, maxRating = 5 }) => {
     const stars = [];
+    
     for (let i = 1; i <= maxRating; i++) {
         if (i <= rating) {
             stars.push(
