@@ -100,26 +100,34 @@ const Login = () => {
     return (
         <div>
             <div className="login-container">
-                {/* !SACAR EL noValidate en el form */}
                 <p>SOLO POR AHORA PUEDES ENTAR CON j y j, como admin</p>
                 <form className="login-form" onSubmit={toDoLogin} noValidate>
                     <h2>Iniciar sesión</h2>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        autoComplete="email"
-                    />
-                    <div className="error">{error.email || " "}</div>
-                    <input
-                        type="password"
-                        placeholder="Contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        autoComplete="current-password"
-                    />
-                    <div className="error">{error.password || " "}</div>
+
+                    <div>
+                        <label htmlFor="">Email:</label>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            autoComplete="email"
+                        />
+                        <div className="error">{error.email || " "}</div>
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Contraseña:</label>
+                        <input
+                            type="password"
+                            placeholder="Contraseña"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            autoComplete="current-password"
+                        />
+                        <div className="error">{error.password || " "}</div>
+                    </div>
+
                     <button type="submit">Entrar</button>
                 </form>
             </div>

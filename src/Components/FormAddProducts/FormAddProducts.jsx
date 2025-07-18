@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../FormAddProducts/FormAddProducts.css";
 import { FormAddProductsContext } from "../../context/FormAddProductsContext";
-import FormAddProductsNameDescription from "./FormAddProductsNameDescription";
 import { AdminContext } from "../../context/AdminContext";
 import FieldPrice from "./FieldPrice";
 import FieldStock from "./FieldStock";

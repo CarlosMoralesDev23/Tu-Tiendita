@@ -16,7 +16,7 @@ const AdminProducts = ({ products }) => {
         <ul className="admin-list">
             {products.map((product) => (
                 <li key={product.id} className="admin-list-item">
-                    <p>{product.id}</p>
+                    <p style={{fontSize:"16px", marginBottom:"5px"}}>ID : {product.id}</p>
                     <img
                         src={product.image || product.imagen}
                         alt={product.name || product.nombre}
