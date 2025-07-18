@@ -20,7 +20,4 @@ export default ProtectedRoute;
 
 
 
-//* Si esta autenticado va a Administrador,  sino permanece o vuelve  a login
-//* Interactúa principalmente con AuthContext
-//* Recibe de AuthContext el valor de "isAuthenticated". Que sera un booleano.
-//* Si el "false" redirige a la ruta de login.
+
