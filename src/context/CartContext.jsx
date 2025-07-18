@@ -41,6 +41,8 @@ export const CartProvider = ({ children }) => {
     const addToCart = (productToAdd) => {
         if (loadingProducts || productError) {
             console.log("Productos no cargados aún o hay un error.");
+
+            //*Alert para cuando por alguna razon no se cargaron los productos  o se esten actualizando desde Admin. 
             Swal.fire({
                 icon: "error",
                 title: "Error al agregar",
@@ -48,7 +50,7 @@ export const CartProvider = ({ children }) => {
                 toast: true,
                 position: "top-end",
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 6000,
                 timerProgressBar: true,
             });
             return;
@@ -78,13 +80,14 @@ export const CartProvider = ({ children }) => {
                             : item
                     )
                 );
+                //*Modal para cuando se agrega un producto que ya estaba en el carrito
                 Swal.fire({
                     icon: "success",
                     title: `Se agregó otra unidad de ${productToAdd.name} al carrito.`,
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 5000,
+                    timer: 6000,
                     timerProgressBar: true,
                 });
             } else {
@@ -93,6 +96,7 @@ export const CartProvider = ({ children }) => {
                         productInfo ? productInfo.stock : "N/A"
                     })`
                 );
+                //*Modal para cuando se intenta agregar otra unidad y no hay mas disponibles.
                 Swal.fire({
                     icon: "warning",
                     title: "Sin stock disponible",
@@ -100,7 +104,7 @@ export const CartProvider = ({ children }) => {
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 3000,
+                    timer: 6000,
                     timerProgressBar: true,
                 });
             }
@@ -108,13 +112,15 @@ export const CartProvider = ({ children }) => {
             //*Si no estaba en el carrito...
         } else {
             setCart([...cart, { ...productToAdd, quantity: 1 }]);
+
+            //*Modal para cuando se agrega por primera vez al carrito.
             Swal.fire({
                 icon: "success",
                 title: `${productToAdd.name} agregado al carrito.`,
                 toast: true,
                 position: "top-end",
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 6000,
                 timerProgressBar: true,
             });
         }
@@ -122,14 +128,16 @@ export const CartProvider = ({ children }) => {
 
     const emptyCart = () => {
         setCart([]);
+
+        //*Modal para cuando vacio el carrito
         Swal.fire({
             icon: "info",
-            title: "Carrito vaciado",
+            title: "Tu carrito ahora esta vacío",
             text: "Todos los productos han sido eliminados del carrito.",
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 1500,
+            timer: 6000,
             timerProgressBar: true,
         });
     };
@@ -161,11 +169,11 @@ export const CartProvider = ({ children }) => {
                 );
                 Swal.fire({
                     icon: "success",
-                    title: `Cantidad de ${itemInCart.name} incrementada.`,
+                    title: `Se sumo un ${itemInCart.name} más.`,
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 5000,
+                    timer: 6000,
                     timerProgressBar: true,
                 });
             } else {
@@ -177,11 +185,11 @@ export const CartProvider = ({ children }) => {
                 Swal.fire({
                     icon: "warning",
                     title: "Stock máximo",
-                    text: `No hay más stock disponible para ${itemInCart.name}.`,
+                    text: `No hay más stock disponible de ${itemInCart.name}.`,
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
-                    timer: 4000,
+                    timer: 6000,
                     timerProgressBar: true,
                 });
             }
@@ -212,7 +220,7 @@ export const CartProvider = ({ children }) => {
                 );
                 Swal.fire({
                     icon: "info",
-                    title: `Cantidad de ${itemInCart.name} decrementada.`,
+                    title: `Se restro una unidad de ${itemInCart.name}.`,
                     toast: true,
                     position: "top-end",
                     showConfirmButton: false,
@@ -293,7 +301,7 @@ export const CartProvider = ({ children }) => {
             icon: "success",
             title: "¡Pago exitoso!",
             text: "Gracias por tu compra.",
-            timer: 1250,
+            timer: 1750,
             timerProgressBar: true,
             showConfirmButton: false,
             didOpen: (toast) => {
