@@ -1,5 +1,5 @@
 import React from "react";
-import Stars from "../../../Utils/Stars.JSX";
+import Stars from "../../../Utils/Stars.jsx";
 
 const ProductRating = ({ product = {} }) => {
 
