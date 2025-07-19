@@ -1,17 +1,17 @@
 .tarjetaProducto {
-    border: 2px solid #00bfff;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
     padding: 11px;
     margin: 8px;
-    width: 164px;
+    width: 185px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
     display: flex;
     flex-direction: column;
     gap: 2px;
-    background-color: #ffffff;
+    background-color: var(--background-light);
     font-family: "Arial", sans-serif;
     transition: transform 0.3s ease;
-    color: #2c3e50;
+    color: var(--secondary-color);
 }
 
 .tarjetaProducto:hover {
@@ -26,10 +26,10 @@
 }
 
 .encabezado h3 {
-    font-size: 0.64em;
+    font-size: 0.85em;
     font-weight: 600;
     margin: 0 0 2px 0;
-    color: #333;
+    color: var(--text-dark);
     min-height: 2.6em;
 }
 
@@ -62,20 +62,19 @@
     object-fit: cover;
     display: block;
     border-radius: 16px;
-    border: 1px solid black;
 }
 
 .contenedorPrecio,
 .contenedorStock {
-    font-size: 0.68em;
+    font-size: 0.88em;
     font-weight: bold;
     width: 100%;
     text-align: center;
 }
 
 .contenedorAgregar button {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--info-color);
+    color: var(--background-light);
     border: none;
     padding: 7px 12px;
     border-radius: 5px;
@@ -87,7 +86,7 @@
 }
 
 .contenedorAgregar button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; 
 }
 
 .contenedorAgregarCantidades {
@@ -102,7 +101,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #007bff;
+    border: 1px solid var(--info-color);
     border-radius: 6px;
     overflow: hidden;
     width: auto;
@@ -110,8 +109,8 @@
 }
 
 .contenedorAgregarCantidades button {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--background-light-alt); 
+    color: var(--text-dark); 
     border: none;
     padding: 6px 8px;
     cursor: pointer;
@@ -120,7 +119,7 @@
 }
 
 .contenedorAgregarCantidades button:hover {
-    background-color: #e9ecefca;
+    background-color: #e9ecefca; 
 }
 
 .contenedorAgregarCantidades button:first-child {
@@ -137,19 +136,19 @@
     padding: 0 8px;
     font-size: 0.8em;
     font-weight: 500;
-    color: #fff;
+    color: var(--background-light); 
     min-width: 20px;
     text-align: center;
 }
 
 .tarjetaProducto.agotado {
     opacity: 0.7;
-    border: 1px solid #ff0000;
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    border: 1px solid var(--error-color);
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); 
 }
 
 .contenedorAgregar .disabled-button {
-    background-color: #cccccc;
+    background-color: #cccccc; 
     cursor: not-allowed;
     opacity: 0.8;
 }
@@ -168,8 +167,8 @@
     font-weight: 500;
     text-decoration: none;
     transition: background-color 0.2s ease;
-    border: 1px solid #007bff;
-    color: #007bff;
+    border: 1px solid var(--info-color);
+    color: var(--info-color);
 }
 
 .contenedorVerMas a:hover {
@@ -177,9 +176,9 @@
 }
 
 .contenedorVerMas .disabled-link-button {
-    background-color: #f0f0f0;
-    color: #888888;
+    background-color: #f0f0f0; 
+    color: #888888; 
     cursor: not-allowed;
-    border-color: #cccccc;
+    border-color: #cccccc; 
     pointer-events: none;
 }
