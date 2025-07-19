@@ -2,6 +2,22 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   background-color: #242424;
+
+  /* Colores de Marca */
+  --primary-color: #00BFFF; /* Azul vibrante */
+  --secondary-color: #2C3E50; /* Azul oscuro/grisáceo */
+
+  /* Colores Neutros */
+  --background-light: #FFFFFF;
+  --background-light-alt: #F8F9FA; /* Para diferenciar secciones claras */
+  --text-dark: #333333;
+  --text-medium: #495057;
+  --text-light: #B0B0B0; /* Para footers o texto secundario */
+
+  /* Colores de Estado */
+  --success-color: #28a745; /* O tu greenyellow si lo prefieres */
+  --error-color: #DC3545;
+  --info-color: #007bff; /* Para botones y enlaces de acción */
 }
 
 body {
