@@ -8,11 +8,11 @@ html {
 }
 
 .header {
-    background-color: #0d1b2a;
+    background-color: var(--secondary-color); 
     padding: 15px 10px;
     text-align: center;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    border-bottom: 4px solid #00bfff;
+    border-bottom: 4px solid var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,7 +28,7 @@ html {
     font-weight: 900;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #00bfff 0%, #ffffff 50%, #00bfff 100%);
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--background-light) 50%, var(--primary-color) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -41,7 +41,7 @@ h1 {
 }
 
 .nav {
-    background-color: #2c3e50;
+    background-color: var(--secondary-color);
     padding: 15px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
@@ -77,7 +77,7 @@ h1 {
 }
 
 .nav-item a:hover {
-    color: #00bfff;
+    color: var(--primary-color);
 }
 
 .nav-item::after {
@@ -88,7 +88,7 @@ h1 {
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background-color: #00bfff;
+    background-color: var(--primary-color);
     transition: width 0.3s ease-in-out;
 }
 
@@ -97,12 +97,11 @@ h1 {
 }
 
 .nav-cart-button {
-    width: 70px;
-    background: greenyellow;
-    color: #0d1b2a;
-    border: 3px solid #0d1b2a;
+    background: var(--success-color); 
+    color: var(--secondary-color); 
+    border: 3px solid var(--secondary-color);
     cursor: pointer;
-    padding: 10px;
+    padding: 14px;
     position: relative;
     display: flex;
     align-items: center;
@@ -112,10 +111,10 @@ h1 {
 
 .nav-cart-button .cart-item-count {
     position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: #ff0000;
-    color: white;
+    top: -14px;
+    right: -16px;
+    background-color: var(--error-color);
+    color: var(--background-light);
     border-radius: 50%;
     padding: 4px 8px;
     font-size: 1em;
@@ -134,18 +133,17 @@ h1 {
 }
 
 .footer {
-    background-color: #0d1b2a;
-    color: #ffffff;
+    background-color: var(--secondary-color);
+    color: var(--background-light);
     padding: 10px 0;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-    border-top: 5px solid #00bfff;
+    border-top: 5px solid var(--primary-color);
     margin-top: 50px;
 }
 
 .footer-content {
-    border: 1px solid greenyellow;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -163,7 +161,7 @@ h1 {
 
 .footer-section .footer-title {
     font-size: 1.7em;
-    color: #00bfff;
+    color: var(--primary-color);
     margin-bottom: 10px;
     font-weight: 600;
     text-transform: uppercase;
@@ -174,7 +172,7 @@ h1 {
     font-size: 0.95em;
     line-height: 1.6;
     margin-bottom: 15px;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 .footer-section ul {
@@ -188,25 +186,25 @@ h1 {
 }
 
 .footer-section ul li a {
-    color: #ffffff;
+    color: var(--background-light);
     text-decoration: none;
     transition: color 0.3s ease-in-out;
 }
 
 .footer-section ul li a:hover {
-    color: #00bfff;
+    color: var(--primary-color);
 }
 
 .contact-info span {
     display: block;
     margin-bottom: 8px;
     font-size: 0.9em;
-    color: #e0e0e0;
+    color: var(--text-light);
 }
 
 .contact-info span i {
     margin-right: 10px;
-    color: #00bfff;
+    color: var(--primary-color);
 }
 
 .social-links {
@@ -214,7 +212,7 @@ h1 {
 }
 
 .social-links a {
-    color: #ffffff;
+    color: var(--background-light);
     font-size: 1.8em;
     margin: 0 10px;
     transition: color 0.3s ease-in-out;
@@ -222,15 +220,15 @@ h1 {
 }
 
 .social-links a:hover {
-    color: #00bfff;
+    color: var(--primary-color);
 }
 
 .footer-bottom {
-    background-color: #0d1b2a;
+    background-color: var(--secondary-color); 
     padding: 20px 0;
     font-size: 0.85em;
-    color: #b0b0b0;
-    border-top: 1px solid #1a2e44;
+    color: var(--text-light); 
+    border-top: 1px solid #1a2e44; 
 }
 
 @media (max-width: 992px) {
