@@ -18,6 +18,16 @@
   --success-color: #28a745; /* O tu greenyellow si lo prefieres */
   --error-color: #DC3545;
   --info-color: #007bff; /* Para botones y enlaces de acción */
+
+
+    /* Variables para bordes y sombras */
+    --border-radius-sm: 3px;
+    --border-radius-md: 4px;
+    --border-color-light: var(--text-light); /* Usando --text-light para bordes sutiles */
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para el formulario */
+    --shadow-focus: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Sombra al enfocar inputs */
+
 }
 
 body {

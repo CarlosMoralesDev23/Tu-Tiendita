@@ -6,14 +6,13 @@
         margin: 8px auto;
         display: flex;
         justify-content: space-between;
-        background-color: #071b2f;
+        background-color: var(--secondary-color);
         padding: 4px 8px;
         border-radius: 3px;
 
         li {
-
-            h2{
-                color: white;
+            h2 {
+                color: var(--background-light);
                 font-size: 26px;
             }
 
@@ -25,7 +24,7 @@
 
             a {
                 text-decoration: none;
-                color: #ff0000;
+                color: var(--error-color);
             }
         }
     }

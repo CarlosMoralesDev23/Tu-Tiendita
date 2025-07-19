@@ -1,13 +1,10 @@
-
 .form-sidebar-container {
     position: fixed;
     top: 0;
-
     right: -400px;
-    
     width: 350px;
     height: 100%;
-    background-color: #ffffff;
+    background-color: var(--background-light);
     box-shadow: -6px 0 16px rgba(0, 0, 0, 0.25);
     transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1000;
@@ -23,5 +20,3 @@
 .form-sidebar-container.open {
     right: 0;
 }
-
-
