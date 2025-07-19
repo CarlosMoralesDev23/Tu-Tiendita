@@ -16,7 +16,6 @@ const Login = () => {
         if (!password) validationErrors.password = "La contraseña es requerida";
 
         setError(validationErrors);
-        // Retorna true si no hay errores, false si hay
         return Object.keys(validationErrors).length === 0;
     };
 
@@ -38,19 +37,15 @@ const Login = () => {
     const toDoAuthentication = async () => {
         try {
             const res = await fetch("/data/user.json");
-            //Pide el archivo user.json.
 
             if (!res.ok) throw new Error("No llego la respuesta");
-            // res.ok Es una propiedad booleana del objeto 'Response'. true si la respuesta HTTP es del rango 200-299.
-            // Si no fue true, 'Error'. En consola.
-            // y va inmediatamente al bloque `catch`.
+
 
             const users = await res.json();
-            //El JSON se convierte en un array de objetos
 
             const foundUser = users.find(
                 (user) => user.email === email && user.password === password
-            ); // Busca un usuario que coincida con el email y la contraseña.
+            );
 
             if (!foundUser) {
                 setError({ email: "Credenciales inválidas" });
@@ -94,7 +89,7 @@ const Login = () => {
     };
 
     const dontHaveAccount = () => {
-        navigate("/"); // Redirige a la ruta principal (Home), pero sin autenticarte.
+        navigate("/");
     };
 
     return (
